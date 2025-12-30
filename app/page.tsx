@@ -276,7 +276,7 @@ const [language, setLanguage] = languageContext;
               </ParallaxLayer>
               {/* marguee */}
               <ParallaxLayer offset={0} speed={0} className="flex items-end">
-                <div className="marquee-wrapper bg-abstract  mb-10 sm:-rotate-2 sm:p-10 sm:-translate-x-2 text-white w-[100vw] p-8 sm:w-[105vw]">
+                <div className="marquee-wrapper bg-abstract sm:-rotate-2 sm:p-10 sm:-translate-x-2 text-white p-8 sm:w-[105vw]">
                   <div className="marquee-track">
                     <span className="flex gap-20">
                       {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i} <FaRegDotCircle /></span>)} 

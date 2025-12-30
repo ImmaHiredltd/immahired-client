@@ -25,7 +25,7 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
     return (
         <section className='w-screen h-screen text-xs fixed flex justify-end z-40'>
             <div className='w-full max-w-[500px] h-screen bg-white px-10 pt-36 '>
-            <div className='flex justify-end mb-3'>
+            <div className="absolute bottom-6 right-6 left-6 flex justify-between items-center border-t pt-4">
                 <ReactFlagsSelect
                     selected={language}
                     countries={["GB", "CN", "ES"]}
@@ -33,6 +33,7 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
                     className={`menu-flags outline-none w-fit`}
                     placeholder={language}
                     showSelectedLabel={true}
+                    openUpwards
                     selectButtonClassName="menu-flags-button"
                     selectedSize={10}
                     optionsSize={14}
