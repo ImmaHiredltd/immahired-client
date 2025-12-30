@@ -24,20 +24,8 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
 
     return (
         <section className='w-screen h-screen text-xs fixed flex justify-end z-40'>
-            <div className='w-full max-w-[500px] h-screen bg-white px-10 pt-36 '>
-            <div className="absolute bottom-6 right-6 left-6 flex justify-between items-center border-t pt-4">
-                <ReactFlagsSelect
-                    selected={language}
-                    countries={["GB", "CN", "ES"]}
-                    onSelect={handleChange}
-                    className={`menu-flags outline-none w-fit`}
-                    placeholder={language}
-                    showSelectedLabel={true}
-                    selectButtonClassName="menu-flags-button"
-                    selectedSize={10}
-                    optionsSize={14}
-                />
-            </div>
+            <div className='w-full max-w-[500px] h-screen bg-white px-10 pt-36 relative '>
+            
             
                 {
                     navs && navs.map((data: any, index: number) => {
@@ -95,7 +83,19 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
                         </>
 
                 }
-                
+                <div className="absolute bottom-1/2 right-0 z-50 flex justify-between items-center pt-4">
+                <ReactFlagsSelect
+                    selected={language}
+                    countries={["GB", "CN", "ES"]}
+                    onSelect={handleChange}
+                    className={`menu-flags outline-none w-fit bg-white`}
+                    placeholder={language}
+                    showSelectedLabel={true}
+                    selectButtonClassName="menu-flags-button"
+                    selectedSize={10}
+                    optionsSize={14}
+                />
+            </div>
             </div>
         </section>
     )
