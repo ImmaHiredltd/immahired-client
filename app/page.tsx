@@ -276,7 +276,7 @@ const [language, setLanguage] = languageContext;
               </ParallaxLayer>
               {/* marguee */}
               <ParallaxLayer offset={0} speed={0} className="flex items-end">
-                <div className="marquee-wrapper bg-abstract  mb-10 -rotate-2 text-white -translate-x-2 w-[105vw]">
+                <div className="marquee-wrapper bg-abstract  mb-10 sm:-rotate-2 sm:p-10 sm:-translate-x-2 text-white w-[100vw] p-8 sm:w-[105vw]">
                   <div className="marquee-track">
                     <span className="flex gap-20">
                       {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i} <FaRegDotCircle /></span>)} 
@@ -299,9 +299,9 @@ const [language, setLanguage] = languageContext;
                     delay: 0.3
                   }}
                   viewport={{ once: true }}
-                  className=" sm:max-w-[60%]  font-black">
-                    <span className="text-6xl">{target.h1}</span>
-                    <div className="text-black text-7xl">
+                  className=" sm:max-w-[60%] font-black max-sm:px-10">
+                    <span className="text-6xl max-sm:text-4xl">{target.h1}</span>
+                    <div className="text-black text-6xl max-sm:text-4xl">
                       <Typewriter
                         options={{
                           strings: [target.h1_add, target.h1_add2],
@@ -322,7 +322,7 @@ const [language, setLanguage] = languageContext;
                     damping: 18,
                     delay: 0.5
                   }}
-                className="text-xl font-bold sm:max-w-[55%]">
+                className="text-xl font-bold max-sm:text-lg max-sm:px-10 sm:max-w-[55%]">
                   {target.p_banner}
                 </motion.p>
 
@@ -336,14 +336,15 @@ const [language, setLanguage] = languageContext;
                     damping: 18,
                     delay: 0.8
                   }}
-                  className="flex gap-4">
+                  className="flex sm:flex-row flex-col max-sm:justify-center max-sm:items-center gap-4">
                   <button
                     onClick={() => window.location.href = "/jobs"}
                     className="
                       btn-sweep
                       bg-white
                       relative
-                      px-8 py-5
+                      sm:px-8 px-10 py-5
+                      w-fit
                       rounded-full
                       text-sm font-semibold tracking-wide
                       border border-black/20
@@ -363,8 +364,9 @@ const [language, setLanguage] = languageContext;
                     className="
                       btn-sweep
                       relative
-                      px-8 py-5
+                      sm:px-8 px-16 py-5
                       rounded-full
+                      w-fit
                       text-sm font-semibold tracking-wide
                       bg-main text-white
                       transition-all duration-300 ease-out
@@ -408,7 +410,7 @@ const [language, setLanguage] = languageContext;
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <GrUserWorker />
                   </p>
-                  <h2 className="text-center font-black text-4xl">For Local Talents</h2>
+                  <h2 className="text-center font-black text-4xl">Overseas Talent</h2>
                   <p className="text-center text-sm">
                     Join over 100 workers who <br /> use IMMA HIRED to find flexible and temp to hire
                   </p>

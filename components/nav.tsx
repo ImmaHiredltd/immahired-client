@@ -122,7 +122,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
       animate={isScrolled ? "scrolled" : "top"}
       variants={{
         top: {
-          maxWidth: "85%",
+          maxWidth: ["95%", "90%", "85%"],
           borderRadius: "9999px",
           // backgroundColor: "#ffffff",
           boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
@@ -139,7 +139,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
         },
       }}
       transition={{
-        type: "spring",
+        type: "tween",
         stiffness: 120,
         damping: 20,
       }}
@@ -148,7 +148,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
         w-full
         z-50
         border
-        px-10 py-4
+        px-2 sm:px-6 lg:px-10  py-1 sm:py-4
         backdrop-blur-2xl
         bg-white/70
         flex items-center justify-between
@@ -156,7 +156,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
       "
     >
       <div className='w-[40%] relative '>
-        <div onClick={() => route.push('/')} className='relative cursor-pointer  flex w-[250px] h-[80px] items-center text-logo font-bold'>
+        <div onClick={() => route.push('/')} className='relative cursor-pointer  flex w-[263px] h-[80px] items-center text-logo font-bold'>
             <Image 
                 src={logo}
                 alt='logo'
@@ -243,17 +243,6 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
       </div>
 
       <div className='flex gap-2 items-center xl:hidden'>
-              <ReactFlagsSelect
-                      selected={language}
-                      countries={["GB", "CN", "ES"]}
-                      onSelect={handleChange}
-                      className={`menu-flags outline-none `}
-                      placeholder={language}
-                      showSelectedLabel={true}
-                      selectButtonClassName="menu-flags-button"
-                      selectedSize={10}
-                      optionsSize={14}
-              />
                {
                   moblieNavInview ? 
                     <button onClick={() => setMobileNavInview(false)} className="flex xl:hidden text-4xl font-semibold items-center ">
@@ -270,7 +259,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
     </motion.nav>
     {
       moblieNavInview && (
-        <SideNav navs={navs} type={tokenData} target={target} setMobileNavInview={setMobileNavInview} />
+        <SideNav navs={navs} language={language} type={tokenData} target={target} handleChange={() => handleChange} setMobileNavInview={setMobileNavInview} />
       )
     }
     </>

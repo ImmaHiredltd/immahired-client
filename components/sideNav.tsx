@@ -4,8 +4,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useContext } from 'react'
 import Cookies from 'js-cookie'
+import ReactFlagsSelect from 'react-flags-select'
 
-export default function SideNav({ navs, target, setMobileNavInview }: any) {
+export default function SideNav({ navs, target, setMobileNavInview, language, handleChange }: any) {
     const [active, setActive] = useContext(UserData)
     const pathName = usePathname();
 
@@ -23,7 +24,21 @@ export default function SideNav({ navs, target, setMobileNavInview }: any) {
 
     return (
         <section className='w-screen h-screen text-sm fixed flex justify-end z-40'>
-            <div className='w-full max-w-[500px] h-screen bg-white px-10 py-28 '>
+            <div className='w-full max-w-[500px] h-screen bg-white px-10 pt-36 '>
+            <div className='flex justify-end mb-3'>
+                <ReactFlagsSelect
+                    selected={language}
+                    countries={["GB", "CN", "ES"]}
+                    onSelect={handleChange}
+                    className={`menu-flags outline-none w-fit`}
+                    placeholder={language}
+                    showSelectedLabel={true}
+                    selectButtonClassName="menu-flags-button"
+                    selectedSize={10}
+                    optionsSize={14}
+                />
+            </div>
+            
                 {
                     navs && navs.map((data: any, index: number) => {
                         const showLink = (data?.id !== 7 && data?.id !== 8) || // Always show links except for candidate/employer
@@ -42,9 +57,8 @@ export default function SideNav({ navs, target, setMobileNavInview }: any) {
                                                 data.id === 1 && (
                                                     <>
                                                         <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about'}>{target.about}</Link>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about#vision'}>{target.vision}</Link>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about#mission'}>{target.mission}</Link>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about#team'}>{target.team}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/#story'}>{target.story}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/#team'}>{target.team}</Link>
                                                         <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about#founder'}>{target.founder}</Link>
                                                     </>
                                                 )
@@ -81,6 +95,7 @@ export default function SideNav({ navs, target, setMobileNavInview }: any) {
                         </>
 
                 }
+                
             </div>
         </section>
     )
