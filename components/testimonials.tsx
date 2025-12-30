@@ -33,9 +33,9 @@ export default function Testimonial({ target }: any) {
                initial={{ opacity: 0, y: 30 }}
                whileInView={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.4 }}
-              className="sm:text-4xl text-xl font-bold text-center w-[30%] flex mx-auto">{target.test_header}</motion.h1>
+              className="sm:text-4xl text-2xl font-bold text-center w-full sm:w-[30%] flex mx-auto">{target.test_header}</motion.h1>
 
-        <div className="flex sm:flex-row flex-col max-sm:gap-3 justify-between">
+        <div className="flex sm:flex-row flex-col max-sm:gap-8 justify-between">
             {
                 testimonials.map((testimony, index) => {
                 return(

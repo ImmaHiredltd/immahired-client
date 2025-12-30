@@ -22,6 +22,7 @@ import { MdEngineering, MdHealthAndSafety } from "react-icons/md";
 import { GiHealthNormal } from "react-icons/gi";
 import { TbRibbonHealth } from "react-icons/tb";
 import { HiAcademicCap } from "react-icons/hi2";
+import { useMediaQuery } from "react-responsive"
 
 const StoryPoint = ({
   index,
@@ -223,6 +224,8 @@ if (!languageContext) {
 }
 const jsonData: any = pageLanguage;
 
+const isMobile = useMediaQuery({ maxWidth: 640 })
+
 useEffect(() => {
   const container = parallaxRef.current?.container?.current;
   if (!container) return;
@@ -262,7 +265,7 @@ const [language, setLanguage] = languageContext;
         <section className="w-full">
         <Navbar isScrolled={isScrolled} />
         <ToastContainer />
-            <Parallax ref={parallaxRef} pages={9.7} 
+            <Parallax ref={parallaxRef} pages={isMobile ? 12.5 : 9.7} 
               style={{backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
               className="w-full bg-cover bg-center bg-no-repeat relative"
             >
@@ -611,12 +614,12 @@ const [language, setLanguage] = languageContext;
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="text-center text-5xl font-black mb-4"
+                    className="text-center text-4xl sm:text-5xl font-black mb-4"
                   >
                     Industries We Serve
                   </motion.h2>
 
-                  <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+                  <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16 max-sm:text-sm">
                   <b>IMMA HIRED</b> specializes in recruiting top talent with MBA, Masters, and PhD degrees from QS-ranked universities across a range of cutting-edge industries. These include High-Tech, AI, Robotics, Environmental Health and Safety, Medical, Pharmaceutical, Mechanical and Electrical Engineering, Data Science, and Research. We connect businesses with exceptional graduates who are shaping the future of these dynamic fields.
                   </p>
 
@@ -729,14 +732,14 @@ const [language, setLanguage] = languageContext;
                 </section>
 
                 <section className="py-14" id="team">
-                  <h2 className="text-5xl p-20 text-center  font-bold">Meet The Team</h2>
+                  <h2 className="text-2xl sm:text-5xl p-20 text-center  font-bold">Meet The Team</h2>
                   <motion.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay:0.5 }}
-                    className="flex justify-evenly">
-                      <div className="text-center w-[30%] flex items-center gap-2 flex-col">
-                        <div className="relative w-72 h-72 overflow-hidden rounded-full">
+                    className="flex sm:flex-row max-sm:justify-center max-sm:gap-8 flex-col justify-evenly">
+                      <div className="text-center w-full sm:w-[30%] flex items-center gap-2 flex-col">
+                        <div className="relative w-60 h-60 sm:w-72 sm:h-72 overflow-hidden rounded-full">
                           <Image
                             src={'/images/ceo.png'}
                             fill
@@ -748,8 +751,8 @@ const [language, setLanguage] = languageContext;
                         <p>CEO</p>
                       </div>
 
-                      <div className="text-center w-[30%] flex items-center gap-2 flex-col">
-                        <div className="relative w-72 h-72 overflow-hidden rounded-full">
+                      <div className="text-center w-full sm:w-[30%] flex items-center gap-2 flex-col">
+                        <div className="relative w-60 h-60 sm:w-72 sm:h-72 overflow-hidden rounded-full">
                           <Image
                             src={'/images/spec.png'}
                             fill
@@ -761,8 +764,8 @@ const [language, setLanguage] = languageContext;
                         <p>Recruitment Specialist</p>
                       </div>
 
-                      <div className="text-center w-[30%] flex items-center gap-2 flex-col">
-                        <div className="relative w-72 h-72 overflow-hidden rounded-full">
+                      <div className="text-center w-full sm:w-[30%] flex items-center gap-2 flex-col">
+                        <div className="relative w-60 h-60 sm:w-72 sm:h-72 overflow-hidden rounded-full">
                           <Image
                             src={'/images/sales.png'}
                             fill
@@ -781,7 +784,7 @@ const [language, setLanguage] = languageContext;
                 </section>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={8.7} speed={0} className="flex items-end">
+              <ParallaxLayer offset={isMobile ? 11.5 : 8.7} speed={0} className="flex items-end">
                     <Footer />
               </ParallaxLayer>
             </Parallax>
