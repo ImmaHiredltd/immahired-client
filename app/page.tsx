@@ -41,9 +41,9 @@ const StoryPoint = ({
     className="
       group
       relative
-      ml-[45vw]
-      mt-[20vh]
-      max-w-xl
+      sm:ml-[45vw] m-5
+      sm:mt-[20vh]
+      sm:max-w-xl
       min-h-[400px]
       rounded-2xl
       perspective-[1200px]
@@ -57,7 +57,7 @@ const StoryPoint = ({
         bg-white/70
         backdrop-blur-xl
         rounded-2xl
-        px-8 py-12
+        px-5 sm:px-8 py-12
         flex flex-col justify-center gap-3
         shadow-2xl
         text-black
@@ -73,12 +73,12 @@ const StoryPoint = ({
         </p>
         <img
             src="/images/logo-1-removebg-preview.png"
-            className="w-20 h-20"
+            className="w-20 h-20 max-sm:hidden"
           />
       </div>
       
       <h3 className="text-2xl font-bold mt-4">{title}</h3>
-      <p className="text-base text-black/80 mt-4 leading-relaxed">
+      <p className="text-sm sm:text-base text-black/80 mt-4 leading-relaxed">
         {text}
       </p>
     </div>
@@ -276,7 +276,7 @@ const [language, setLanguage] = languageContext;
               </ParallaxLayer>
               {/* marguee */}
               <ParallaxLayer offset={0} speed={0} className="flex items-end">
-                <div className="marquee-wrapper bg-abstract sm:-rotate-2 sm:p-10 sm:-translate-x-2 text-white p-8 sm:w-[105vw]">
+                <div className="marquee-wrapper bg-abstract sm:-rotate-2 sm:p-10 sm:bottom-10 sm:-translate-x-2 text-white p-8 sm:w-[105vw]">
                   <div className="marquee-track">
                     <span className="flex gap-20">
                       {industriesMarquee && industriesMarquee.map ((i, _) => <span key={_} className="flex gap-20 items-center">{i} <FaRegDotCircle className="max-sm:hidden" /></span>)} 
@@ -524,7 +524,7 @@ const [language, setLanguage] = languageContext;
               <ParallaxLayer
                 id="story"
                 sticky={{ start: 2.5, end: 4.5 }}
-                className="flex items-center p-40 backdrop-blur-2xl bg-black/60"
+                className="flex sm:items-center px-5 py-28 sm:p-40 backdrop-blur-2xl bg-black/60"
               >
                 <motion.h2
                   initial={{ opacity: 0, x: -50 }}
@@ -536,7 +536,7 @@ const [language, setLanguage] = languageContext;
                     delay: 0.5,
                   }}
                   viewport={{ once: true }}
-                  className="text-9xl text-gray-300 font-extrabold leading-[90px]"
+                  className="text-4xl sm:text-9xl text-gray-300 font-extrabold sm:leading-[90px]"
                 >
                   <span className="text-5xl">OUR</span>  <br /> STORY
                 </motion.h2>
@@ -567,6 +567,40 @@ const [language, setLanguage] = languageContext;
                   insight="Success isn&apos;t luck. It&apos;s access."
                   text="Driven by the belief that everyone deserves a chance to succeed, IMMA HIRED helps talented individuals find meaningful careers and build a future in China, one success story at a time."
                 />
+
+                  <div className="relative grid grid-cols-1 sm:grid-cols-3 max-sm:translate-y-20 gap-8 mt-20 sm:py-16 sm:hidden">
+                      {[
+                        { value: "100+", label: "Daily Active Users" },
+                        { value: "5K+", label: "Open Job Positions" },
+                        { value: "10K+", label: "Success Stories Shared" },
+                      ].map((item, i) => (
+                        <div
+                          key={i}
+                          className="
+                            group
+                            text-center
+                            flex flex-col items-center
+                            gap-2
+                          "
+                        >
+                          <h1
+                            className="
+                              text-4xl sm:text-5xl font-black
+                              tracking-tight
+                              bg-clip-text text-transparent
+                              bg-gradient-to-br from-main to-white
+                              transition-transform duration-300
+                              group-hover:-translate-y-1
+                            "
+                          >
+                            {item.value}
+                          </h1>
+                          <span className="text-sm uppercase tracking-widest text-white">
+                            {item.label}
+                          </span>
+                      </div>
+                    ))}
+                  </div>
               </ParallaxLayer>
 
               {/* Industries + teams */}
