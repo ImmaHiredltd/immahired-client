@@ -380,8 +380,8 @@ const [language, setLanguage] = languageContext;
               </ParallaxLayer>
 
               {/* categories */}
-              <ParallaxLayer offset={1} speed={0}>
-                    <div className="h-[65vh] relative w-full">
+              <ParallaxLayer offset={1} speed={0} className="max-sm:hidden">
+                    <div className="sm:h-[65vh] relative w-full">
                         <Image 
                           src={"/images/reg.jpg"}
                           alt="Researchers"
@@ -393,8 +393,7 @@ const [language, setLanguage] = languageContext;
 
               <ParallaxLayer offset={1} speed={0}>
                 <motion.div
-                  
-                  className="h-[65vh] bg-black/80 text-5xl p-20 text-center  font-bold text-white">
+                  className="h-fit sm:h-[65vh] sm:bg-black/80 text-2xl sm:text-5xl px-5 py-16 sm:p-20 text-center  font-bold text-main sm:text-white">
                     <motion.p 
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -405,19 +404,19 @@ const [language, setLanguage] = languageContext;
                 </motion.div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={1.5} speed={0.3} className="flex justify-center gap-20">
-                <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-[35%] h-[83%] shadow-xl bg-white rounded-xl transform -translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+              <ParallaxLayer offset={1.5} speed={0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
+                <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl -translate-y-60 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <GrUserWorker />
                   </p>
-                  <h2 className="text-center font-black text-4xl">Overseas Talent</h2>
+                  <h2 className="text-center font-black text-xl sm:text-4xl">Overseas Talent</h2>
                   <p className="text-center text-sm">
                     Join over 100 workers who <br /> use IMMA HIRED to find flexible and temp to hire
                   </p>
                   <button 
                     onClick={() => window.location.href = "/jobs"}
                     className="
-                      flex mx-auto
+                      flex mx-auto items-center justify-center
                       w-fit
                       btn-sweep
                       relative
@@ -430,7 +429,7 @@ const [language, setLanguage] = languageContext;
                       hover:-translate-y-[1px]">
                     Find Jobs
                   </button>
-                  <div className="relative w-full h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
+                  <div className="relative w-full h-[200px] sm:h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
                     <Image
                       src={"/images/OJXL4E0.jpg"}
                       alt="Image"
@@ -441,16 +440,16 @@ const [language, setLanguage] = languageContext;
 
                 </div>
 
-                <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-[35%] h-[83%] shadow-xl bg-white rounded-xl transform -translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+                <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] h-[83%] shadow-xl bg-white rounded-xl -translate-y-64 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <BsBuildingsFill />
                   </p>
-                  <h2 className="text-center font-black text-4xl">For Organizations</h2>
+                  <h2 className="text-center font-black text-xl sm:text-4xl">For Organizations</h2>
                   <p className="text-center text-sm">Finding individuals who share your <br /> company&apos;s values and vision can contribute  to a cohesive</p>
                   <button 
                     onClick={handleHire}
                     className="
-                      flex mx-auto
+                      flex mx-auto items-center justify-center
                       w-fit
                       btn-sweep
                       relative
@@ -462,7 +461,7 @@ const [language, setLanguage] = languageContext;
                       hover:shadow-lg
                       hover:-translate-y-[1px]
                   ">Hire Talents</button>
-                  <div className="relative w-full h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
+                  <div className="relative w-full h-[200px] sm:h-[80%] rounded-xl overflow-hidden transition-transform duration-500 ease-out hover:scale-105">
                     <Image 
                       src={"/images/3525444.jpg"}
                       alt="Image"
@@ -474,7 +473,7 @@ const [language, setLanguage] = languageContext;
               </ParallaxLayer>
 
               <ParallaxLayer offset={2.1}>
-              <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-8 py-16">
+                  <div className="relative grid grid-cols-1 sm:grid-cols-3 max-sm:translate-y-20 sm:gap-8 mt-20 sm:py-16">
                       {[
                         { value: "100+", label: "Daily Active Users" },
                         { value: "5K+", label: "Open Job Positions" },
@@ -491,7 +490,7 @@ const [language, setLanguage] = languageContext;
                         >
                           <h1
                             className="
-                              text-4xl sm:text-5xl font-black
+                              text-xl md:text-4xl sm:text-5xl font-black
                               tracking-tight
                               bg-clip-text text-transparent
                               bg-gradient-to-br from-main to-black
