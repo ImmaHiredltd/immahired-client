@@ -405,7 +405,7 @@ const [language, setLanguage] = languageContext;
               </ParallaxLayer>
 
               <ParallaxLayer offset={1.5} speed={0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
-                <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl -translate-y-32 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+                <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl -translate-y-20 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <GrUserWorker />
                   </p>
@@ -440,7 +440,7 @@ const [language, setLanguage] = languageContext;
 
                 </div>
 
-                <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] h-[83%] shadow-xl bg-white rounded-xl -translate-y-32 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+                <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] h-[83%] shadow-xl bg-white rounded-xl -translate-y-20 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <BsBuildingsFill />
                   </p>
