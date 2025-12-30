@@ -731,8 +731,8 @@ const [language, setLanguage] = languageContext;
                   )}
                 </section>
 
-                <section className="py-14" id="team">
-                  <h2 className="text-2xl sm:text-5xl p-20 text-center  font-bold">Meet The Team</h2>
+                <section className="sm:py-14" id="team">
+                  <h2 className="text-2xl sm:text-5xl pb-10 sm:p-20 text-center  font-bold">Meet The Team</h2>
                   <motion.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
