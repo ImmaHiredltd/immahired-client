@@ -33,7 +33,6 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
                     className={`menu-flags outline-none w-fit`}
                     placeholder={language}
                     showSelectedLabel={true}
-                    openUpwards
                     selectButtonClassName="menu-flags-button"
                     selectedSize={10}
                     optionsSize={14}
