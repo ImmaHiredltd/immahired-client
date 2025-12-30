@@ -265,7 +265,7 @@ const [language, setLanguage] = languageContext;
         <section className="w-full">
         <Navbar isScrolled={isScrolled} />
         <ToastContainer />
-            <Parallax ref={parallaxRef} pages={isMobile ? 14 : 9.7} 
+            <Parallax ref={parallaxRef} pages={isMobile ? 13.7 : 9.7} 
               style={{backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
               className="w-full bg-cover bg-center bg-no-repeat relative"
             >
@@ -784,7 +784,7 @@ const [language, setLanguage] = languageContext;
                 </section>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={isMobile ? 13 : 8.7} speed={0} className="flex items-end">
+              <ParallaxLayer offset={isMobile ? 12.7 : 8.7} speed={0} className="flex items-end">
                     <Footer />
               </ParallaxLayer>
             </Parallax>
