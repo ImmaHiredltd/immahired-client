@@ -568,7 +568,7 @@ const [language, setLanguage] = languageContext;
                 </div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={2} speed={0} className="relative">
+              <ParallaxLayer offset={2} speed={0} className="relative max-sm:py-12">
                 {/* Background Circle with smooth animation */}
                 <motion.div
                   className="absolute w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] rounded-full right-20 sm:-bottom-52 bg-main/20"
@@ -628,7 +628,7 @@ const [language, setLanguage] = languageContext;
 
               <ParallaxLayer offset={isMobile ? 3.5 : 3} speed={0}>
                 <motion.div
-                  className="h-fit sm:h-[65vh] sm:bg-black/80 text-2xl sm:text-5xl px-5 py-16 sm:p-20 text-center max-sm:-translate-y-10  font-bold text-main sm:text-white">
+                  className="h-fit sm:h-[65vh] sm:bg-black/80 text-2xl sm:text-5xl px-5 py-16 sm:p-20 text-center font-bold text-main sm:text-white">
                     <motion.p 
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
