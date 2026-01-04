@@ -13,7 +13,7 @@ import { useGetJobsQuery } from "./api/general";
 import { UserData } from "./tokenContext";
 import { toast, ToastContainer } from "react-toastify";
 import { FaArrowTrendUp } from "react-icons/fa6";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Typewriter from 'typewriter-effect';
 import { GrUserWorker } from "react-icons/gr";
 import { BsBuildingsFill, BsClipboardData } from "react-icons/bs";
@@ -22,7 +22,11 @@ import { MdEngineering, MdHealthAndSafety } from "react-icons/md";
 import { GiHealthNormal } from "react-icons/gi";
 import { TbRibbonHealth } from "react-icons/tb";
 import { HiAcademicCap } from "react-icons/hi2";
-import { useMediaQuery } from "react-responsive"
+import { useMediaQuery } from "react-responsive";
+import { FaPlay, FaPause } from "react-icons/fa"
+import { TfiCheck } from "react-icons/tfi";
+import { RxCheck } from "react-icons/rx";
+import { PiCheckCircleFill } from "react-icons/pi";
 
 const StoryPoint = ({
   index,
@@ -259,13 +263,39 @@ const [language, setLanguage] = languageContext;
         window.location.href = ('/login')
     }
   }
+
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const togglePlay = async () => {
+    const video = videoRef.current
+    if (!video) return
+
+    if (video.paused) {
+      // Optional fullscreen
+      if (video.requestFullscreen) {
+        await video.requestFullscreen()
+      }
+
+      video.muted = false
+      video.play()
+      setIsPlaying(true)
+    } else {
+      video.pause()
+      setIsPlaying(false)
+    }
+  }
+
+
+
+
   
 
   return (
         <section className="w-full">
         <Navbar isScrolled={isScrolled} />
         <ToastContainer />
-            <Parallax ref={parallaxRef} pages={isMobile ? 13.7 : 9.7} 
+            <Parallax ref={parallaxRef} pages={isMobile ? 14.7 : 10.7} 
               style={{backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
               className="w-full bg-cover bg-center bg-no-repeat relative"
             >
@@ -277,6 +307,7 @@ const [language, setLanguage] = languageContext;
                 >
                 </div>
               </ParallaxLayer>
+
               {/* marguee */}
               <ParallaxLayer offset={0} speed={0} className="flex items-end">
                 <div className="marquee-wrapper bg-abstract sm:-rotate-2 sm:p-10 sm:bottom-10 sm:-translate-x-2 text-white p-8 sm:w-[105vw]">
@@ -382,8 +413,129 @@ const [language, setLanguage] = languageContext;
                 </motion.div>
               </ParallaxLayer>
 
+              <ParallaxLayer offset={1} speed={0.2} className="px-8 sm:px-20">
+                <div className="flex sm:flex-row flex-col items-center h-full gap-16">
+                  {/* VIDEO CARD */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="relative w-full sm:w-[48%] flex justify-center group"
+                  >
+                    {/* STACKED BACK CARDS */}
+                    <div className="absolute inset-0 flex justify-center items-center -z-10">
+                      <div className="absolute w-[95%] h-[95%] bg-gray-200/70 rounded-3xl rotate-[-6deg]" />
+                      <div className="absolute w-[95%] h-[95%] bg-gray-300/60 rounded-3xl rotate-[4deg]" />
+                    </div>
+
+                    {/* MAIN VIDEO CARD */}
+                    <div className="relative w-full max-w-[620px] rounded-3xl overflow-hidden shadow-2xl">
+                      {/* VIDEO */}
+                      <video
+                        ref={videoRef}
+                        src="/videos/HJYJ3497.MP4"
+                        // muted
+                        loop
+                        playsInline
+                        // autoPlay
+                        className="w-full h-[260px] sm:h-[360px] object-cover"
+                      />
+
+                      {/* SOFT OVERLAY */}
+                      <div className="absolute inset-0 bg-black/20" />
+
+                      {/* CONTROLS */}
+                      <button
+                        onClick={togglePlay}
+                        className="absolute inset-0 flex flex-col items-center justify-center"
+                      >
+                        <div className="relative flex items-center justify-center">
+                          {/* RIPPLE RINGS (ONLY WHEN NOT PLAYING) */}
+                          {!isPlaying &&
+                            [0, 1, 2, 3, 4].map((i) => (
+                              <span
+                                key={i}
+                                className="absolute rounded-full border border-dashed animate-ping"
+                                style={{
+                                  width: 50 + i * 5,
+                                  height: 50 + i * 5,
+                                  borderColor:
+                                    i % 2 === 0
+                                      ? "bg-main/50"
+                                      : "rgba(34,197,94,0.7)", // green accents
+                                  animationDelay: `${i * 0.35}s`,
+                                }}
+                              />
+                            ))}
+ 
+                          {/* PLAY / PAUSE ICON */}
+                          <div className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-opacity duration-300 ${
+                              !isPlaying 
+                                ? 'bg-main/50 group-hover:bg-main/100' 
+                                : 'bg-transparent'
+                            }`}
+                            >
+                            {/* PLAY: always visible */}
+                            {!isPlaying && (
+                              <FaPlay className="text-white ml-1 text-lg" />
+                            )}
+
+                            {/* PAUSE: visible only on hover */}
+                            {isPlaying && (
+                              <FaPause className="text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            )}
+                          </div>
+                        </div>
+
+                        {/* LABEL */}
+                        <span className="mt-4 text-white text-sm opacity-0 font-bold tracking-wide group-hover:opacity-100 transition-opacity">
+                          {isPlaying ? "Pause Video" : "Watch Video"}
+                        </span>
+                      </button>
+                    </div>
+                  </motion.div>
+
+                  {/* TEXT CONTENT */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
+                    className="w-full sm:w-[45%] max-w-2xl"
+                  >
+                    <p className="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4">
+                      About Us
+                    </p>
+
+                    <h2 className="text-3xl sm:text-5xl font-semibold mb-6">
+                      The Leading Hospitality <br /> Staffing Platform
+                    </h2>
+
+                    <p className="text-gray-600 mb-6">
+                      We connect hospitality businesses with exceptional professionals
+                      while enabling seamless workforce scaling.
+                    </p>
+
+                    <ul className="space-y-4">
+                      <li className="flex gap-3 items-center">
+                        <span className="text-main text-xl">
+                            <PiCheckCircleFill />
+                        </span>
+                        Maintain service excellence
+                      </li>
+                      <li className="flex gap-3 items-center">
+                        <span className="text-main text-xl">
+                            <PiCheckCircleFill />
+                        </span>
+                        Adapt to seasonal demand
+                      </li>
+                    </ul>
+                  </motion.div>
+                </div>
+              </ParallaxLayer>
+
+
               {/* categories */}
-              <ParallaxLayer offset={1} speed={0} className="max-sm:hidden">
+              <ParallaxLayer offset={2} speed={0} className="max-sm:hidden">
                     <div className="sm:h-[65vh] relative w-full">
                         <Image 
                           src={"/images/reg.jpg"}
@@ -394,7 +546,7 @@ const [language, setLanguage] = languageContext;
                     </div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={1} speed={0}>
+              <ParallaxLayer offset={2} speed={0}>
                 <motion.div
                   className="h-fit sm:h-[65vh] sm:bg-black/80 text-2xl sm:text-5xl px-5 py-16 sm:p-20 text-center  font-bold text-main sm:text-white">
                     <motion.p 
@@ -407,7 +559,7 @@ const [language, setLanguage] = languageContext;
                 </motion.div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={1.5} speed={0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
+              <ParallaxLayer offset={2.5} speed={0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
                 <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <GrUserWorker />
@@ -475,7 +627,7 @@ const [language, setLanguage] = languageContext;
                 </div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={2.1} className="max-sm:hidden">
+              <ParallaxLayer offset={3.1} className="max-sm:hidden">
                   <div className="relative grid grid-cols-1 sm:grid-cols-3 max-sm:translate-y-20 sm:gap-8 mt-20 sm:py-16">
                       {[
                         { value: "100+", label: "Daily Active Users" },
@@ -513,7 +665,7 @@ const [language, setLanguage] = languageContext;
 
               {/* Story */}
               <ParallaxLayer
-                sticky={{ start: 2.5, end:4.5 }}
+                sticky={{ start: 3.5, end: 5.5 }}
                 className="relative opacity-90"
               >
                 <Image
@@ -526,7 +678,7 @@ const [language, setLanguage] = languageContext;
 
               <ParallaxLayer
                 id="story"
-                sticky={{ start: 2.5, end: 4.5 }}
+                sticky={{ start: 3.5, end: 5.5 }}
                 className="flex sm:items-center px-5 py-28 sm:p-40 backdrop-blur-2xl bg-black/60"
               >
                 <motion.h2
@@ -545,7 +697,7 @@ const [language, setLanguage] = languageContext;
                 </motion.h2>
               </ParallaxLayer>
 
-              <ParallaxLayer sticky={{ start: 2.8, end: 2.8 }} speed={0.7} className="z-20 pointer-events-auto">
+              <ParallaxLayer sticky={{ start: 3.8, end: 3.8 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="01"
                   title="The Beginning"
@@ -554,7 +706,7 @@ const [language, setLanguage] = languageContext;
                 />
               </ParallaxLayer>
 
-              <ParallaxLayer sticky={{ start: 3.6, end: 3.6 }} speed={0.7} className="z-20 pointer-events-auto">
+              <ParallaxLayer sticky={{ start: 4.6, end: 4.6 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="02"
                   insight="Where opportunity meets the right talent without friction"
@@ -563,7 +715,7 @@ const [language, setLanguage] = languageContext;
                 />
               </ParallaxLayer>
 
-              <ParallaxLayer sticky={{ start: 4.4, end: 4.4 }} speed={0.7} className="z-20 pointer-events-auto">
+              <ParallaxLayer sticky={{ start: 5.4, end: 5.4 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="03"
                   title="The Belief"
@@ -607,7 +759,7 @@ const [language, setLanguage] = languageContext;
               </ParallaxLayer>
 
               {/* Industries + teams */}
-              <ParallaxLayer offset={5.5} speed={0}>
+              <ParallaxLayer offset={6.5} speed={0}>
                 <section className="max-w-7xl mx-auto px-6 py-24">
                   {/* Heading */}
                   <motion.h2
@@ -784,7 +936,7 @@ const [language, setLanguage] = languageContext;
                 </section>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={isMobile ? 12.7 : 8.7} speed={0} className="flex items-end">
+              <ParallaxLayer offset={isMobile ? 13.7 : 9.7} speed={0} className="flex items-end">
                     <Footer />
               </ParallaxLayer>
             </Parallax>
