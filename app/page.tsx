@@ -413,32 +413,30 @@ const [language, setLanguage] = languageContext;
                 </motion.div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={1} speed={0.2} className="px-8 sm:px-20">
+              <ParallaxLayer offset={1} speed={0.2} className="px-3 sm:px-20">
                 <div className="flex sm:flex-row flex-col items-center h-full gap-16">
                   {/* VIDEO CARD */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="relative w-full sm:w-[48%] flex justify-center group"
+                    className="relative w-full sm:w-[50%] flex justify-center group"
                   >
                     {/* STACKED BACK CARDS */}
                     <div className="absolute inset-0 flex justify-center items-center -z-10">
-                      <div className="absolute w-[95%] h-[95%] bg-gray-200/70 rounded-3xl rotate-[-6deg]" />
-                      <div className="absolute w-[95%] h-[95%] bg-gray-300/60 rounded-3xl rotate-[4deg]" />
+                      <div className="absolute w-[100%] h-[100%] bg-gray-200/70 rounded-3xl rotate-[-6deg]" />
+                      <div className="absolute w-[100%] h-[100%] bg-gray-300/60 rounded-3xl rotate-[4deg]" />
                     </div>
 
                     {/* MAIN VIDEO CARD */}
-                    <div className="relative w-full max-w-[620px] rounded-3xl overflow-hidden shadow-2xl">
+                    <div className="relative w-full max-w-[670px] rounded-3xl overflow-hidden shadow-2xl">
                       {/* VIDEO */}
                       <video
                         ref={videoRef}
                         src="/videos/HJYJ3497.MP4"
-                        // muted
                         loop
                         playsInline
-                        // autoPlay
-                        className="w-full h-[260px] sm:h-[360px] object-cover"
+                        className="w-full h-[210px] sm:h-[380px] object-cover"
                       />
 
                       {/* SOFT OVERLAY */}
@@ -500,9 +498,9 @@ const [language, setLanguage] = languageContext;
                     initial={{ opacity: 0, x: 40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.1 }}
-                    className="w-full sm:w-[45%] max-w-2xl"
+                    className="w-full sm:w-[45%] max-w-2xl max-sm:px-2"
                   >
-                    <p className="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4 font-bold">
+                    <p className="text-xl uppercase tracking-[0.3em] text-gray-500 mb-4 font-bold">
                       About Us
                     </p>
 
@@ -517,16 +515,16 @@ const [language, setLanguage] = languageContext;
 
                     <ul className="space-y-4">
                       <li className="flex gap-3 items-center">
-                        <span className="text-main text-xl">
+                        <span className="text-main text-2xl">
                             <PiCheckCircleFill />
                         </span>
-                        Maintain service excellence
+                        This helps businesses maintain service excellence
                       </li>
                       <li className="flex gap-3 items-center">
-                        <span className="text-main text-xl">
+                        <span className="text-main text-2xl">
                             <PiCheckCircleFill />
                         </span>
-                        Adapt to seasonal demand
+                        This scalability allows businesses to adjust staffing
                       </li>
                     </ul>
                   </motion.div>
