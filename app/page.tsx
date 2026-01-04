@@ -639,7 +639,7 @@ const [language, setLanguage] = languageContext;
                 </motion.div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={isMobile ? 3.9 : 3.5} speed={0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
+              <ParallaxLayer offset={isMobile ? 3.95 : 3.5} speed={0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
                 <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <GrUserWorker />
@@ -707,7 +707,7 @@ const [language, setLanguage] = languageContext;
                 </div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={ isMobile ? 4.5 : 4.1} className="max-sm:hidden">
+              <ParallaxLayer offset={ isMobile ? 4.55 : 4.1} className="max-sm:hidden">
                   <div className="relative grid grid-cols-1 sm:grid-cols-3 max-sm:translate-y-20 sm:gap-8 mt-20 sm:py-16">
                       {[
                         { value: "100+", label: "Daily Active Users" },
