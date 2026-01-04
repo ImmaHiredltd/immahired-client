@@ -332,7 +332,7 @@ const [language, setLanguage] = languageContext;
         <section className="w-full">
         <Navbar isScrolled={isScrolled} />
         <ToastContainer />
-            <Parallax ref={parallaxRef} pages={isMobile ? 15.7 : 11.7} 
+            <Parallax ref={parallaxRef} pages={isMobile ? 16 : 11.7} 
               style={{backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
               className="w-full bg-cover bg-center bg-no-repeat relative"
             >
@@ -745,7 +745,7 @@ const [language, setLanguage] = languageContext;
 
               {/* Story */}
               <ParallaxLayer
-                sticky={{ start: 4.5, end: 6.5 }}
+                sticky={{ start: isMobile ? 5 : 4.5, end: isMobile ? 7 : 6.5 }}
                 className="relative opacity-90"
               >
                 <Image
@@ -758,7 +758,7 @@ const [language, setLanguage] = languageContext;
 
               <ParallaxLayer
                 id="story"
-                sticky={{ start: 4.5, end: 6.5 }}
+                sticky={{ start: isMobile ? 5 : 4.5, end: isMobile ? 7 : 6.5 }}
                 className="flex sm:items-center px-5 py-28 sm:p-40 backdrop-blur-2xl bg-black/60"
               >
                 <motion.h2
@@ -777,7 +777,7 @@ const [language, setLanguage] = languageContext;
                 </motion.h2>
               </ParallaxLayer>
 
-              <ParallaxLayer sticky={{ start: 4.8, end: 4.8 }} speed={0.7} className="z-20 pointer-events-auto">
+              <ParallaxLayer sticky={{ start: isMobile ? 5.3 : 4.8, end: isMobile ? 5.3 : 4.8 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="01"
                   title="The Beginning"
@@ -786,7 +786,7 @@ const [language, setLanguage] = languageContext;
                 />
               </ParallaxLayer>
 
-              <ParallaxLayer sticky={{ start: 5.6, end: 5.6 }} speed={0.7} className="z-20 pointer-events-auto">
+              <ParallaxLayer sticky={{ start: isMobile ? 6.1 : 5.6, end: isMobile ? 6.1 : 5.6 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="02"
                   insight="Where opportunity meets the right talent without friction"
@@ -795,7 +795,7 @@ const [language, setLanguage] = languageContext;
                 />
               </ParallaxLayer>
 
-              <ParallaxLayer sticky={{ start: 6.4, end: 6.4 }} speed={0.7} className="z-20 pointer-events-auto">
+              <ParallaxLayer sticky={{ start: isMobile ? 6.9 : 6.4, end: isMobile ? 6.9 : 6.4 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="03"
                   title="The Belief"
@@ -839,7 +839,7 @@ const [language, setLanguage] = languageContext;
               </ParallaxLayer>
 
               {/* Industries + teams */}
-              <ParallaxLayer offset={7.5} speed={0}>
+              <ParallaxLayer offset={ isMobile ? 8 : 7.5} speed={0}>
                 <section className="max-w-7xl mx-auto px-6 py-24">
                   {/* Heading */}
                   <motion.h2
@@ -1016,7 +1016,7 @@ const [language, setLanguage] = languageContext;
                 </section>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={isMobile ? 14.7 : 10.7} speed={0} className="flex items-end">
+              <ParallaxLayer offset={isMobile ? 15 : 10.7} speed={0} className="flex items-end">
                     <Footer />
               </ParallaxLayer>
             </Parallax>
