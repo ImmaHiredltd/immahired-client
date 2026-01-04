@@ -3,7 +3,7 @@ import Image from "next/image";
 import pageLanguage from "@/app/page.json"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Cookies from 'js-cookie'
-import { FaCode, FaRegDotCircle, FaSearch } from "react-icons/fa";
+import { FaChartLine, FaCode, FaRegDotCircle, FaSearch } from "react-icons/fa";
 import { useContext, useState, useRef, useEffect } from "react";
 import { LanguageData } from "./context";
 import Testimonial from "@/components/testimonials";
@@ -18,15 +18,14 @@ import Typewriter from 'typewriter-effect';
 import { GrUserWorker } from "react-icons/gr";
 import { BsBuildingsFill, BsClipboardData } from "react-icons/bs";
 import { RiRobot3Fill } from "react-icons/ri";
-import { MdEngineering, MdHealthAndSafety } from "react-icons/md";
+import { MdEngineering, MdHealthAndSafety, MdVerifiedUser } from "react-icons/md";
 import { GiHealthNormal } from "react-icons/gi";
 import { TbRibbonHealth } from "react-icons/tb";
-import { HiAcademicCap } from "react-icons/hi2";
+import { HiAcademicCap, HiUserGroup } from "react-icons/hi2";
 import { useMediaQuery } from "react-responsive";
 import { FaPlay, FaPause } from "react-icons/fa"
-import { TfiCheck } from "react-icons/tfi";
-import { RxCheck } from "react-icons/rx";
 import { PiCheckCircleFill } from "react-icons/pi";
+import { VscWorkspaceTrusted } from "react-icons/vsc";
 
 const StoryPoint = ({
   index,
@@ -116,6 +115,26 @@ const StoryPoint = ({
     </div>
   </motion.div>
 );
+
+const WhyUs = ({ icon, title, details }: any) => {
+  return (
+    <motion.div
+      className="sm:w-[30%] w-full btn-sweep py-7 sm:py-14 px-5 sm:px-10 rounded-xl bg-white space-y-5 ease-in-out duration-500 hover:bg-main hover:text-white"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <p className="text-2xl sm:text-4xl p-3 w-16 sm:w-20 h-16 sm:h-20 flex items-center justify-center text-white bg-main hover:bg-white rounded-full">
+        {icon}
+      </p>
+
+      <p className="text-xl sm:text-2xl font-black">{title}</p>
+
+      <p>{details}</p>
+    </motion.div>
+  );
+};
+
 
 const industries = [
   {
@@ -286,6 +305,24 @@ const [language, setLanguage] = languageContext;
     }
   }
 
+  const whyChooseUs = [
+    {
+      iconSvg: <HiUserGroup />,
+      title: 'Retain Top Talent',
+      details: "Providing clear career paths and growth opportunities is key to retaining top talent."
+    },
+    {
+      iconSvg: <MdVerifiedUser />,
+      title: 'Stay Compliant',
+      details: "Educate employees about compliance requirements through regular training"
+    },
+    {
+      iconSvg: <FaChartLine />,
+      title: 'Improve Employee',
+      details: "Invest in employee training development programs enhance skill and knowledge."
+    }
+  ]
+
 
 
 
@@ -295,7 +332,7 @@ const [language, setLanguage] = languageContext;
         <section className="w-full">
         <Navbar isScrolled={isScrolled} />
         <ToastContainer />
-            <Parallax ref={parallaxRef} pages={isMobile ? 14.7 : 10.7} 
+            <Parallax ref={parallaxRef} pages={isMobile ? 15.7 : 11.7} 
               style={{backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
               className="w-full bg-cover bg-center bg-no-repeat relative"
             >
@@ -413,7 +450,7 @@ const [language, setLanguage] = languageContext;
                 </motion.div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={1} speed={0.2} className="px-3 sm:px-20">
+              <ParallaxLayer offset={1} speed={0} className="px-3 py-20 sm:px-20">
                 <div className="flex sm:flex-row flex-col items-center h-full gap-16">
                   {/* VIDEO CARD */}
                   <motion.div
@@ -424,8 +461,8 @@ const [language, setLanguage] = languageContext;
                   >
                     {/* STACKED BACK CARDS */}
                     <div className="absolute inset-0 flex justify-center items-center -z-10">
-                      <div className="absolute w-[100%] h-[100%] bg-gray-200/70 rounded-3xl rotate-[-6deg]" />
-                      <div className="absolute w-[100%] h-[100%] bg-gray-300/60 rounded-3xl rotate-[4deg]" />
+                      <div className="absolute w-[100%] h-[100%] bg-gray-300/70 rounded-3xl rotate-[-6deg]" />
+                      <div className="absolute w-[100%] h-[100%] bg-gray-400/60 rounded-3xl rotate-[4deg]" />
                     </div>
 
                     {/* MAIN VIDEO CARD */}
@@ -531,9 +568,54 @@ const [language, setLanguage] = languageContext;
                 </div>
               </ParallaxLayer>
 
+              <ParallaxLayer offset={2} speed={0} className="relative">
+                {/* Background Circle with smooth animation */}
+                <motion.div
+                  className="absolute w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] rounded-full right-20 sm:-bottom-52 bg-main/20"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                />
 
-              {/* categories */}
-              <ParallaxLayer offset={2} speed={0} className="max-sm:hidden">
+                <motion.div
+                  className="w-full h-[110vh] sm:h-full backdrop-blur-3xl py-10 px-5 sm:px-20 flex flex-col items-center space-y-5 sm:space-y-14 justify-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1.5 }}
+                >
+                  <motion.div
+                    className="text-3xl sm:text-5xl"
+                    initial={{ y: -50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    <VscWorkspaceTrusted />
+                  </motion.div>
+
+                  <motion.h2
+                    className="text-2xl sm:text-5xl font-black"
+                    initial={{ y: -50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    Why Choose Us
+                  </motion.h2>
+
+                  <div className="flex sm:flex-row flex-col justify-evenly w-full gap-8">
+                    {whyChooseUs &&
+                      whyChooseUs.map((item, i) => (
+                        <WhyUs
+                          key={i}
+                          icon={item.iconSvg}
+                          title={item.title}
+                          details={item.details}
+                        />
+                      ))}
+                  </div>
+                </motion.div>
+              </ParallaxLayer>
+
+              <ParallaxLayer offset={isMobile ? 3.3 : 3} speed={0} className="max-sm:hidden">
                     <div className="sm:h-[65vh] relative w-full">
                         <Image 
                           src={"/images/reg.jpg"}
@@ -544,7 +626,7 @@ const [language, setLanguage] = languageContext;
                     </div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={2} speed={0}>
+              <ParallaxLayer offset={isMobile ? 3.3 : 3} speed={0}>
                 <motion.div
                   className="h-fit sm:h-[65vh] sm:bg-black/80 text-2xl sm:text-5xl px-5 py-16 sm:p-20 text-center max-sm:-translate-y-10  font-bold text-main sm:text-white">
                     <motion.p 
@@ -557,7 +639,7 @@ const [language, setLanguage] = languageContext;
                 </motion.div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={2.5} speed={0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
+              <ParallaxLayer offset={isMobile ? 3.8 : 3.5} speed={0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
                 <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <GrUserWorker />
@@ -625,7 +707,7 @@ const [language, setLanguage] = languageContext;
                 </div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={3.1} className="max-sm:hidden">
+              <ParallaxLayer offset={ isMobile ? 4.4 : 4.1} className="max-sm:hidden">
                   <div className="relative grid grid-cols-1 sm:grid-cols-3 max-sm:translate-y-20 sm:gap-8 mt-20 sm:py-16">
                       {[
                         { value: "100+", label: "Daily Active Users" },
@@ -663,7 +745,7 @@ const [language, setLanguage] = languageContext;
 
               {/* Story */}
               <ParallaxLayer
-                sticky={{ start: 3.5, end: 5.5 }}
+                sticky={{ start: 4.5, end: 6.5 }}
                 className="relative opacity-90"
               >
                 <Image
@@ -676,7 +758,7 @@ const [language, setLanguage] = languageContext;
 
               <ParallaxLayer
                 id="story"
-                sticky={{ start: 3.5, end: 5.5 }}
+                sticky={{ start: 4.5, end: 6.5 }}
                 className="flex sm:items-center px-5 py-28 sm:p-40 backdrop-blur-2xl bg-black/60"
               >
                 <motion.h2
@@ -695,7 +777,7 @@ const [language, setLanguage] = languageContext;
                 </motion.h2>
               </ParallaxLayer>
 
-              <ParallaxLayer sticky={{ start: 3.8, end: 3.8 }} speed={0.7} className="z-20 pointer-events-auto">
+              <ParallaxLayer sticky={{ start: 4.8, end: 4.8 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="01"
                   title="The Beginning"
@@ -704,7 +786,7 @@ const [language, setLanguage] = languageContext;
                 />
               </ParallaxLayer>
 
-              <ParallaxLayer sticky={{ start: 4.6, end: 4.6 }} speed={0.7} className="z-20 pointer-events-auto">
+              <ParallaxLayer sticky={{ start: 5.6, end: 5.6 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="02"
                   insight="Where opportunity meets the right talent without friction"
@@ -713,7 +795,7 @@ const [language, setLanguage] = languageContext;
                 />
               </ParallaxLayer>
 
-              <ParallaxLayer sticky={{ start: 5.4, end: 5.4 }} speed={0.7} className="z-20 pointer-events-auto">
+              <ParallaxLayer sticky={{ start: 6.4, end: 6.4 }} speed={0.7} className="z-20 pointer-events-auto">
                 <StoryPoint
                   index="03"
                   title="The Belief"
@@ -757,7 +839,7 @@ const [language, setLanguage] = languageContext;
               </ParallaxLayer>
 
               {/* Industries + teams */}
-              <ParallaxLayer offset={6.5} speed={0}>
+              <ParallaxLayer offset={7.5} speed={0}>
                 <section className="max-w-7xl mx-auto px-6 py-24">
                   {/* Heading */}
                   <motion.h2
@@ -934,7 +1016,7 @@ const [language, setLanguage] = languageContext;
                 </section>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={isMobile ? 13.7 : 9.7} speed={0} className="flex items-end">
+              <ParallaxLayer offset={isMobile ? 14.7 : 10.7} speed={0} className="flex items-end">
                     <Footer />
               </ParallaxLayer>
             </Parallax>
