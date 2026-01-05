@@ -442,7 +442,7 @@ const StepCard = ({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-blue-900 rounded-2xl p-5 sm:p-10 text-white shadow-xl">
+      className="bg-blue-900 rounded-2xl p-5 sm:p-10 text-white shadow-xl btn-sweep">
       <div className="flex items-center gap-4 mb-6">
         <span className="w-10 h-10 flex items-center justify-center rounded-full bg-main text-white font-bold">
           {step}
@@ -468,7 +468,7 @@ const [mode, setMode] = useState<Mode>("talent");
         <section className="w-full">
         <Navbar isScrolled={isScrolled} />
         <ToastContainer />
-            <Parallax ref={parallaxRef} pages={isMobile ? 18 : 11.7} 
+            <Parallax ref={parallaxRef} pages={isMobile ? 18 : 12.7} 
               style={{backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
               className="w-full bg-cover bg-center bg-no-repeat relative"
             >
@@ -597,8 +597,8 @@ const [mode, setMode] = useState<Mode>("talent");
                   >
                     {/* STACKED BACK CARDS */}
                     <div className="absolute inset-0 flex justify-center items-center -z-10">
-                      <div className="absolute w-[100%] h-[100%] bg-gray-300/70 rounded-3xl rotate-[-6deg]" />
-                      <div className="absolute w-[100%] h-[100%] bg-gray-400/60 rounded-3xl rotate-[4deg]" />
+                      <div className="absolute w-[100%] h-[100%] bg-gray-200/70 rounded-3xl rotate-[-6deg]" />
+                      <div className="absolute w-[100%] h-[100%] bg-gray-100/60 rounded-3xl rotate-[4deg]" />
                     </div>
 
                     {/* MAIN VIDEO CARD */}
@@ -844,7 +844,7 @@ const [mode, setMode] = useState<Mode>("talent");
               </ParallaxLayer>
 
               <ParallaxLayer offset={ isMobile ? 4.59 : 4.1} className="max-sm:hidden">
-                  <div className="relative grid grid-cols-1 sm:grid-cols-3 max-sm:translate-y-20 sm:gap-8 mt-20 sm:py-16">
+                  <div className="relative grid grid-cols-1 sm:grid-cols-3 -translate-y-20 sm:gap-8 mt-20 sm:py-16">
                       {[
                         { value: "100+", label: "Daily Active Users" },
                         { value: "5K+", label: "Open Job Positions" },
@@ -861,7 +861,7 @@ const [mode, setMode] = useState<Mode>("talent");
                         >
                           <h1
                             className="
-                              text-xl md:text-4xl sm:text-5xl font-black
+                              text-8xl font-black
                               tracking-tight
                               bg-clip-text text-transparent
                               bg-gradient-to-br from-main to-black
@@ -1168,7 +1168,7 @@ const [mode, setMode] = useState<Mode>("talent");
                 </section>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={isMobile ? 17 : 10.7} speed={0} className="flex items-end">
+              <ParallaxLayer offset={isMobile ? 17 : 11.7} speed={0} className="flex items-end">
                     <Footer />
               </ParallaxLayer>
             </Parallax>

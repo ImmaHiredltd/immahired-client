@@ -28,7 +28,7 @@ export default function Testimonial({ target }: any) {
         },
       ]
   return (
-    <div className="px-banner-clamp py-5 space-y-5 sm:space-y-10 ">
+    <div className="px-banner-clamp py-5 space-y-5 sm:space-y-20 ">
             <motion.h1
                initial={{ opacity: 0, y: 30 }}
                whileInView={{ opacity: 1, y: 0 }}
