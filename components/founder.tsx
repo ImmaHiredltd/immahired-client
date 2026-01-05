@@ -53,35 +53,20 @@ export default function Founder() {
             className="absolute inset-0 rounded-full bg-main/30 blur-2xl"
         />
 
-        {/* Glass Border */}
-        <div className="absolute inset-0 rounded-full border border-white/40 bg-white/10 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.15)]" />
-
         {/* Image Container */}
         <motion.div
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="relative w-full h-full rounded-full overflow-hidden z-10"
+            className="relative w-[90%] bg-gray-300 h-full rounded-xl overflow-hidden z-10"
         >
             <Image
-            src="/images/ceo.png"
+            src="/images/img-2.png"
             fill
             priority
             alt="Founder"
-            className="object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-700"
+            className="object-bottom grayscale-[10%] hover:grayscale-0 transition-all duration-700"
             />
         </motion.div>
-
-        {/* Floating Accent */}
-        <motion.div
-            className="absolute inset-0 rounded-full pointer-events-none"
-            animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            style={{
-                backgroundImage:
-                "linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)",
-                backgroundSize: "200% 200%",
-            }}
-            />
 
         </motion.div>
 
