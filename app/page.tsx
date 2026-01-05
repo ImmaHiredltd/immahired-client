@@ -1100,7 +1100,7 @@ const [mode, setMode] = useState<Mode>("talent");
                 </section>
 
                 <section className="sm:py-12" id="team">
-                  <h2 className="text-center p-10 mb-20">
+                  <h2 className="text-center p-10 sm:mb-20">
                     <span className="block text-sm uppercase tracking-[0.4em] text-abstract/60 mb-3">
                       The People Behind It
                     </span>
