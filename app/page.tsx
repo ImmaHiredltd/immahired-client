@@ -971,12 +971,12 @@ const [language, setLanguage] = languageContext;
                     transition={{ duration: 0.3, delay:0.5 }}
                     className="flex sm:flex-row max-sm:justify-center max-sm:gap-8 flex-col justify-evenly">
                       <div className="text-center w-full sm:w-[30%] flex items-center gap-2 flex-col">
-                        <div className="relative w-60 h-60 sm:w-72 sm:h-72 overflow-hidden rounded-full">
+                        <div className="relative w-[215px] h-60 sm:w-64 sm:h-72 overflow-hidden rounded-xl bg-white">
                           <Image
-                            src={'/images/ceo.png'}
+                            src={'/images/img-2.png'}
                             fill
                             alt="Profile image"
-                            className="object-cover"
+                            className="object-bottom"
                           />
                         </div>
                         <p className="text-xl font-bold ">Imma Jing</p>
@@ -984,12 +984,12 @@ const [language, setLanguage] = languageContext;
                       </div>
 
                       <div className="text-center w-full sm:w-[30%] flex items-center gap-2 flex-col">
-                        <div className="relative w-60 h-60 sm:w-72 sm:h-72 overflow-hidden rounded-full">
+                        <div className="relative w-[215px] h-60 sm:w-64 sm:h-72 overflow-hidden rounded-xl bg-white">
                           <Image
-                            src={'/images/spec.png'}
+                            src={'/images/img3.png'}
                             fill
                             alt="Profile image"
-                            className="object-cover"
+                            className="object-bottom"
                           />
                         </div>
                         <p className="text-xl font-bold ">Maggie luo</p>
@@ -997,12 +997,12 @@ const [language, setLanguage] = languageContext;
                       </div>
 
                       <div className="text-center w-full sm:w-[30%] flex items-center gap-2 flex-col">
-                        <div className="relative w-60 h-60 sm:w-72 sm:h-72 overflow-hidden rounded-full">
+                        <div className="relative w-[215px] h-60 sm:w-64 sm:h-72 overflow-hidden rounded-xl bg-white">
                           <Image
-                            src={'/images/sales.png'}
+                            src={'/images/img1.png'}
                             fill
                             alt="Profile image"
-                            className="object-cover"
+                            className="object-bottom"
                           />
                         </div>
                         <p className="text-xl font-bold ">Chen Lanping</p>
