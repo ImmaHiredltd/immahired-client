@@ -418,7 +418,7 @@ const Steps = ({ mode }: { mode: Mode }) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.4 }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-10 text-left"
+        className="grid grid-cols-1 max-sm:mx-5 md:grid-cols-3 gap-10 text-left"
       >
         {STEPS[mode].map((item) => (
           <StepCard key={item.step} {...item} />
@@ -438,12 +438,12 @@ const StepCard = ({
   description: string;
 }) => {
   return (
-    <div className="bg-blue-900 rounded-2xl p-10 text-white shadow-xl">
+    <div className="bg-blue-900 rounded-2xl p-5 sm:p-10 text-white shadow-xl">
       <div className="flex items-center gap-4 mb-6">
         <span className="w-10 h-10 flex items-center justify-center rounded-full bg-main text-white font-bold">
           {step}
         </span>
-        <h3 className="text-2xl font-extrabold">{title}</h3>
+        <h3 className="text-xl sm:text-2xl font-extrabold">{title}</h3>
       </div>
 
       <p className="text-white/90 leading-relaxed">
@@ -771,7 +771,7 @@ const [mode, setMode] = useState<Mode>("talent");
                 </motion.div>
               </ParallaxLayer>
 
-              <ParallaxLayer offset={isMobile ? 3.99 : 3.5} speed={isMobile ? 0.1 : 0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
+              <ParallaxLayer offset={isMobile ? 3.99 : 3.5} speed={isMobile ? 0.3 : 0.3} className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
                 <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
                   <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
                     <GrUserWorker />
@@ -1146,7 +1146,7 @@ const [mode, setMode] = useState<Mode>("talent");
                 <section className="relative w-full py-32 mt-20 bg-abstract overflow-hidden">
                   <div className="absolute inset-0 bg-[url('/images/topography.svg')] opacity-20" />
 
-                  <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+                  <div className="relative z-10 max-w-7xl mx-auto sm:px-6 text-center">
                     <h2 className="text-white text-3xl sm:text-5xl font-extrabold mb-14">
                       How It Works?
                     </h2>
