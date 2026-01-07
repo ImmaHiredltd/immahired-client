@@ -118,7 +118,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 90 }}
-            className="font-black text-6xl sm:max-w-[70%] max-sm:text-3xl"
+            className="font-black text-6xl w-[90%] sm:max-w-[70%] max-sm:text-3xl"
           >
             {target.h1}
           </motion.h1>
@@ -155,7 +155,7 @@ export default function Home() {
             </button>
           </div>
 
-          <section className="bg-abstract py-8 sm:rotate-[-2deg] absolute bottom-0 sm:bottom-10 w-full z-40">
+          <section className="bg-abstract py-8 sm:rotate-[-2deg] absolute bottom-10 w-full z-40">
             <div className="marquee-track text-white flex gap-20 whitespace-nowrap">
               {industriesMarquee.map((i, idx) => (
                 <span key={idx} className="flex gap-6 items-center">
@@ -305,7 +305,7 @@ export default function Home() {
       </section>
 
       {/* ================= STICKY STORY ================= */}
-      <section id="story" className="w-screen h-[170vh] sm:h-screen relative">
+      <section id="story" className="w-screen h-[190vh] sm:h-screen relative">
         <div className="absolute top-0 h-full w-screen">
           <Image
             src="/images/pexels-jopwell-2422280.jpg"
@@ -315,7 +315,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="absolute z-40 w-screen max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center space-y-16 py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl">
+        <div className="absolute z-40 w-screen max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center space-y-20 py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl">
             <h2 className="text-4xl sm:text-6xl text-center font-extrabold text-gray-300 w-full">
               {target.our_story}
             </h2>
