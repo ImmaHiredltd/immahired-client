@@ -182,7 +182,6 @@ export default function Home() {
         <div className="w-full sm:py-24 min-h-screen backdrop-blur-3xl">
           <WhyUs target={target} />   
         </div>
-        
       </section>
 
       {/* ================= RESEARCH ================= */}
