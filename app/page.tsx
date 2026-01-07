@@ -172,7 +172,7 @@ export default function Home() {
       </section>
 
       {/* ================= VIDEO ================= */}
-      <section className="pt-24 sm:py-24 px-5 sm:px-20 bg-white">
+      <section className="pt-16 sm:py-24 px-5 sm:px-20 bg-white">
         <Video target={target} />
       </section>
 

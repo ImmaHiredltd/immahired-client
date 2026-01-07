@@ -35,12 +35,6 @@ export default function Video({ target }: any) {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="relative w-full sm:w-[50%] flex justify-center group"
                   >
-                    {/* STACKED BACK CARDS */}
-                    <div className="absolute inset-0 flex justify-center items-center -z-10">
-                      <div className="absolute w-[100%] h-[100%] bg-gray-200/70 rounded-3xl rotate-[-6deg]" />
-                      <div className="absolute w-[100%] h-[100%] bg-gray-100/60 rounded-3xl rotate-[4deg]" />
-                    </div>
-
                     {/* MAIN VIDEO CARD */}
                     <div className="relative w-full max-w-[670px] rounded-3xl overflow-hidden shadow-2xl">
                       {/* VIDEO */}
