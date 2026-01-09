@@ -146,7 +146,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
       className="
         fixed top-0 left-1/2 -translate-x-1/2
         w-full
-        z-[9999]
+        z-50
         border
         px-2 sm:px-6 lg:px-10  py-1 sm:py-4
         backdrop-blur-2xl
