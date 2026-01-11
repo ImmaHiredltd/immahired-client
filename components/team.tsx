@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 export default function Team({target}: any) {
   return (
     <section className="sm:py-12" id="team">
-                  <h2 className="text-center p-10 sm:mb-20">
+                  <h2 className="text-center pt-28 sm:pt-20 p-10 sm:mb-20">
                     <span className="block text-[12px] max-[380px]:text-[10px] sm:text-sm uppercase tracking-[0.4em] text-abstract/60 mb-3">
                       {target.meet_the_people}
                     </span>

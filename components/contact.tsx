@@ -33,7 +33,7 @@ export default function ContactSection({ target, setShowChat }: {target: any, se
           initial={{ scale: 0.95 }}
           whileInView={{ scale: 1 }}
           transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-6xl font-semibold"
+          className="text-2xl max-[380px]:text-xl sm:text-6xl font-semibold"
         >
           {target.contact}
         </motion.h2>
@@ -138,7 +138,7 @@ export default function ContactSection({ target, setShowChat }: {target: any, se
                 {card.country}
               </div>
 
-              <div className="space-y-3 text-sm text-gray-700">
+              <div className="space-y-3 max-[380px]:text-xs text-sm text-gray-700">
                 {card.office && (
                   <p>
                     <span className="font-semibold">Office:</span>{" "}

@@ -34,8 +34,7 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [active] = useContext(UserData);
   const languageContext = useContext(LanguageData);
-  const isMobile = useMediaQuery({ maxWidth: 640 });
-
+  
   if (!languageContext) {
     throw new Error("LanguageData context missing");
   }
@@ -305,8 +304,8 @@ export default function Home() {
       </section>
 
       {/* ================= STICKY STORY ================= */}
-      <section id="story" className="w-screen max-[380px]:h-[165vh]  h-[190vh] sm:h-screen relative">
-        <div className="absolute top-0 h-full w-screen">
+      <section id="story" className="w-screen max-[380px]:h-[168vh] py-20  h-[190vh] sm:h-screen relative">
+        <div className="absolute top-0 mt-20 h-full w-screen">
           <Image
             src="/images/pexels-jopwell-2422280.jpg"
             alt="story bg"

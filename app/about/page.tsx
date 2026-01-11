@@ -28,26 +28,27 @@ export default function About() {
     const target:any = jsonData[language]
 
   return (
-    <section id='about' className=''>
+    <section id='about' className='w-full overflow-x-hidden'>
         <Navbar isScrolled = {true} />
         
-        <div className='flex flex-col items-center gap-3 pt-44'>
+        <div className='flex flex-col items-center gap-3 max-[380px]:pt-32 pt-44'>
             <h2 className='sm:text-4xl text-2xl font-black'>About</h2>
             <h5>
-                <a href="/" className='hover:text-blue-600'>Home</a> /
+                <a href="/" className='hover:text-blue-600 max-[380px]:text-sm'>Home</a> /
                 <span> About</span>
             </h5>
         </div>
 
-        <div className='w-screen h-fit sm:h-screen flex p-5 sm:p-12 justify-evenly'>
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-20 items-center">
+        <div className='w-screen h-fit sm:h-screen flex max-[380px]:p-3 p-5 sm:p-12 justify-evenly'>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 max-[380px]:gap-2 gap-5 sm:gap-20 items-center">
                 {/* Image Mosaic */}
-                <div className="relative grid grid-cols-2 gap-6">
+                <div className="relative grid grid-cols-2 max-[380px]:gap-3 gap-6">
                     {/* Image 1 */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
                         className="relative h-[200px] sm:h-[220px] rounded-2xl overflow-hidden shadow-xl"
                     >
                         <Image src="/images/pexels-divinetechygirl-1181406.jpg" alt="About 1" fill className="object-cover" />
@@ -58,6 +59,7 @@ export default function About() {
                         initial={{ opacity: 0, y: -30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
+                        viewport={{ once: true }}
                         className="relative h-[260px] sm:h-[280px] rounded-2xl overflow-hidden shadow-xl"
                     >
                         <Image src="/images/pexels-august-de-richelieu-4427815.jpg" alt="About 2" fill className="object-cover" />
@@ -68,6 +70,7 @@ export default function About() {
                         initial={{ opacity: 0, x: -30, y: 0 }}
                         whileInView={{ opacity: 1, x: 0 , y:-60}}
                         transition={{ duration: 0.6, delay: 0.15 }}
+                        viewport={{ once: true }}
                         className="relative h-[260px] sm:h-[280px] rounded-2xl overflow-hidden shadow-xl"
                     >
                         <Image src="/images/pexels-jopwell-2422280.jpg" alt="About 3" fill className="object-cover" />
@@ -78,6 +81,7 @@ export default function About() {
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
                         className="relative h-[200px] sm:h-[220px] rounded-2xl overflow-hidden shadow-xl"
                     >
                         <Image src="/images/Frame 269.png" alt="About 4" fill className="object-cover" />
@@ -86,16 +90,17 @@ export default function About() {
 
                 {/* Text Content */}
                 <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="space-y-6"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="space-y-6"
                 >
-                <h2 className="text-2xl sm:text-xl text-main font-extrabold tracking-tight">
+                <h2 className="text-2xl max-[380px]:text-xl sm:text-xl text-main font-extrabold tracking-tight">
                     {target.about}
                 </h2>
 
-                <div className="">
+                <div className="max-[380px]:text-sm">
                     {parse(target.details)}
                 </div>
                 </motion.div>

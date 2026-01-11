@@ -36,7 +36,7 @@ export default function Founder() {
   return (
     <section
       id="founder"
-      className="relative h-fit lg:h-screen flex lg:flex-row flex-col items-center justify-between px-banner-clamp py-20 gap-14"
+      className="relative h-fit flex lg:flex-row flex-col items-center justify-between px-banner-clamp py-28 max-[380px]:py-24 sm:py-20 gap-14"
     >
       {/* IMAGE */}
       <motion.div
@@ -44,7 +44,7 @@ export default function Founder() {
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
-        className="relative mx-auto w-[260px] h-[260px] sm:w-[320px] sm:h-[320px]"
+        className="relative mx-auto w-[260px] h-[260px] max-[380px]:h-[240px] max-[380px]:w-[240px] sm:w-[320px] sm:h-[320px]"
       >
         {/* Glow Ring */}
         <motion.div
@@ -57,14 +57,14 @@ export default function Founder() {
         <motion.div
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="relative w-[90%] bg-gray-300 h-full rounded-xl overflow-hidden z-10"
+            className="relative w-[90%] max-[380px]:w-[80%] bg-gray-300 mx-auto flex h-full rounded-xl overflow-hidden z-10"
         >
             <Image
-            src="/images/img-2.png"
-            fill
-            priority
-            alt="Founder"
-            className="object-bottom grayscale-[10%] hover:grayscale-0 transition-all duration-700"
+              src="/images/img-2.png"
+              fill
+              priority
+              alt="Founder"
+              className="object-bottom grayscale-[10%] hover:grayscale-0 transition-all duration-700"
             />
         </motion.div>
 
@@ -82,7 +82,7 @@ export default function Founder() {
         <Header title={target.founder} />
 
         {/* SLIDING TEXT */}
-        <div className="relative min-h-[220px]">
+        <div className="relative sm:min-h-[220px]">
           <AnimatePresence mode="wait">
             <motion.p
               key={index}
@@ -90,7 +90,7 @@ export default function Founder() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="text-gray-700 leading-relaxed"
+              className="text-gray-700 max-[380px]:text-sm leading-relaxed"
             >
               {details[index]}
             </motion.p>
@@ -103,7 +103,7 @@ export default function Founder() {
             onClick={prev}
             disabled={index === 0}
             className={`
-              p-2 rounded-full text-4xl text-white
+              p-2 rounded-full max-[380px]:text-2xl text-4xl text-white
               transition-all duration-300
               ${
                 index === 0
@@ -131,7 +131,7 @@ export default function Founder() {
             onClick={next}
             disabled={index === details.length - 1}
             className={`
-              p-2 rounded-full text-4xl text-white
+              p-2 rounded-full text-4xl max-[380px]:text-2xl text-white
               transition-all duration-300
               ${
                 index === details.length - 1

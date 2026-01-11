@@ -2,19 +2,30 @@
 import { UserData } from '@/app/tokenContext'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import ReactFlagsSelect from 'react-flags-select'
+import { useMediaQuery } from 'react-responsive'
 
 export default function SideNav({ navs, target, setMobileNavInview, language, handleChange }: any) {
     const [active, setActive] = useContext(UserData)
     const pathName = usePathname();
+    const [ hash, setHash ] = useState('');
+
+    useEffect(() => {
+        setHash(
+            window.location.hash
+        )
+    })
 
     const token = Cookies.get('token');
     var tokenData: any;
     if (token) {
         tokenData = JSON.parse(token);
     }
+
+    const isMobile = useMediaQuery({ maxWidth: 640 });
+
 
     const logout = (e: any) => {
         e.preventDefault();
@@ -42,10 +53,10 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
                                             {
                                                 data.id === 1 && (
                                                     <>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 max-[380px]:p-3 rounded-l-full' href={'/about'}>{target.about}</Link>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 max-[380px]:p-3 rounded-l-full' href={'/#story'}>{target.story}</Link>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 max-[380px]:p-3 rounded-l-full' href={'/#team'}>{target.team}</Link>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 max-[380px]:p-3 rounded-l-full' href={'/about#founder'}>{target.founder}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className={`p-5 ${pathName === '/about' ? "bg-abstract text-white" : ""} max-[380px]:p-3 rounded-l-full`} href={'/about'}>{target.about}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className={`p-5 ${pathName+hash === '/#story' ? "font-black text-main" : ""} max-[380px]:p-3 rounded-l-full`} href={'/#story'}>{target.story}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className={`p-5 max-[380px]:p-3 rounded-l-full ${pathName+hash === '/#team' ? " text-main font-black" : ""}`} href={'/#team'}>{target.team}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className={`p-5 max-[380px]:p-3 rounded-l-full ${pathName+hash === '/about#founder' ? "font-black text-main" : ""}`} href={'/about#founder'}>{target.founder}</Link>
                                                     </>
                                                 )
                                             }
@@ -91,7 +102,7 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
                         showSelectedLabel={true}
                         selectButtonClassName="menu-flags-button"
                         selectedSize={10}
-                        optionsSize={14}
+                        optionsSize={isMobile ? 12 : 14}
                     />
                 </div>
             </div>
