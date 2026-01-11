@@ -111,10 +111,8 @@ export default function Jobs() {
       const filter = data.data.filter((job: any) => job.title.toLowerCase().includes(jobTitle.toLowerCase()) && job.employmentType.toLowerCase().includes(empType.toLowerCase()) && job.location.toLowerCase().includes(jobLocation.toLowerCase()));
       setFiltered(filter);
     }
-    if (!jobTitle && !jobLocation && empType === '') {
-      setFiltered(data.data)
-    }
   }
+
 
   return (
     <>
@@ -123,31 +121,76 @@ export default function Jobs() {
       <section className='px-job-clamp py-40'>
         <Header title={target?.jobs} />
 
-        <div className='flex px-2 sm:px-8 max-lg:text-sm rounded-full py-2 lg:py-5 mt-10 border shadow-md shadow-gray-300 items-center'>
-          <div className="w-[35%] flex items-center gap-1 sm:gap-2 border-r-4 h-12 border-gray-300">
-            <FaSearch />
-            <input value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} placeholder={target.place_job} className='focus:outline-none max-sm:text-xs w-[90%]' />
-          </div>
-          <div className="w-[35%] flex items-center gap-1 sm:gap-2 px-2 border-r-4 h-12 border-gray-300">
-            <CiLocationOn className='text-2xl' />
-            <input value={jobLocation} onChange={(e) => setJobLocation(e.target.value)} placeholder={'Location'} className='focus:outline-none w-[90%] max-sm:text-xs' />
-          </div>
-          <div className="w-[25%]  flex items-center px-2 max-sm:text-xs">
-            <select onChange={(e) => setEmpType(e.target.value)} className='w-full' name="" id="">
-              <option value="">Employment Type</option>
-              <option value="internship">Internship</option>
-              <option value="contract">Contract</option>
-              <option value="fulltime">Full time</option>
-            </select>
-          </div>
-          <div className="w-[15%] hidden sm:flex justify-end">
-            <button onClick={handleSearch} className='lg:px-8 px-3 py-2 bg-main text-white text-xs lg:text-sm rounded-full'>{target.find_jobs}</button>
-          </div>
-        </div>
+        <div className="mt-8 w-full bg-white rounded-xl shadow-md shadow-gray-200 p-4">
+  <div className="flex flex-col sm:flex-row sm:items-end gap-3">
 
-        <div className="w-full sm:hidden flex mt-3">
-          <button onClick={handleSearch} className='lg:px-8 px-3 py-3 w-full bg-main text-white text-xs lg:text-sm rounded-full'>{target.find_jobs}</button>
-        </div>
+    {/* Job Title */}
+    <div className="flex-1">
+      <label className="block sm:hidden text-xs text-gray-500 mb-1">
+        Job Title
+      </label>
+      <div className="flex items-center gap-2 h-12 px-3 rounded-lg border border-gray-200 focus-within:border-main transition">
+        <FaSearch className="text-gray-400" />
+        <input
+          value={jobTitle}
+          onChange={(e) => setJobTitle(e.target.value)}
+          placeholder={target.place_job}
+          className="w-full text-sm focus:outline-none"
+        />
+      </div>
+    </div>
+
+    {/* Location */}
+    <div className="flex-1">
+      <label className="block sm:hidden text-xs text-gray-500 mb-1">
+        Location
+      </label>
+      <div className="flex items-center gap-2 h-12 px-3 rounded-lg border border-gray-200 focus-within:border-main transition">
+        <CiLocationOn className="text-lg text-gray-400" />
+        <input
+          value={jobLocation}
+          onChange={(e) => setJobLocation(e.target.value)}
+          placeholder="Location"
+          className="w-full text-sm focus:outline-none"
+        />
+      </div>
+    </div>
+
+    {/* Employment Type */}
+    <div className="flex-1">
+      <label className="block sm:hidden text-xs text-gray-500 mb-1">
+        Employment Type
+      </label>
+      <select
+        onChange={(e) => setEmpType(e.target.value)}
+        className="w-full h-12 px-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:border-main transition"
+      >
+        <option value="">Employment Type</option>
+        <option value="internship">Internship</option>
+        <option value="contract">Contract</option>
+        <option value="fulltime">Full Time</option>
+      </select>
+    </div>
+
+    {/* Search Button */}
+    <div className="sm:w-auto w-full">
+      <button
+        onClick={handleSearch}
+        disabled={isLoading || !objToken || (!jobTitle && !jobLocation && empType === '')}
+        className={`w-full sm:w-auto h-12 px-8 rounded-lg text-sm font-semibold text-white bg-main transition
+          ${
+            isLoading || !objToken
+              ? 'opacity-50 cursor-not-allowed'
+              : 'hover:opacity-90 active:scale-[0.98]'
+          }`}
+      >
+        {isLoading ? 'Searching…' : target.find_jobs}
+      </button>
+    </div>
+
+  </div>
+</div>
+
 
         <div className='mt-10 w-full'>
           <div className=' flex justify-between text-sm'>
@@ -163,7 +206,7 @@ export default function Jobs() {
             }
 
             {
-              isLoading && (
+              objToken && isLoading && (
                 <div className='text-md w-full text-center'>
                   Loading jobs...
                 </div>
