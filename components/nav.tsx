@@ -148,7 +148,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
         w-full
         z-50
         border
-        px-2 sm:px-6 lg:px-10  py-1 sm:py-4
+        px-2 sm:px-6 lg:px-10  py-1 sm:py-4 max-[380px]:p-3
         backdrop-blur-2xl
         bg-white/70
         flex items-center justify-between
@@ -156,7 +156,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
       "
     >
       <div className='w-[40%] relative '>
-        <div onClick={() => route.push('/')} className='relative cursor-pointer  flex w-[263px] h-[80px] items-center text-logo font-bold'>
+        <div onClick={() => route.push('/')} className='relative cursor-pointer  flex max-[380px]:w-[200px] max-[380px]:h-[50px] w-[263px] h-[80px] items-center text-logo font-bold'>
             <Image 
                 src={logo}
                 alt='logo'
@@ -245,11 +245,11 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
       <div className='flex gap-2 items-center xl:hidden'>
                {
                   moblieNavInview ? 
-                    <button onClick={() => setMobileNavInview(false)} className="flex xl:hidden text-4xl font-semibold items-center ">
+                    <button onClick={() => setMobileNavInview(false)} className="flex xl:hidden max-[380px]:text-2xl text-4xl font-semibold items-center ">
                       <TiTimes />
                     </button>
                   :
-                    <button onClick={() => setMobileNavInview(true)} className="flex xl:hidden text-3xl font-semibold items-center ">
+                    <button onClick={() => setMobileNavInview(true)} className="flex xl:hidden max-[380px]:text-xl text-3xl font-semibold items-center ">
                       <TiThMenu />
                     </button>
               }

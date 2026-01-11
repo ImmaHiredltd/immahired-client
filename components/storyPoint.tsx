@@ -34,8 +34,8 @@ const StoryPoint = ({
         bg-white/70
         backdrop-blur-xl
         rounded-2xl
-        px-5 sm:px-8 py-12
-        flex flex-col justify-center gap-3
+        px-5 sm:px-8 py-12 max-[380px]:py-5
+        flex flex-col justify-center gap-3 max-[380px]:gap-2
         shadow-2xl
         text-black
         transition-transform duration-700 ease-[cubic-bezier(.2,.8,.2,1)]
@@ -54,8 +54,8 @@ const StoryPoint = ({
           />
       </div>
       
-      <h3 className="text-2xl font-bold mt-4">{title}</h3>
-      <p className=" text-black/80 text-sm mt-4 leading-relaxed">
+      <h3 className="text-2xl max-[380px]:text-xl font-bold mt-4">{title}</h3>
+      <p className=" text-black/80 max-[380px]:text-xs text-sm mt-4 leading-relaxed">
         {text}
       </p>
     </div>

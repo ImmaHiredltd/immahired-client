@@ -16,13 +16,13 @@ export default function WhyUs({ target }: any) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <p className="text-2xl sm:text-4xl p-3 w-16 sm:w-20 h-16 sm:h-20 flex items-center justify-center text-white bg-main hover:bg-white rounded-full">
+          <p className="text-2xl max-[380px]:text-xl max-[380px]:p-2 sm:text-4xl p-3 w-16 sm:w-20 h-16 sm:h-20 flex items-center justify-center text-white bg-main hover:bg-white rounded-full">
             {icon}
           </p>
     
-          <p className="text-xl sm:text-2xl font-black">{title}</p>
+          <p className="text-xl max-[380px]:text-sm sm:text-2xl font-black">{title}</p>
     
-          <p>{details}</p>
+          <p className='max-[380px]:text-xs'>{details}</p>
         </motion.div>
       );
     };
@@ -52,7 +52,7 @@ export default function WhyUs({ target }: any) {
                           className="w-full h-[125vh] sm:h-full  py-10 px-5 sm:px-20 flex flex-col items-center space-y-5 sm:space-y-14 justify-center"
                         >
                           <motion.div
-                            className="text-3xl sm:text-5xl"
+                            className="text-3xl max-[380px]:text-2xl sm:text-5xl"
                             initial={{ y: -50, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8 }}
@@ -61,7 +61,7 @@ export default function WhyUs({ target }: any) {
                           </motion.div>
         
                           <motion.h2
-                            className="text-2xl sm:text-5xl font-black"
+                            className="max-[380px]:text-xl text-2xl sm:text-5xl font-black"
                             initial={{ y: -50, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}

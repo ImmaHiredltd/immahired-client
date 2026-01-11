@@ -106,23 +106,23 @@ export default function Industries({ target }: any) {
     const visibleIndustries = (showAll || isMobile) ? industries : industries.slice(0, 8);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-24">
+    <section className="max-w-7xl mx-auto px-6 max-[380px]:text-xs py-24">
                   {/* Heading */}
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="text-center text-4xl sm:text-5xl font-black mb-4"
+                    className="text-center max-[380px]:text-2xl text-4xl sm:text-5xl font-black mb-4"
                   >
                     {target.explore_industries}
                   </motion.h2>
 
-                  <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16 max-sm:text-sm">
+                  <p className="text-center text-gray-600 max-w-2xl mx-auto max-[380px]:text-xs mb-16 max-sm:text-sm">
                     {target.we_serve_various_industries_text}
                   </p>
 
                   {/* Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
+                  <div className="grid grid-cols-1 max-[380px]:gap-5 md:grid-cols-2 xl:grid-cols-4 gap-10">
                     {visibleIndustries.map((item, index) => (
                       <motion.div
                         key={index}

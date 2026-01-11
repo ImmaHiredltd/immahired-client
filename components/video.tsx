@@ -27,7 +27,7 @@ export default function Video({ target }: any) {
         }
       }
   return (
-    <div className="flex sm:flex-row flex-col items-center h-full gap-16">
+    <div className="flex sm:flex-row flex-col items-center h-full max-[380px]:gap-10 gap-16">
                   {/* VIDEO CARD */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
@@ -36,14 +36,14 @@ export default function Video({ target }: any) {
                     className="relative w-full sm:w-[50%] flex justify-center group"
                   >
                     {/* MAIN VIDEO CARD */}
-                    <div className="relative w-full max-w-[670px] rounded-3xl overflow-hidden shadow-2xl">
+                    <div className="relative w-full max-w-[670px] max-[380px]:rounded-xl rounded-3xl overflow-hidden shadow-2xl">
                       {/* VIDEO */}
                       <video
                         ref={videoRef}
                         src="/videos/HJYJ3497.MP4"
                         loop
                         playsInline
-                        className="w-full h-[210px] sm:h-[380px] object-cover"
+                        className="w-full h-[210px] max-[380px]:h-[200px] sm:h-[380px] object-cover"
                       />
 
                       {/* SOFT OVERLAY */}
@@ -107,18 +107,18 @@ export default function Video({ target }: any) {
                     transition={{ duration: 0.8, delay: 0.1 }}
                     className="w-full sm:w-[45%] max-w-2xl max-sm:px-2"
                   >
-                    <p className="text-xl uppercase tracking-[0.3em] text-gray-500 mb-4 font-bold">
+                    <p className="max-[380px]:text-sm text-xl uppercase tracking-[0.3em] text-gray-500 mb-4 font-bold">
                       {target.about_us}
                     </p>
 
-                    <h2 className="text-3xl sm:text-2xl font-semibold mb-6">
+                    <h2 className="text-3xl max-[380px]:text-xl sm:text-2xl font-semibold mb-6">
                       {target.about_us_1}
                     </h2>
 
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-gray-600 mb-6 max-[380px]:text-xs">
                       {target.about_us_2}
                     </p>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-gray-600 mb-6 max-[380px]:text-xs">
                       {target.about_us_3}
                     </p>
                   </motion.div>

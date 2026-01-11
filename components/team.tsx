@@ -6,11 +6,11 @@ export default function Team({target}: any) {
   return (
     <section className="sm:py-12" id="team">
                   <h2 className="text-center p-10 sm:mb-20">
-                    <span className="block text-[12px] sm:text-sm uppercase tracking-[0.4em] text-abstract/60 mb-3">
+                    <span className="block text-[12px] max-[380px]:text-[10px] sm:text-sm uppercase tracking-[0.4em] text-abstract/60 mb-3">
                       {target.meet_the_people}
                     </span>
 
-                    <span className="block text-4xl sm:text-5xl tracking-[0.2em] font-black text-abstract">
+                    <span className="block max-[380px]:text-xl text-4xl sm:text-5xl tracking-[0.2em] font-black text-abstract">
                       {target.meet_the_team}
                     </span>
                   </h2>
@@ -22,7 +22,7 @@ export default function Team({target}: any) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-                    className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-10 px-6 sm:px-0"
+                    className="grid grid-cols-1 sm:grid-cols-3 max-[380px]:gap-2 gap-5 sm:gap-10 px-6 sm:px-0"
                   >
                     {/* CARD */}
                     {[
@@ -73,11 +73,11 @@ export default function Team({target}: any) {
                         </div>
 
                         {/* Text */}
-                        <h3 className="mt-6 text-xl font-extrabold tracking-tight">
+                        <h3 className="mt-6  text-xl font-extrabold tracking-tight">
                           {member.name}
                         </h3>
 
-                        <p className="mt-1 text-sm uppercase tracking-widest text-black/60">
+                        <p className="mt-1 text-sm max-[380px]:text-xs uppercase tracking-widest text-black/60">
                           {member.role}
                         </p>
                       </motion.div>

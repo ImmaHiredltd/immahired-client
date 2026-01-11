@@ -26,7 +26,7 @@ export default function Footer() {
 
 
   return (
-    <section className='w-full text-sm bg-main text-white px-8 py-10 sm:py-32 space-y-12'>
+    <section className='w-full text-sm max-[380px]:text-xs bg-main text-white px-8 py-10 sm:py-32 space-y-12'>
         {
             showChat && (
                 <div className="fixed w-screen h-screen top-0 left-0 bg-black/60 z-50 flex justify-center items-center">

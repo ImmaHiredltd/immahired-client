@@ -23,10 +23,8 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
     }
 
     return (
-        <section className='w-screen h-screen text-xs fixed flex justify-end z-40'>
-            <div className='w-full max-w-[500px] h-screen bg-white px-10 pt-36 relative '>
-            
-            
+        <section className='w-screen h-screen max-[380px]:text-[10px] text-xs fixed flex justify-end z-40'>
+            <div className='w-full max-w-[500px] h-screen bg-white px-10 max-[380px]:pt-28 pt-36 relative '>
                 {
                     navs && navs.map((data: any, index: number) => {
                         const showLink = (data?.id !== 7 && data?.id !== 8) || // Always show links except for candidate/employer
@@ -38,16 +36,16 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
                                     showLink && (
 
                                         <div key={index} className='flex flex-col'>
-                                            <Link href={`${data.ref}`} className={`p-5 rounded-l-full ${pathName === data.ref ? "bg-abstract text-white" : ""}`}>
+                                            <Link href={`${data.ref}`} className={`p-5 max-[380px]:p-3 rounded-l-full ${pathName === data.ref ? "bg-abstract text-white" : ""}`}>
                                                 <span>{data.name.toLocaleUpperCase()}</span>
                                             </Link>
                                             {
                                                 data.id === 1 && (
                                                     <>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about'}>{target.about}</Link>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/#story'}>{target.story}</Link>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/#team'}>{target.team}</Link>
-                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 rounded-l-full' href={'/about#founder'}>{target.founder}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 max-[380px]:p-3 rounded-l-full' href={'/about'}>{target.about}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 max-[380px]:p-3 rounded-l-full' href={'/#story'}>{target.story}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 max-[380px]:p-3 rounded-l-full' href={'/#team'}>{target.team}</Link>
+                                                        <Link onClick={() => setMobileNavInview(false)} className='p-5 max-[380px]:p-3 rounded-l-full' href={'/about#founder'}>{target.founder}</Link>
                                                     </>
                                                 )
                                             }
@@ -63,20 +61,20 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
                     active ?
                         <>
                             <div className='flex flex-col'>
-                                <Link href={tokenData.data.type === 'talent' ? '/candidate' : tokenData.data.type === 'admin' && tokenData.data.approved ? '/admin' : tokenData.data.type === 'employer' ? '/employer' : "/"} className={`p-5 rounded-l-full  ${tokenData.data.type === 'admin' && !tokenData.data.approved && 'cursor-not-allowed pointer-events-none'}`}>
+                                <Link href={tokenData.data.type === 'talent' ? '/candidate' : tokenData.data.type === 'admin' && tokenData.data.approved ? '/admin' : tokenData.data.type === 'employer' ? '/employer' : "/"} className={`p-5 max-[380px]:p-3 rounded-l-full  ${tokenData.data.type === 'admin' && !tokenData.data.approved && 'cursor-not-allowed pointer-events-none'}`}>
                                     <span>{target.dashboard.toLocaleUpperCase()}</span>
                                 </Link>
-                                <button onClick={logout} className={`p-5 rounded-l-full text-left`}>
+                                <button onClick={logout} className={`p-5 max-[380px]:p-3 rounded-l-full text-left`}>
                                     <span>{target.logout.toLocaleUpperCase()}</span>
                                 </button>
                             </div>
                         </> :
                         <>
                             <div className='flex flex-col'>
-                                <Link href={`/register`} className={`p-5 rounded-l-full`}>
+                                <Link href={`/register`} className={`p-5 max-[380px]:p-3 rounded-l-full`}>
                                     <span>{target.register.toLocaleUpperCase()}</span>
                                 </Link>
-                                <Link href={`/login`} className={`p-5 rounded-l-full`}>
+                                <Link href={`/login`} className={`p-5 max-[380px]:p-3 rounded-l-full`}>
                                     <span>{target.login.toLocaleUpperCase()}</span>
                                 </Link>
                             </div>
@@ -84,18 +82,18 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
 
                 }
                 <div className="absolute bottom-1/2 right-0 z-50 flex justify-between items-center pt-4">
-                <ReactFlagsSelect
-                    selected={language}
-                    countries={["GB", "CN", "ES"]}
-                    onSelect={handleChange}
-                    className={`menu-flags outline-none w-fit bg-white`}
-                    placeholder={language}
-                    showSelectedLabel={true}
-                    selectButtonClassName="menu-flags-button"
-                    selectedSize={10}
-                    optionsSize={14}
-                />
-            </div>
+                    <ReactFlagsSelect
+                        selected={language}
+                        countries={["GB", "CN", "ES"]}
+                        onSelect={handleChange}
+                        className={`menu-flags outline-none w-fit bg-white`}
+                        placeholder={language}
+                        showSelectedLabel={true}
+                        selectButtonClassName="menu-flags-button"
+                        selectedSize={10}
+                        optionsSize={14}
+                    />
+                </div>
             </div>
         </section>
     )

@@ -264,7 +264,6 @@ html{
 
 .marquee-track span {
   white-space: nowrap;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   padding-right: 4rem;

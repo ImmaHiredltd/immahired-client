@@ -118,12 +118,12 @@ export default function Home() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 90 }}
-            className="font-black text-6xl w-[90%] sm:max-w-[70%] max-sm:text-3xl"
+            className="font-black max-[380px]:text-xl text-6xl w-[90%] sm:max-w-[70%] max-sm:text-3xl"
           >
             {target.h1}
           </motion.h1>
 
-          <div className="text-6xl max-sm:text-3xl text-black font-black">
+          <div className="text-6xl max-[380px]:text-xl max-sm:text-3xl text-black font-black">
             <Typewriter
               options={{
                 strings: [target.h1_add, target.h1_add2],
@@ -134,14 +134,14 @@ export default function Home() {
             />
           </div>
 
-          <p className="mt-6 max-w-3xl text-xl max-sm:text-sm font-semibold px-6">
+          <p className="mt-6 max-w-3xl max-[380px]:text-xs text-xl max-sm:text-sm font-semibold px-6">
             {target.p_banner}
           </p>
 
-          <div className="mt-10 flex gap-4 max-sm:flex-col">
+          <div className="mt-10 max-[380px]:text-xs flex gap-4 max-sm:flex-col">
             <button
               onClick={() => (window.location.href = "/jobs")}
-              className="btn-sweep bg-white px-10 py-5 rounded-full font-semibold flex items-center gap-2"
+              className="btn-sweep bg-white max-[380px]:px-5 max-[380px]:py-3 px-10 py-5 rounded-full font-semibold flex items-center gap-2"
             >
               {target.find_jobs}
               <FaArrowTrendUp />
@@ -149,14 +149,14 @@ export default function Home() {
 
             <button
               onClick={handleHire}
-              className="btn-sweep bg-main text-white px-12 py-5 rounded-full font-semibold"
+              className="btn-sweep bg-main text-white max-[380px]:px-5 max-[380px]:py-3 px-12 py-5 rounded-full font-semibold"
             >
               {target.hire_talents}
             </button>
           </div>
 
-          <section className="bg-abstract py-8 sm:rotate-[-2deg] absolute bottom-10 w-full z-40">
-            <div className="marquee-track text-white flex gap-20 whitespace-nowrap">
+          <section className="bg-abstract py-8 sm:rotate-[-2deg] absolute max-[380px]:text-xs bottom-10 w-full z-40">
+            <div className="marquee-track text-white flex max-[380px]:gap-10 gap-20 whitespace-nowrap">
               {industriesMarquee.map((i, idx) => (
                 <span key={idx} className="flex gap-6 items-center">
                   {i}
@@ -172,14 +172,14 @@ export default function Home() {
       </section>
 
       {/* ================= VIDEO ================= */}
-      <section className="pt-16 sm:py-24 px-5 sm:px-20 bg-white">
+      <section className="max-[380px]:pt-8 pt-16 sm:py-24 px-5 sm:px-20 bg-white">
         <Video target={target} />
       </section>
 
       {/* ================= WHY US ================= */}
       <section className=" relative min-h-screen max-sm:h-fit flex justify-center items-centeroverflow-hidden">
-        <div className="absolute w-[800px] sm:w-[800px] h-[800px] sm:h-[800px] rounded-full right-20 bottom-20 sm:-bottom-52 bg-main/20" />
-        <div className="w-full sm:py-24 min-h-screen backdrop-blur-3xl">
+        <div className="absolute w-[800px] sm:w-[800px] h-[800px] sm:h-[800px] rounded-full right-20 max-[380px]:bottom-10 bottom-20 sm:-bottom-52 bg-main/20" />
+        <div className="w-full max-[380px]:py-14 sm:py-24 min-h-screen backdrop-blur-3xl">
           <WhyUs target={target} />   
         </div>
       </section>
@@ -193,7 +193,7 @@ export default function Home() {
             className="object-cover"
           />
         <div className="relative bg-black/80 h-[22vh] sm:min-h-[65vh] flex items-center justify-center text-center text-white px-10">
-          <p className="text-2xl sm:text-5xl font-bold max-w-4xl max-sm:mb-5">
+          <p className="text-2xl max-[380px]:text-lg sm:text-5xl font-bold max-w-4xl max-sm:mb-5">
             {target.research}
           </p>
         </div>
@@ -201,12 +201,12 @@ export default function Home() {
 
       {/* ================= CARDS ================= */}
       <section className="flex sm:flex-row flex-col justify-center gap-20 max-sm:px-5">
-          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl max-[380px]:-translate-y-10 -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
             <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
               <GrUserWorker />
             </p>
             <h2 className="text-center font-black text-xl sm:text-4xl">{target.overseas_talent}</h2>
-            <p className="text-center text-sm sm:w-[90%] mx-auto">
+            <p className="text-center  max-[380px]:text-xs text-sm sm:w-[90%] mx-auto">
               {target.overseas_talent_p}
             </p>
             <button
@@ -218,7 +218,7 @@ export default function Home() {
                       relative
                       px-10 py-5
                       rounded-full
-                      text-sm font-semibold tracking-wide
+                       max-[380px]:text-xs text-sm font-semibold tracking-wide
                       bg-main text-white
                       transition-all duration-300 ease-out
                       hover:shadow-lg
@@ -240,7 +240,7 @@ export default function Home() {
               <BsBuildingsFill />
             </p>
             <h2 className="text-center font-black text-xl sm:text-4xl">{target.for_organizations}</h2>
-            <p className="text-center text-sm sm:w-[90%] mx-auto">{target.for_organizations_p}</p>
+            <p className="text-center text-sm sm:w-[90%] mx-auto max-[380px]:text-xs">{target.for_organizations_p}</p>
             <button
               onClick={handleHire}
               className="
@@ -250,7 +250,7 @@ export default function Home() {
                       relative
                       px-10 py-5
                       rounded-full
-                      text-sm font-semibold tracking-wide
+                      max-[380px]:text-xs text-sm font-semibold tracking-wide
                       bg-main text-white
                       transition-all duration-300 ease-out
                       hover:shadow-lg
@@ -289,14 +289,14 @@ export default function Home() {
                               sm:text-8xl text-4xl font-black
                               tracking-tight
                               bg-clip-text text-transparent
-                              bg-gradient-to-br from-main to-black
+                              bg-main
                               transition-transform duration-300
                               group-hover:-translate-y-1
                             "
                 >
                   {item.value}
                 </h1>
-                <span className="text-sm uppercase tracking-widest text-black/60">
+                <span className="text-sm max-[380px]:text-xs uppercase tracking-widest text-black/60">
                   {item.label}
                 </span>
               </div>
@@ -305,7 +305,7 @@ export default function Home() {
       </section>
 
       {/* ================= STICKY STORY ================= */}
-      <section id="story" className="w-screen h-[190vh] sm:h-screen relative">
+      <section id="story" className="w-screen max-[380px]:h-[165vh]  h-[190vh] sm:h-screen relative">
         <div className="absolute top-0 h-full w-screen">
           <Image
             src="/images/pexels-jopwell-2422280.jpg"
@@ -315,8 +315,8 @@ export default function Home() {
           />
         </div>
 
-        <div className="absolute z-20 w-screen max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center space-y-20 py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl">
-            <h2 className="text-4xl sm:text-6xl text-center font-extrabold text-gray-300 w-full">
+        <div className="absolute z-20 w-screen max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center max-[380px]:space-y-10 space-y-20 py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl">
+            <h2 className="text-4xl max-[380px]:text-xl sm:text-6xl text-center font-extrabold text-gray-300 w-full">
               {target.our_story}
             </h2>
           <div className="flex sm:flex-row gap-10 flex-col justify-evenly ">
@@ -349,7 +349,7 @@ export default function Home() {
       <Team target={target} />
       <HowItWorks target={target} />
 
-      <section className="py-20">
+      <section className="max-[380px]:py-10 py-20">
         <Testimonial target={target} />
       </section>
 
