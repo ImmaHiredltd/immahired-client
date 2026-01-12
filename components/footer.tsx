@@ -111,8 +111,9 @@ export default function Footer() {
             </button>
         </div>
 
-        <div className="text-xs text-center">
-            &copy; {year.getFullYear()} Immahired. All rights reserved
+        <div className="text-xs flex justify-center items-center sm:flex-row flex-col gap-3">
+            <span>&copy; {year.getFullYear()} Immahired. All rights reserved</span>
+            <span>苏 ICP 备 2024148674 号</span>
         </div>
         
     </section>
