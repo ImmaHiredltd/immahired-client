@@ -59,7 +59,8 @@
         "one_time": "One Time",
         "unlimited": "Unlimited",
         "offer_comming_soon": "Offer Coming Soon",
-        "promo": "Promo"
+        "promo": "Promo",
+        "warning": " Failed to load packages. This issue is not caused by anything you did, we're actively working to resolve it. Please try again later. "
     },
     "cn": {
         "submit_job": "发布职位",
@@ -121,7 +122,8 @@
         "one_time": "一次",
         "unlimited": "无限",
         "offer_comming_soon": "优惠即将来临",
-        "promo": "促销"
+        "promo": "促销",
+        "warning": " 无法加载套餐。此问题不是由您造成的，我们正在积极解决此问题。请稍后再试。 "
     },
     "es": {
         "submit_job": "Publicar Trabajo",
@@ -183,6 +185,7 @@
         "one_time": "Unica",
         "unlimited": "Ilimitada",
         "offer_comming_soon": "Oferta próximamente",
-        "promo": "Promoción"
+        "promo": "Promoción",
+        "warning": " No se pudieron cargar los paquetes. Este problema no fue causado por nada que haya hecho, estamos trabajando activamente para resolverlo. Por favor, inténtelo de nuevo más tarde. "
     }
 }

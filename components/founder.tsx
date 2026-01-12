@@ -12,7 +12,7 @@ import Image from "next/image";
 
 const jsonData: any = aboutLanguage;
 
-export default function Founder() {
+export default function Founder({ isMobileWidth, isMobileHeight }: { isMobileWidth: boolean; isMobileHeight: boolean }) {
   const languageContext = useContext(LanguageData);
 
   if (!languageContext) {
@@ -90,7 +90,7 @@ export default function Founder() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="text-gray-700 max-[380px]:text-sm leading-relaxed"
+              className={`text-gray-700 max-[380px]:text-sm ${isMobileHeight && isMobileWidth && "text-sm"} leading-relaxed`}
             >
               {details[index]}
             </motion.p>

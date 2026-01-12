@@ -14,12 +14,15 @@ import { IoLogoWechat } from 'react-icons/io5';
 import wechat from "@/public/images/wechat.jpg"
 import ContactSection from '@/components/contact';
 import Founder from '@/components/founder';
+import { useMediaQuery } from 'react-responsive';
 
 type LanguageContextType = [string, (language: string) => void];
 export default function About() {
     const languageContext = useContext(LanguageData);
     const jsonData: any = aboutLanguage;
-    const [showChat, setShowChat] = useState(false)
+    const [showChat, setShowChat] = useState(false);
+    const isMobileWidth = useMediaQuery({ minWidth: 414 });
+    const isMobileHeight = useMediaQuery({ maxHeight: 700 });
 
     if (!languageContext) {
         throw new Error("LanguageData context is not provided!");
@@ -31,7 +34,7 @@ export default function About() {
     <section id='about' className='w-full overflow-x-hidden'>
         <Navbar isScrolled = {true} />
         
-        <div className='flex flex-col items-center gap-3 max-[380px]:pt-32 pt-44'>
+        <div className={`${isMobileHeight && isMobileWidth ? "pt-32" : "pt-44"} flex flex-col items-center gap-3 max-[380px]:pt-32`}>
             <h2 className='sm:text-4xl text-2xl font-black'>About</h2>
             <h5>
                 <a href="/" className='hover:text-blue-600 max-[380px]:text-sm'>Home</a> /
@@ -39,7 +42,7 @@ export default function About() {
             </h5>
         </div>
 
-        <div className='w-screen h-fit sm:h-screen flex max-[380px]:p-3 p-5 sm:p-12 justify-evenly'>
+        <div className={`w-screen h-fit sm:h-screen flex  max-[380px]:p-3 p-5 sm:p-12 justify-evenly`}>
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 max-[380px]:gap-2 gap-5 sm:gap-20 items-center">
                 {/* Image Mosaic */}
                 <div className="relative grid grid-cols-2 max-[380px]:gap-3 gap-6">
@@ -100,7 +103,7 @@ export default function About() {
                     {target.about}
                 </h2>
 
-                <div className="max-[380px]:text-sm">
+                <div className={`max-[380px]:text-sm ${isMobileHeight && isMobileWidth && "text-sm"}`}>
                     {parse(target.details)}
                 </div>
                 </motion.div>
@@ -126,7 +129,7 @@ export default function About() {
                     )
                 }
 
-        <Founder />
+        <Founder isMobileWidth isMobileHeight />
 
         <ContactSection target={target} setShowChat={() => setShowChat(!showChat)} />
         
