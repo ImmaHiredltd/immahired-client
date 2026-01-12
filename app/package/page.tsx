@@ -54,7 +54,7 @@ export default function Package(){
                     {/* oops gif */}
                     <img src="/images/wired-outline-1140-error-hover-enlarge.gif" alt="Oops!" className="" />
 
-                    <h2 className='text-red-500 font-semibold sm:w-1/2 text-center'>Failed to load packages. This issue is not caused by anything you did, we&apos;re actively working to resolve it. Please try again later.</h2>
+                    <h2 className='text-red-500 font-semibold sm:w-1/2 text-center'>{target.warning}</h2>
                     
 
                 </div>
