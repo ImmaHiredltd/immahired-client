@@ -262,7 +262,7 @@ export default function Register() {
         <>
             <Navbar isScrolled = {true} />
 
-            <section className='h-[100svh] px-5 relative w-screen flex items-center justify-center'>
+            <section className='h-[115svh] [@media(min-width:2000px)]:max-w-[2300px] [@media(min-width:2000px)]:h-[1000px] mx-auto px-5 relative w-screen flex items-center justify-center'>
                 {
                     isSuccess && empSuccess && (
                         <RegistrationSuccess target={target} />

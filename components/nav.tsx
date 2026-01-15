@@ -143,9 +143,9 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
         stiffness: 120,
         damping: 20,
       }}
-      className="
+      className={`
         fixed top-0 left-1/2 -translate-x-1/2
-        w-full
+        w-full ${!isScrolled ? 'w-[95%] sm:w-[90%] lg:w-[85%]' : 'w-full'} 2xl:max-w-[2300px] 2xl:mx-auto
         z-50
         border
         px-2 sm:px-6 lg:px-10  py-1 sm:py-4 max-[380px]:p-3
@@ -153,7 +153,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
         bg-white/70
         flex items-center justify-between
         text-sm
-      "
+      `}
     >
       <div className='w-[40%] relative '>
         <div onClick={() => route.push('/')} className='relative cursor-pointer  flex max-[380px]:w-[200px] max-[380px]:h-[50px] w-[263px] h-[80px] items-center text-logo font-bold'>

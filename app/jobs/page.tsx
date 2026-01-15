@@ -118,7 +118,7 @@ export default function Jobs() {
     <>
       <Navbar isScrolled={true} />
       <ToastContainer />
-      <section className='px-job-clamp py-40'>
+      <section className='px-job-clamp py-40 [@media(min-width:2000px)]:max-w-[2300px] mx-auto'>
         <Header title={target?.jobs} />
 
         <div className="mt-8 w-full bg-white rounded-xl shadow-md shadow-gray-200 p-4">

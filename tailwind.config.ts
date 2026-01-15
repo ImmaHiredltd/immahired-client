@@ -81,7 +81,10 @@ const config = {
       },
       fontSize: {
         "logo": "clamp(1rem, 2.5vw, 1.2rem)"
-      }
+      },
+      spacing: {
+        'safe': 'clamp(0.5rem, 2vw, 2rem)',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

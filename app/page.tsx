@@ -84,7 +84,7 @@ export default function Home() {
 
       {/* ================= HERO ================= */}
       <section
-        className="relative min-h-screen flex flex-col items-center overflow-hidden justify-center text-center bg-cover bg-center"
+        className="relative max-2xl:min-h-screen h-screen [@media(min-width:2000px)]:h-[1000px] 2xl:max-w-[2400px] 2xl:mx-auto flex flex-col items-center overflow-hidden justify-center text-center bg-cover bg-center"
         style={{
           backgroundImage:
             "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')",
@@ -114,7 +114,7 @@ export default function Home() {
             </div>
         </div>
 
-        <div className="absolute w-screen h-screen backdrop-blur-2xl z-20 flex items-center justify-center flex-col">
+        <div className="absolute w-screen h-screen [@media(min-width:2000px)]:h-[1000px] backdrop-blur-2xl top-0 z-20 flex items-center justify-center flex-col">
             <motion.h1
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
@@ -173,27 +173,27 @@ export default function Home() {
       </section>
 
       {/* ================= VIDEO ================= */}
-      <section className="max-[380px]:pt-8 pt-16 sm:py-24 px-5 sm:px-20 bg-white">
+      <section className="max-[380px]:pt-8 pt-16 sm:py-24 px-5 sm:px-20 bg-white 2xl:max-w-[2200px] 2xl:mx-auto">
         <Video target={target} isMobileHeight isMobileWidth />
       </section>
 
       {/* ================= WHY US ================= */}
-      <section className=" relative min-h-screen max-sm:h-fit flex justify-center items-centeroverflow-hidden">
+      <section className=" relative max-xl:min-h-screen 2xl:h-fit max-sm:h-fit flex justify-center [@media(min-width:2000px)]:max-w-[2300px] mx-auto items-center overflow-hidden">
         <div className={`absolute ${isMobileHeight && isMobileWidth ? "bottom-5" : "bottom-20"} w-[800px] sm:w-[800px] h-[800px] sm:h-[800px] rounded-full right-20 max-[380px]:bottom-10  xl:-bottom-52 bg-main/20`} />
-        <div className={`w-full max-[380px]:py-14 min-h-screen backdrop-blur-3xl ${isMobileHeight && isMobileWidth ? "py-16" : "py-24"}`}>
+        <div className={`w-full max-[380px]:py-14 max-xl:min-h-screen 2xl:h-fit backdrop-blur-3xl ${isMobileHeight && isMobileWidth ? "py-16" : "py-24"}`}>
           <WhyUs target={target} />   
         </div>
       </section>
 
       {/* ================= RESEARCH ================= */}
-      <section className={`relative  ${isMobileHeight && isMobileWidth ? "h-[25vh]" : "h-[22vh]"} sm:min-h-[65vh]`}>
+      <section className={`relative  ${isMobileHeight && isMobileWidth ? "h-[25vh]" : "h-[22vh]"} sm:h-[65vh] [@media(min-width:2000px)]:max-w-[2300px] mx-auto [@media(min-width:2000px)]:h-[600px]`}>
           <Image
             src="/images/reg.jpg"
             alt="research"
             fill
             className="object-cover"
           />
-        <div className="relative bg-black/80 h-[22vh] sm:min-h-[65vh] flex items-center justify-center text-center text-white px-10">
+        <div className="relative bg-black/80 h-[22vh] sm:h-[65vh] [@media(min-width:2000px)]:h-[600px] flex items-center justify-center text-center text-white px-10">
           <p className={`text-2xl max-[380px]:text-lg sm:text-5xl font-bold max-w-4xl max-sm:mb-5`}>
             {target.research}
           </p>
@@ -202,7 +202,7 @@ export default function Home() {
 
       {/* ================= CARDS ================= */}
       <section className="flex xl:flex-row flex-col justify-center items-center gap-20 max-sm:px-5">
-          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[60%] xl:w-[35%] sm:h-[83%] shadow-xl bg-white rounded-xl max-[380px]:-translate-y-10 -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[60%] xl:w-[35%] sm:h-[83%] [@media(min-width:2000px)]:max-w-[600px] shadow-xl bg-white rounded-xl max-[380px]:-translate-y-10 -translate-y-14 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
             <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
               <GrUserWorker />
             </p>
@@ -236,7 +236,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[60%] xl:w-[35%] h-[83%] shadow-xl bg-white rounded-xl -translate-y-20 sm:-translate-y-40 transition-all duration-500 ease-out  hover:shadow-2xl">
+          <div className="px-6 pt-10 pb-6 flex flex-col gap-5 w-full sm:w-[60%] xl:w-[35%] h-[83%] shadow-xl bg-white rounded-xl -translate-y-20 sm:-translate-y-40 transition-all duration-500 ease-out [@media(min-width:2000px)]:max-w-[600px]  hover:shadow-2xl">
             <p className="text-4xl text-gray-500 w-20 h-20 bg-gray-100 shadow-lg rounded-full flex items-center justify-center mx-auto transition-transform duration-300 ease-out hover:scale-110">
               <BsBuildingsFill />
             </p>
@@ -269,7 +269,7 @@ export default function Home() {
 
       </section>
 
-      <section className="sm:mb-20 mb-10">
+      <section className="sm:mb-20 mb-10 [@media(min-width:2000px)]:max-w-[2300px] mx-auto">
         <div className="relative grid grid-cols-1 sm:grid-cols-3 sm:px-10 gap-8 py-8 sm:py-16">
             {[
               { value: "100+", label: target.metrics_1 },
@@ -305,8 +305,8 @@ export default function Home() {
       </section>
 
       {/* ================= STICKY STORY ================= */}
-      <section id="story" className={`w-screen max-[380px]:h-[168vh] ${isMobileHeight && isMobileWidth ? "h-[215vh]" : "h-[190vh]"} py-20 sm:h-[180vh]  xl:h-screen relative`}>
-        <div className="absolute top-0 mt-20 h-full w-screen">
+      <section id="story" className={`w-screen max-[380px]:h-[168vh] ${isMobileHeight && isMobileWidth ? "h-[215vh]" : "h-[190vh]"} py-20 sm:h-[180vh]  xl:h-screen relative [@media(min-width:2000px)]:h-[1000px] [@media(min-width:2000px)]:max-w-[2300px] mx-auto`}>
+        <div className="absolute top-0 mt-20 h-full w-screen [@media(min-width:2000px)]:max-w-[2300px]">
           <Image
             src="/images/pexels-jopwell-2422280.jpg"
             alt="story bg"
@@ -315,7 +315,7 @@ export default function Home() {
           />
         </div>
 
-        <div className={`absolute z-20 w-screen max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center max-[380px]:space-y-10 ${isMobileHeight && isMobileWidth ? "space-y-5" : "space-y-20"}  py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl`}>
+        <div className={`absolute z-20 w-screen [@media(min-width:2000px)]:max-w-[2300px] max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center max-[380px]:space-y-10 ${isMobileHeight && isMobileWidth ? "space-y-5" : "space-y-20"}  py-10 px-5 sm:p-20 h-full bg-black/60  backdrop-blur-xl`}>
             <h2 className={`max-[380px]:text-xl ${isMobileHeight && isMobileWidth ? "text-xl" : "text-4xl"} sm:text-6xl text-center font-extrabold text-gray-300 w-full`}>
               {target.our_story}
             </h2>
@@ -346,7 +346,7 @@ export default function Home() {
       <Team target={target} />
       <HowItWorks target={target} />
 
-      <section className="max-[380px]:py-10 py-20">
+      <section className="max-[380px]:py-10 py-20 [@media(min-width:2000px)]:max-w-[2300px] mx-auto">
         <Testimonial target={target} />
       </section>
 

@@ -42,7 +42,7 @@ export default function About() {
             </h5>
         </div>
 
-        <div className={`w-screen h-fit sm:h-screen flex  max-[380px]:p-3 p-5 sm:p-12 justify-evenly`}>
+        <div className={`w-screen [@media(min-width:2000px)]:max-w-[2300px] [@media(min-width:2000px)]:h-fit mx-auto h-fit sm:h-screen flex  max-[380px]:p-3 p-5 sm:p-12 justify-evenly`}>
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 max-[380px]:gap-2 gap-5 sm:gap-20 items-center">
                 {/* Image Mosaic */}
                 <div className="relative grid grid-cols-2 max-[380px]:gap-3 gap-6">

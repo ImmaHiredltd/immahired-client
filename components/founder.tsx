@@ -36,7 +36,7 @@ export default function Founder({ isMobileWidth, isMobileHeight }: { isMobileWid
   return (
     <section
       id="founder"
-      className="relative h-fit flex lg:flex-row flex-col items-center justify-between px-banner-clamp py-28 max-[380px]:py-24 sm:py-20 gap-14"
+      className="relative [@media(min-width:2000px)]:max-w-[2100px] mx-auto h-fit flex lg:flex-row flex-col items-center justify-between px-banner-clamp py-28 max-[380px]:py-24 sm:py-20 gap-14"
     >
       {/* IMAGE */}
       <motion.div

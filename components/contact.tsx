@@ -27,7 +27,7 @@ export default function ContactSection({ target, setShowChat }: {target: any, se
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         id="contact"
-        className="h-fit sm:h-[50vh] w-full sm:bg-main px-job-clamp text-main sm:text-white py-10 text-center space-y-4"
+        className="h-fit sm:h-[50vh] [@media(min-width:2000px)]:max-w-[2300px] mx-auto [@media(min-width:2000px)]:h-[400px] w-full sm:bg-main px-job-clamp text-main sm:text-white py-10 text-center space-y-4"
       >
         <motion.h2
           initial={{ scale: 0.95 }}
@@ -119,7 +119,7 @@ export default function ContactSection({ target, setShowChat }: {target: any, se
                 y: -8,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
               }}
-              className="w-full sm:w-[30%] rounded-xl max-sm:text-xs p-6 bg-white shadow-lg space-y-4 transition-all"
+              className="w-full sm:w-[30%] [@media(min-width:2000px)]:max-w-[500px] rounded-xl max-sm:text-xs p-6 bg-white shadow-lg space-y-4 transition-all"
             >
               {/* Flag */}
               <motion.div

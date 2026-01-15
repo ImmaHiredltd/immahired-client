@@ -26,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7DW0J4FYE5"
           strategy="afterInteractive"

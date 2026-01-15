@@ -11,7 +11,7 @@ export default function WhyUs({ target }: any) {
     const Why = ({ icon, title, details }: any) => {
       return (
         <motion.div
-          className="xl:w-[30%] w-full btn-sweep py-7 sm:py-14 px-5 sm:px-10 rounded-xl bg-white space-y-5 ease-in-out duration-500 hover:bg-main hover:text-white"
+          className="xl:w-full w-full btn-sweep py-7 sm:py-14 px-5 sm:px-10 rounded-xl bg-white space-y-5 ease-in-out duration-500 hover:bg-main hover:text-white"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -49,7 +49,7 @@ export default function WhyUs({ target }: any) {
   return (
     <>  
                         <motion.div
-                          className="w-full h-[125vh] sm:h-full  py-10 px-5 sm:px-20 flex flex-col items-center space-y-5 sm:space-y-14 justify-center"
+                          className="w-full h-[125vh] 2xl:h-fit 2xl:max-w-[2300px] 2xl:mx-auto sm:h-full  py-10 px-5 sm:px-20 flex flex-col items-center space-y-5 sm:space-y-14 justify-center"
                         >
                           <motion.div
                             className="text-3xl max-[380px]:text-2xl sm:text-5xl"
@@ -69,7 +69,7 @@ export default function WhyUs({ target }: any) {
                             {target.why_us}
                           </motion.h2>
         
-                          <div className="flex xl:flex-row flex-col justify-evenly w-full gap-8">
+                          <div className="grid grid-cols-1 xl:grid-cols-3 w-full gap-8">
                             {whyChooseUs &&
                               whyChooseUs.map((item, i) => (
                                 <Why

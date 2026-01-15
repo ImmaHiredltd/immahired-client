@@ -50,7 +50,7 @@ export default function Services() {
     index,
     setIndex,
   }: any) => (
-    <section className="min-h-screen flex flex-col justify-center gap-12">
+    <section className="h-screen [@media(min-width:2000px)]:h-[1000px] [@media(min-width:2000px)]:max-w-[2300px] mx-auto flex flex-col justify-center gap-12">
       <h2 className="text-2xl font-black text-center">{title}</h2>
 
       <div className="relative rounded-3xl overflow-hidden shadow-2xl">

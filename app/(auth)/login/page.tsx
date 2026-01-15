@@ -124,7 +124,7 @@ export default function Login() {
   return (
    <>
         <Navbar isScrolled = {true} />
-         <section className='h-[100svh] w-screen flex items-center justify-center'>
+         <section className='h-[100svh] [@media(min-width:2000px)]:max-w-[2300px] [@media(min-width:2000px)]:h-[1000px] mx-auto w-screen flex items-center justify-center'>
          <ToastContainer />
         <div className='w-[85%] sm:w-1/3 lg:w-1/4 space-y-10'>
             {/* <Header title={target.login_header} /> */}
