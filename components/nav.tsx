@@ -41,6 +41,18 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
     const languageContext = useContext(LanguageData); 
     const [moblieNavInview, setMobileNavInview] = useState(false)
     const route = useRouter()
+    const [isUltraWide, setIsUltraWide] = useState(false);
+    
+    useEffect(() => {
+    const check = () => {
+      setIsUltraWide(window.innerWidth >= 2000);
+    };
+
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   
     if (!languageContext) {
       throw new Error('Navbar must be used within a LanguageProvider');
@@ -120,14 +132,14 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
   animate={isScrolled ? "scrolled" : "top"}
   variants={{
     top: {
-      width: "95%",
+      width: isUltraWide ? "2300px" : "95%",
       borderRadius: "9999px",
       boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
       borderColor: "rgba(0,0,0,0.08)",
       marginTop: "20px",
     },
     scrolled: {
-      width: "100%",
+      width: isUltraWide ? "2300px" : "100%",
       borderRadius: "0px",
       boxShadow: "0 6px 20px rgba(0,0,0,0.35)",
       borderColor: "transparent",

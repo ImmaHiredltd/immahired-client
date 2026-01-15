@@ -84,7 +84,7 @@ export default function Home() {
 
       {/* ================= HERO ================= */}
       <section
-        className="relative max-2xl:min-h-screen h-screen [@media(min-width:2000px)]:h-[1000px] 2xl:max-w-[2400px] 2xl:mx-auto flex flex-col items-center overflow-hidden justify-center text-center bg-cover bg-center"
+        className="relative max-2xl:min-h-screen h-screen [@media(min-width:2000px)]:h-[1000px] 2xl:max-w-[2300px] 2xl:mx-auto flex flex-col items-center overflow-hidden justify-center text-center bg-cover bg-center"
         style={{
           backgroundImage:
             "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')",
