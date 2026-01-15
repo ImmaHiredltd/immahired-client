@@ -305,7 +305,7 @@ export default function Home() {
       </section>
 
       {/* ================= STICKY STORY ================= */}
-      <section id="story" className={`w-screen max-[380px]:h-[168vh] ${isMobileHeight && isMobileWidth ? "h-[215vh]" : "h-[190vh]"} py-20 sm:h-[180vh]  xl:h-screen relative [@media(min-width:2000px)]:h-[1000px] [@media(min-width:2000px)]:max-w-[2300px] mx-auto`}>
+      <section id="story" className={`w-screen max-[380px]:h-[168vh] ${isMobileHeight && isMobileWidth ? "h-[215vh]" : "h-[190vh]"} py-20 sm:h-[180vh]  xl:h-screen relative [@media(min-width:2000px)]:h-[900px] [@media(min-width:2000px)]:max-w-[2300px] mx-auto`}>
         <div className="absolute top-0 mt-20 h-full w-screen [@media(min-width:2000px)]:max-w-[2300px]">
           <Image
             src="/images/pexels-jopwell-2422280.jpg"
