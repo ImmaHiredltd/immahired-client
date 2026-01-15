@@ -289,8 +289,7 @@ export default function Home() {
                   className="
                               xl:text-8xl text-4xl font-black
                               tracking-tight
-                              bg-clip-text text-transparent
-                              bg-main
+                              text-main
                               transition-transform duration-300
                               group-hover:-translate-y-1
                             "
