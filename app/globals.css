@@ -306,14 +306,14 @@ body, html {
   animation: marquee 40s linear infinite;
 }
 
-.marquee-track span {
+/* .marquee-track span {
   white-space: nowrap;
   font-weight: 700;
   letter-spacing: 0.08em;
   padding-right: 4rem;
   text-transform: uppercase;
   opacity: 0.6;
-}
+} */
 
 @keyframes marquee {
   from {

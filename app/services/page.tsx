@@ -52,7 +52,6 @@ export default function Services() {
   }: any) => (
     <section className="h-screen [@media(min-width:2000px)]:h-[700px] [@media(min-width:2000px)]:max-w-[2300px] mx-auto flex flex-col justify-center gap-12">
       <h2 className="text-2xl font-black text-center">{title}</h2>
-
       <div className="relative rounded-3xl overflow-hidden shadow-2xl">
         {/* Background Image */}
         <div className="absolute inset-0">
