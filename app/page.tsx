@@ -157,9 +157,9 @@ export default function Home() {
           </div>
 
           <section className="bg-abstract py-8 sm:rotate-[-2deg] absolute max-[380px]:text-xs bottom-10 w-full z-40">
-            <div className="marquee-track text-white flex gap-32 whitespace-nowrap">
+            <div className="marquee-track text-white flex gap-20 whitespace-nowrap">
               {industriesMarquee.map((i, idx) => (
-                <p key={idx} className="flex gap-32 items-center">
+                <p key={idx} className="flex gap-20 items-center">
                   <span className="w-fit">{i}</span>
                   <span><FaRegDotCircle /></span>
                 </p>
