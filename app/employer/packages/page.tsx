@@ -43,7 +43,7 @@ useEffect(() => {
    <>
        <section className='sm:px6'>
         {/* <Header title={target.title} /> */}
-        <h2 className='text-[2rem] font-semibold'>{target.title}</h2>
+        <h2 className='text-sm sm:text-[2rem] font-semibold'>{target.title}</h2>
         <div className='bg-abstract shadow-xl shadow-gray-400 rounded-xl w-full p-5 mt-5 text-white'>
             <div className='text-lg sm:text-xl'>
               {target.sub}
