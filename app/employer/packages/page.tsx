@@ -51,7 +51,7 @@ useEffect(() => {
 
             {
               dataLoading && (
-                <PiSpinner className='animate-spin text-2xl ' /> 
+                <PiSpinner className='animate-spin text-2xl my-8' /> 
               )
             }
 
@@ -75,10 +75,11 @@ useEffect(() => {
                   
                 </div>
                 :
-                <div className='py-5 flex flex-col gap-2'>
-                  <span>{target.no_package}</span>
-                  <Link href={'/package'} className='px-5 py-2 text-sm text-white rounded bg-main w-fit'>{target.sub_now}</Link>
-                </div>
+                !dataLoading && !isLoading &&
+                  <div className='py-5 flex flex-col gap-2'>
+                    <span>{target.no_package}</span>
+                    <Link href={'/package'} className='px-5 py-2 text-sm text-white rounded bg-main w-fit'>{target.sub_now}</Link>
+                  </div>
             }
            
         </div>

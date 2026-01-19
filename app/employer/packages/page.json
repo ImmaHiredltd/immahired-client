@@ -6,7 +6,9 @@
         "sub_title": "You Subcribed for the",
         "no_package": "You have no active Package!",
         "sub_now": "Subscribe now",
-        "package": "package"
+        "package": "package",
+
+        "update_package": "Update Package"
     },
     "cn": {
         "title": "我的套餐",
@@ -15,7 +17,8 @@
         "sub_title": "您已订阅",
         "no_package": "您没有活动套餐！",
         "sub_now": "立即订阅",
-        "package": "套餐"
+        "package": "套餐",
+        "update_package": "更新套餐"
     },
     "es": {
         "title": "Mi paquete",
@@ -24,7 +27,8 @@
         "sub_title": "Te has suscrito a",
         "no_package": "¡No tienes ningún paquete activo!",
         "sub_now": "Suscribirse ahora",
-        "package": "paquete"
+        "package": "paquete",
+        "update_package": "Actualizar paquete"
     }
     
     

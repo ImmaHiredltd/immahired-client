@@ -60,7 +60,8 @@
         "unlimited": "Unlimited",
         "offer_comming_soon": "Offer Coming Soon",
         "promo": "Promo",
-        "warning": " Failed to load packages. This issue is not caused by anything you did, we're actively working to resolve it. Please try again later. "
+        "warning": " Failed to load packages. This issue is not caused by anything you did, we're actively working to resolve it. Please try again later. ",
+        "update_package": "Update Package"
     },
     "cn": {
         "submit_job": "发布职位",
@@ -123,7 +124,8 @@
         "unlimited": "无限",
         "offer_comming_soon": "优惠即将来临",
         "promo": "促销",
-        "warning": " 无法加载套餐。此问题不是由您造成的，我们正在积极解决此问题。请稍后再试。 "
+        "warning": " 无法加载套餐。此问题不是由您造成的，我们正在积极解决此问题。请稍后再试。 ",
+        "update_package": "更新套餐"
     },
     "es": {
         "submit_job": "Publicar Trabajo",
@@ -186,6 +188,7 @@
         "unlimited": "Ilimitada",
         "offer_comming_soon": "Oferta próximamente",
         "promo": "Promoción",
-        "warning": " No se pudieron cargar los paquetes. Este problema no fue causado por nada que haya hecho, estamos trabajando activamente para resolverlo. Por favor, inténtelo de nuevo más tarde. "
+        "warning": " No se pudieron cargar los paquetes. Este problema no fue causado por nada que haya hecho, estamos trabajando activamente para resolverlo. Por favor, inténtelo de nuevo más tarde. ",
+        "update_package": "Actualizar Paquete"
     }
 }

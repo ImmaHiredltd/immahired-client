@@ -91,11 +91,7 @@ export default function SubmitPackage({ target }: { target: any }) {
       return;
     }
 
-    console.log(packageData.data.Packages)
-
     const item = packageData.data.Packages.employer.promotional;
-
-    console.log(item)
 
     const data = {
       jobPostings: item.jobPostings != -1 ? item.jobPostings : 'Unlimited',
@@ -110,20 +106,6 @@ export default function SubmitPackage({ target }: { target: any }) {
       months: item.months != -1 ? item.months : 'One Time',
       price: item.price ? item.price : 'Free',
     }
-
-    console.log({
-      data: {
-        EMPLOYER_PACKAGE: packageData.data.EMPLOYER_PACKAGE,
-        TALENT_PACKAGE: packageData.data.TALENT_PACKAGE,
-        Packages: {
-          employer: {
-            ...packageData.data.Packages.employer,
-            promotional: item,
-          },
-          talent: packageData.data.Packages.talent,
-        }
-      }
-    })
 
     setFormattedData({
       data: {
@@ -143,7 +125,7 @@ export default function SubmitPackage({ target }: { target: any }) {
   return (
     <section>
       <div className='mt-5'>
-        {path !== '/candidate/packages' && <h3 className='text-xl font-semibold'>{target.packages}</h3>}
+        {path !== '/candidate/packages' && <h3 className='text-xl font-semibold'>{target.update_package}</h3>}
 
         {
           tokenRole.data.type === 'talent' && (
