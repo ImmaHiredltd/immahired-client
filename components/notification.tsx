@@ -86,7 +86,7 @@ export default function Notifications({target}: {target: any}){
             )
             }
             {
-              notification.length === 0 && !isLoading && <div className='text-center text-sm mt-10 text-muted'>{target.no_notification}</div>
+              notification &&notification.length === 0 && !isLoading && <div className='text-center text-sm mt-10 text-muted'>{target.no_notification}</div>
             }
         </div>
       </div>
