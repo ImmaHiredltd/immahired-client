@@ -46,6 +46,12 @@ export default function ShorlistedCandidates() {
                             {
                                 data && data.data.map((datum: any, index: number) => <Shorlisted target={target} key={index} job={datum} />)
                             }
+
+                            { data && data.data.length === 0 && 
+                                <div className='w-full h-[50vh] flex flex-col justify-center items-center'>
+                                    {target.no_shortlisted}
+                                </div>
+                            }
                         </div>
                     </div>
             </div>

@@ -22,7 +22,9 @@
         "applications": "Applications",
         "notification": "Notifications",
         "contact": "Contacts",
-        "approved": "Approved Candidates"
+        "approved": "Approved Candidates",
+
+        "no_notification": "No new notifications"
 
         
     },
@@ -49,8 +51,8 @@
     "applications": "申请",
     "notification": "通知",
     "contact": "联系人",
-    "approved": "批准的候选人"
-
+    "approved": "批准的候选人",
+    "no_notification": "暂无新通知"
 },
 "es": {
     "user_dashboard": "Tablero de Usuario",
@@ -75,7 +77,8 @@
     "applications": "Solicitudes",
     "notification": "Notificaciones",
     "contact": "Contactos",
-    "approved": "Candidatos Aprobados"
+    "approved": "Candidatos Aprobados",
+    "no_notification": "No hay nuevas notificaciones"
 
 }
 }

@@ -65,8 +65,6 @@ export default function Notifications({target}: {target: any}){
       })
   };
 
-  console.log(notification)
-
 
   return (
     <>
@@ -86,6 +84,9 @@ export default function Notifications({target}: {target: any}){
                 <span className='text-[10px] flex justify-end '>{moment(notify.createdAt).format('Do MMM hh:mma')}</span>
             </div>
             )
+            }
+            {
+              notification.length === 0 && !isLoading && <div className='text-center text-sm mt-10 text-muted'>{target.no_notification}</div>
             }
         </div>
       </div>

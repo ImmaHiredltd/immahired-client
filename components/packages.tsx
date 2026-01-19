@@ -39,7 +39,7 @@ export default function Packages({ plan, target, packType, role, isPromotional =
 
     const handleGetStarted = () => {
         if (!active) {
-            toast('Please sign in!')
+            toast('Please sign in to get started!')
             return
         }
 
@@ -80,7 +80,7 @@ export default function Packages({ plan, target, packType, role, isPromotional =
 
     if (isError) {
         if (error?.status === 401) {
-            toast('Please sign in first!')
+            toast('Please sign to get started!')
         } else {
             toast(error?.data?.message)
         }

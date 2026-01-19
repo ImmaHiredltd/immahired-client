@@ -280,7 +280,7 @@ export default function Register() {
                         </TabsList>
 
                         <TabsContent value="candidate" className=' py-3'>
-                            {mailcheck && <div className='bg-main p-3 rounded text-white text-center text-sm mb-3'>
+                            {mailcheck && <div className='bg-black p-3 rounded text-white text-center text-sm mb-3'>
                                 Registration successfull! Check Email for verification
                             </div>}
                             <form onSubmit={handleCandidate} className='space-y-5'>

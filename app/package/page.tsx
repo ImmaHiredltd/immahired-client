@@ -8,6 +8,8 @@ import lang from '@/app/employer/submit-job/page.json'
 import Cookies from 'js-cookie';
 import Packages from '@/components/packages';
 import Footer from '@/components/footer';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { ToastContainer } from 'react-toastify';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
@@ -46,7 +48,7 @@ export default function Package(){
     <section className='w-full'>
         <Navbar isScrolled = {true} />
         <ToastContainer />
-        <section className='py-28 px-banner-clamp space-y-10'>
+        <section className='py-28 sm:py-36 px-banner-clamp space-y-10'>
             {/* <Header title={target.package} /> */}
             {isError && (
                 <div className='w-full h-[50vh] flex flex-col justify-center items-center'>

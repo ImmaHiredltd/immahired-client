@@ -38,7 +38,13 @@ export default function SubmitJobs() {
   return (
    <section>
         {
-           data && data.data.package ? <SubmitForm target={target} /> : <SubmitPackage target={target} />
+            isLoading && 
+            <section className='w-full h-[80lvh] top-0 z-50 flex items-center justify-center'>
+                                    <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                                </section>
+        }
+        {
+           data && data.data.package && !isLoading ? <SubmitForm target={target} /> : <SubmitPackage target={target} />
         }
    </section>
   )

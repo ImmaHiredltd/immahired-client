@@ -4,14 +4,16 @@
         "search": "Search",
         "short_jobs": "Approved Candidates",
         "jobs_found": "Candidates Found",
-        "job_title": "Job title"
+        "job_title": "Job title",
+        "no_shortlisted": "No approved candidates yet"
     },
     "cn": {
         "welcome": "欢迎回来",
         "search": "搜索",
         "short_jobs": "已批准的候选人",
         "jobs_found": "找到的候选人",
-            "job_title": "职位名称"
+        "job_title": "职位名称",
+        "no_shortlisted": "尚无已批准的候选人"
         
     },
     "es": {
@@ -19,6 +21,7 @@
         "search": "Buscar",
         "short_jobs": "Candidatos aprobados",
         "jobs_found": "Candidatos encontrados",
-            "job_title": "Título del trabajo"
+        "job_title": "Título del trabajo",
+        "no_shortlisted": "Aún no hay candidatos aprobados"
     }    
 }
