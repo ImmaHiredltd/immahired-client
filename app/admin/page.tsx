@@ -2,10 +2,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import lang from "@/app/admin/page.json"
 import { LanguageData } from '../context';
-import { FaToolbox } from "react-icons/fa";
-import { LuMessagesSquare } from 'react-icons/lu';
-import { FiEye } from "react-icons/fi";
-import { CiBookmark } from 'react-icons/ci';
 import Chart from '@/components/adminChart';
 import Notifications from '@/components/notification';
 import Cookies from 'js-cookie';

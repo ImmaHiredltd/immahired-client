@@ -13,7 +13,8 @@
         "pending_employers": "Pending Employers",
         "registered_users": "Registered Users",
         "notification": "Notifications",
-        "welcome_back": "Welcome"
+        "welcome_back": "Welcome",
+        "no_notification": "No new notifications"
     },
     "es": {
         "admin_dashboard": "Panel de administración",
@@ -29,7 +30,8 @@
         "pending_employers": "Empleadores pendientes",
         "registered_users": "Usuarios registrados",
         "notification": "Notificaciones",
-        "welcome_back": "Bienvenido"
+        "welcome_back": "Bienvenido",
+        "no_notification": "No hay nuevas notificaciones"
     },
     "cn": {
         "admin_dashboard": "管理员面板",
@@ -45,7 +47,8 @@
         "pending_employers": "待处理雇主",
         "registered_users": "已注册用户",
         "notification": "通知",
-        "welcome_back": "欢迎回来"
+        "welcome_back": "欢迎回来",
+        "no_notification": "暂无新通知"
     }
     
 
