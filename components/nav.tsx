@@ -234,7 +234,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
           {
             active ?
               <div className='flex gap-2 items-center'>
-                <a href={tokenData.data?.type === 'talent' ? '/candidate': tokenData.data?.type === 'admin' && tokenData.data?.approved ? '/admin' : tokenData.data?.type === 'employer' ? '/employer' : "/" } className={`${isScrolled ? 'text-white' : 'text-black'} ${tokenData.data?.type === 'admin' && !tokenData.data?.approved && 'cursor-not-allowed pointer-events-none'}  border-2 border-main bg-transparent text-sm rounded px-5 py-2`}>
+                <a href={tokenData.data?.type === 'talent' ? '/candidate': tokenData.data?.type === 'admin' && tokenData.data?.approved ? '/admin' : tokenData.data?.type === 'employer' ? '/employer' : "/" } className={`${tokenData.data?.type === 'admin' && !tokenData.data?.approved && 'cursor-not-allowed pointer-events-none'}  border-2 border-main bg-transparent text-sm rounded px-5 py-2`}>
                   {target.dashboard}
                 </a>
 

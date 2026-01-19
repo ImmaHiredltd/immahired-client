@@ -66,9 +66,13 @@ useEffect(() => {
                         <span>{target.sub_title} &quot;{data.data.package}&quot; {target.package}</span>
                     </div>
                   </div>
-                  <div className='max-sm:text-xs max-sm:w-[30%]'>
+                  {
+                    data.data.package !== "unlimited" &&
+                    <div className='max-sm:text-xs max-sm:w-[30%]'>
                       {target.package_price}: ${packageData && packageData.data.Packages[data.data.type][data.data.package].price}
-                  </div>
+                    </div>
+                  }
+                  
                 </div>
                 :
                 <div className='py-5 flex flex-col gap-2'>
