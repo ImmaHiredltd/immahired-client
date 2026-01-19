@@ -17,7 +17,7 @@ import { useCreateEmployerAccountMutation } from '@/app/api/features/employer';
 import Link from 'next/link';
 import RegistrationSuccess from '@/components/registrationSuccess';
 import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const jsonData: any = lang;
@@ -66,8 +66,12 @@ export default function Register() {
 
     // Image upload states for candidate
     const [profileImage, setProfileImage] = useState<File | null>(null)
+    const [resume, setResume] = useState<File | null>(null)
+    const [certificate, setCertificate] = useState<File | null>(null)
     const [profileImagePreview, setProfileImagePreview] = useState<string>('')
     const [profileImageError, setProfileImageError] = useState(false)
+    const [resumeError, setResumeError] = useState(false)
+    const [certificateError, setCertificateError] = useState(false)
 
     const handleCandidate = async (e: any) => {
         e.preventDefault();
@@ -78,6 +82,19 @@ export default function Register() {
             return;
         } else {
             setProfileImageError(false);
+        }
+        // validate resume and certificate
+        if (!resume) {
+            setResumeError(true);
+            return;
+        } else {
+            setResumeError(false);
+        }
+        if (!certificate) {
+            setCertificateError(true);
+            return;
+        } else {
+            setCertificateError(false);
         }
 
         if (validateEmail(canData.email)) {
@@ -97,6 +114,9 @@ export default function Register() {
                         formData.append('type', canData.type);
                         formData.append('password', canData.password);
                         formData.append('profileImage', profileImage);
+                        formData.append('resume', resume);
+                        formData.append('certificate', certificate);
+
 
                         try {
                             const res = await submitData(formData).unwrap();
@@ -144,6 +164,25 @@ export default function Register() {
             reader.readAsDataURL(file);
         }
     };
+
+    const handleResumeChange = (e: any) => {
+        const file = e.target.files[0];
+        if (file) {
+            setResume(file);
+            setResumeError(false);
+        }
+    };
+
+    const handleCertificateChange = (e: any) => {
+        // accept only images files
+        const file = e.target.files[0];
+        if (file) {
+            setCertificate(file);
+            setCertificateError(false);
+        }
+        
+    };
+
 
     useEffect(() => {
         setCanData(prev => ({
@@ -257,12 +296,12 @@ export default function Register() {
         }))
     }, [empPhoneValue])
 
-
     return (
         <>
             <Navbar isScrolled = {true} />
+            <ToastContainer />
 
-            <section className='h-[115svh] [@media(min-width:2000px)]:max-w-[2300px] [@media(min-width:2000px)]:h-[1000px] mx-auto px-5 relative w-screen flex items-center justify-center'>
+            <section className='h-fit mb-20 [@media(min-width:2000px)]:max-w-[2300px] [@media(min-width:2000px)]:h-[1000px] mx-auto px-5 relative w-screen flex items-center justify-center'>
                 {
                     isSuccess && empSuccess && (
                         <RegistrationSuccess target={target} />
@@ -270,9 +309,9 @@ export default function Register() {
                 }
 
 
-                <div className="w--[85%] md:w-1/2 lg:w-1/3 space-y-10">
+                <div className="w-[85%] h-fit md:w-1/2 lg:w-1/3 space-y-10 mt-36">
                     {/* <Header title=/> */}
-                    <h2 className='text-2xl sm:text-4xl font-bold'>{target.register_header} </h2>
+                    <h2 className='text-2xl sm:text-2xl font-bold'>{target.register_header} </h2>
                     <Tabs defaultValue="candidate" className="w-full">
                         <TabsList>
                             <TabsTrigger value="candidate" className='flex gap-3 items-center'><FaRegUser /> {target.register_candidate}</TabsTrigger>
@@ -335,6 +374,28 @@ export default function Register() {
                                     </div>}
                                 </div>
 
+                                {/* upload resume and certificate */}
+                                <div className='mt-5'>
+                                    <label className='block text-sm font-medium mb-2'>Resume *</label>
+                                    <input
+                                        type="file"
+                                        accept=".pdf,.doc,.docx"
+                                        onChange={handleResumeChange}
+                                        className='w-full p-2 rounded-md border-2 border-main'
+                                    />
+                                </div>
+
+                                <div className='mt-5'>
+                                    <label className='block text-sm font-medium mb-2'>Certificate *</label>
+                                    <input
+                                        type="file"
+                                        // image files only
+                                        accept="image/*"
+                                        onChange={handleCertificateChange}
+                                        className='w-full p-2 rounded-md border-2 border-main'
+                                    />
+                                </div>
+
                                 <div className=''>
                                     <div className='flex gap-3'>
                                         <div className='w-full relative h-5'>
@@ -392,7 +453,7 @@ export default function Register() {
                         </TabsContent>
 
                         <TabsContent value="employer" className=' py-3'>
-                            {mailcheck && <div className='bg-main p-3 rounded text-white text-center text-sm mb-3'>
+                            {mailcheck && <div className='bg-black p-3 rounded text-white text-center text-sm mb-3'>
                                 Registration successfull! Check Email for verification
                             </div>}
                             <form onSubmit={handleEmployer} className='space-y-5'>

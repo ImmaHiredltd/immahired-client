@@ -135,6 +135,20 @@ export default function Apply() {
         }
       }
 
+    //   validate file type and size for images
+    const validateImageFile = (file: File) => {
+        const allowedImageTypes = [
+          'image/jpeg',
+          'image/jpg',
+          'image/png'
+        ];
+        if(bytesToMB(file.size) > 1){
+          return false
+        }else{
+          return allowedImageTypes.includes(file.type)
+        }
+      }
+
     const handleButtonClick = (e: any) => {
         e.preventDefault()
         fileInputRef.current.click(); // Trigger the hidden file input
@@ -154,7 +168,7 @@ export default function Apply() {
     };
 
     const handleFileCerChange = (event: any) => {
-        if(validateFile(event.target.files[0])){
+        if(validateImageFile(event.target.files[0])){
             setFileCerObj(event.target.files[0])
         }else{
             toast(bytesToMB(event.target.files[0].size) > 1 ? 'File size more than 1MB' : 'File type not supported');
@@ -299,7 +313,7 @@ export default function Apply() {
   return (
    <>
          <Navbar isScrolled = {true} />
-        <section className='w-full flex items-center justify-center px-banner-clamp py-28'>
+        <section className='w-full flex items-center justify-center px-banner-clamp py-32'>
             <ToastContainer />
             <div className='w-full sm:w-[60%] h-fit flex flex-col'>
                 <h3 className='text-3xl font-semibold'>{target.title}</h3>
@@ -484,6 +498,7 @@ export default function Apply() {
                                 <input 
                                     type="file" 
                                     ref={fileInputRef} 
+                                    accept=".pdf,.doc,.docx"
                                     style={{ display: 'none' }} 
                                     onChange={handleFileChange} 
                                 />
@@ -535,6 +550,7 @@ export default function Apply() {
                                     type="file" 
                                     ref={fileCerInputRef} 
                                     style={{ display: 'none' }} 
+                                    accept="image/*"
                                     onChange={handleFileCerChange} 
                                 />
                                 <button onClick={handleCerClick} className='px-8 py-2 rounded bg-main text-sm text-white'>
@@ -542,7 +558,7 @@ export default function Apply() {
                                 </button>
                             </div>
                             <div className='text-xs mt-5 text-red-500'>
-                                {target.types}
+                                upload image
                             </div>
                             <div className='text-xs mt-2 text-red-500'>
                                 {target.warn}

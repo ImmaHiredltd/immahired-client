@@ -6,6 +6,8 @@ import Shorlisted from '@/components/shorlisted';
 import { FaSearch } from 'react-icons/fa';
 import Cookies from 'js-cookie';
 import { useGetTalentMutation } from '@/app/api/general';
+import { CiBookmark } from 'react-icons/ci';
+import { IoBookmark } from 'react-icons/io5';
 const jsonData: any = lang;
 
 export default function Shortlisted() {
@@ -48,12 +50,11 @@ export default function Shortlisted() {
 
   return (
     <section className='sm:px-banner-clamp'>
-        <div className='space-y-3'>
-            <h1 className='text-2xl sm:text-4xl '>{target.welcome}</h1>
-            <h2 className='text-lg font-semibold'>{userData?.data.lastName} {userData?.data.name}</h2>
-        </div>
         <div className='mt-10 w-full'>
-            <h3 className='text-xl'>{target.short_jobs}</h3>
+            <div className='text-2xl flex gap-3 items-center'>
+                <span className='text-main text-6xl'><IoBookmark /></span>
+                {target.short_jobs} 
+            </div>
             <div className='w-full bg-primary shadow-xl shadow-gray-400 p-3 sm:p-8 rounded-xl mt-3 text-white space-y-8'>
                     {/* <div className='w-full md:w-[40%] max-sm:text-xs rounded-xl border border-main p-2 bg-white text-black flex items-center'>
                         <input placeholder={target.search} className='w-[90%] focus:outline-none' />

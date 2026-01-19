@@ -24,7 +24,8 @@
         "back_web": "Back to web",
         "packages": "Packages",
         "contact": "Contacts",
-        "approved": "Approved Jobs"
+        "approved": "Approved Jobs",
+        "no_notification": "No new notifications"
     },
     "cn": {
         "user_dashboard": "用户仪表板",
@@ -51,7 +52,8 @@
             "back_web": "返回网页",
             "packages": "套餐",
                 "contact": "联系人",
-                "approved": "批准的职位"
+                "approved": "批准的职位",
+                "no_notification": "没有新的通知"
             
     },
     "es": {
@@ -79,7 +81,8 @@
             "back_web": "Volver a la web",
             "packages": "Paquetes",
                 "contact": "Contactos",
-                "approved": "Trabajos aprobados"
+                "approved": "Trabajos aprobados",
+                "no_notification": "No hay nuevas notificaciones"
     }
 
 

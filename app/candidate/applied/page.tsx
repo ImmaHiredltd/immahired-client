@@ -8,6 +8,7 @@ import { FaSearch } from 'react-icons/fa';
 import AppliedJob from '@/components/appliedJob';
 import { useApplicationsQuery } from '@/app/api/features/candidates';
 import Cookies from 'js-cookie';
+import { BsBellFill } from 'react-icons/bs';
 
 const jsonData: any = lang;
 export default function Applied() {
@@ -31,10 +32,11 @@ export default function Applied() {
     }, [data])
   return (
     <section className='px-'>
-        <Header title={target.applied} />
-
         <div className='mt-10 sm:w-[80%] w-full'>
-            <h3 className='text-xl'>{target.applied_jobs}</h3>
+            <div className='text-2xl flex gap-3 items-center'>
+                <span className='text-main text-6xl'><BsBellFill /></span>
+                {target.applied_jobs}
+            </div>
             <div className='w-full bg-primary shadow-xl shadow-gray-400 p-3 sm:p-8 rounded-xl mt-3 text-white space-y-8'>
                 {/* <div className='w-full max-sm:text-sm  lg:w-[40%] rounded-xl border border-main p-2 bg-white text-black flex items-center'>
                     <input placeholder={target.search} className='w-[90%] focus:outline-none' />

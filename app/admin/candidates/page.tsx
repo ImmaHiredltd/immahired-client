@@ -138,6 +138,8 @@ export default function Candidates() {
         setUserToDelete(null);
     };
 
+    console.log("data:", data);
+
     return (
         <section>
             <h2 className='font-semibold text-2xl'>Candidates</h2>

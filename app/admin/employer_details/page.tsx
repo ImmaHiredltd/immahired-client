@@ -47,7 +47,8 @@ export default function Details() {
         try {
             const res = await submitId(candidate?.user).unwrap();
             if(res){
-                toast('User approved')
+                toast('User approved');
+                window.location.href = '/admin/employers';
             }
         } catch (error) {
             console.log(error)
@@ -59,7 +60,8 @@ export default function Details() {
     try {
         const res = await submitIds(candidate?.user).unwrap();
         if(res){
-            toast('User disapproved')
+            toast('User disapproved');
+            window.location.href = '/admin/employers';
         }
     } catch (error) {
         console.log(error)
@@ -68,7 +70,7 @@ export default function Details() {
   return (
     <section className='space-y-5'>
         <ToastContainer />
-        <h2 className='text-2xl font-semibold'>Candidate details</h2>
+        <h2 className='text-2xl font-semibold'>Employer details</h2>
         <button onClick={() => window.history.back()} className='flex items-center gap-2'>
             <FaArrowCircleLeft />
             Back
@@ -85,10 +87,10 @@ export default function Details() {
         <div className='space-y-5'>
            <div>
                 <p className='text-3xl font-semibold'>{candidate?.companyName}</p>
-                <p className='font-semibold mt-10 text-xl'>Company Information</p>
+                <p className='font-semibold mt-10 text-xl text-main'>Company Information</p>
                 <div className=' '>
                     <div className='space-y-3 mt-5 '>
-                        <p className='flex flex-col'><span className='font-semibold'>Contact informaation </span>{candidate?.contactInformation && parse(formatTextWithLineBreaks(candidate?.contactInformation))}</p>
+                        <p className='flex flex-col'><span className='font-semibold '>Contact informaation </span>{candidate?.contactInformation && parse(formatTextWithLineBreaks(candidate?.contactInformation))}</p>
                         <div className='flex gap-3'>
                             <p className='flex flex-col w-1/2 pr-5 border-r border-black'> <span className='font-semibold'>Company overview </span><span className='text-sm'>{candidate?.overview}</span></p>
                             <p className='flex-col flex w-1/2 pr-5'> <span className='font-semibold'>Equal opportunity statement </span><span className='text-sm'>{candidate?.equalOpportunityStatement}</span></p>
@@ -108,6 +110,8 @@ export default function Details() {
                         }
                 </div>
            </div>
+           
+           <hr />
 
            <p className='font-semibold mt-10 text-xl'>Personal Information</p>
             
@@ -125,7 +129,7 @@ export default function Details() {
         </div>
 
         <div className='flex gap-5 text-sm pt-20'>
-                <button disabled={isLoading} onClick={approveUser} className='bg-main px-10 rounded py-2 text-white '>
+                <button disabled={isLoading || user?.approved} onClick={approveUser} className={` px-10 rounded py-2 text-white ${user?.approved ? 'bg-gray-400' : 'bg-main'} `}>
                     {isLoading ? 'Approving...' :  'Approve'}
                 </button>
                 <button onClick={disapproveUser} className='px-10 py-2 bg-black text-white rounded'>

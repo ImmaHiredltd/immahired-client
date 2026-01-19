@@ -160,7 +160,7 @@ export default function Employers() {
                     </select>
                 </div>
             </div>
-
+            
             <div className='sm:flex-row flex-col max-sm:items-center flex flex-wrap max-sm:space-y-5 gap-10 mt-5'>
                 {
                     currentItems && currentItems.map((datum: EmpData, index: number) =>

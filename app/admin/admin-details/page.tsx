@@ -27,7 +27,8 @@ export default function AdminDetails() {
          try {
              const res = await submitId(candidate?.id).unwrap();
              if(res){
-                 toast('User approved')
+                 toast('User approved');
+                    window.location.href = '/admin/admins';
              }
          } catch (error) {
              console.log(error)
@@ -39,7 +40,8 @@ export default function AdminDetails() {
      try {
          const res = await submitIds(candidate?.id).unwrap();
          if(res){
-             toast('User disapproved')
+             toast('User disapproved');
+                window.location.href = '/admin/admins';
          }
      } catch (error) {
          console.log(error)
@@ -81,7 +83,7 @@ export default function AdminDetails() {
     </div>
 
     <div className='flex gap-5 text-sm pt-20'>
-            <button disabled={isLoading} onClick={approveUser} className='bg-main px-10 rounded py-2 text-white '>
+            <button disabled={isLoading || candidate?.approved} onClick={approveUser} className={` px-10 rounded py-2 text-white ${candidate?.approved ? 'bg-gray-500' : 'bg-main'} `}>
                 {isLoading ? 'Approving...' :  'Approve'}
             </button>
             <button onClick={disapproveUser} className='px-10 py-2 bg-black text-white rounded'>

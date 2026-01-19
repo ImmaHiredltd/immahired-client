@@ -10,6 +10,7 @@ import { PiSpinner } from 'react-icons/pi';
 import Link from 'next/link';
 import packageLang from "@/app/employer/submit-job/page.json"
 import SubmitPackage from '@/components/submitPackage';
+import { BsBellFill } from 'react-icons/bs';
 
 export default function Packages() {
   const [ submitId, { data, isLoading: dataLoading} ] = useGetUserMutation();
@@ -42,8 +43,10 @@ useEffect(() => {
   return (
     <>
       <section className='py-10'>
-        {/* <Header title={target.title} /> */}
-        <h2 className='text-4xl font-semibold'>{target.title}</h2>
+        <div className='text-2xl flex gap-3 items-center'>
+            <span className='text-main text-6xl'><FaBox /></span>
+            {target.title}
+        </div>
         <div className='bg-abstract shadow-xl shadow-gray-400 rounded-xl w-full p-5 mt-10 text-white'>
             <div className='text-lg sm:text-xl'>
               {target.sub}
@@ -71,7 +74,7 @@ useEffect(() => {
                   </div>
                 </div>
                 :
-                <div className='py-5 flex flex-col gap-2'>
+                !dataLoading &&<div className='py-5 flex flex-col gap-2'>
                   <span>{target.no_package}</span>
                   <Link href={'/package'} className='px-5 py-2 text-sm text-white rounded bg-main w-fit'>{target.sub_now}</Link>
                 </div>
