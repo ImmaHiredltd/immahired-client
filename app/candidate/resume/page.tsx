@@ -16,6 +16,7 @@ import { useGetPackageStatusQuery, useGetTalentMutation, useGetUserMutation } fr
 import { url } from 'inspector';
 import Link from 'next/link';
 import SubmitPackage from '@/components/submitPackage';
+import { SiReadthedocs } from 'react-icons/si';
 
 const jsonData: any = lang;
 const jsonPackage: any = packageLang;
@@ -215,170 +216,180 @@ export default function Resume() {
 
  console.log("me: ",packageData)
   return (
-      packageData && packageData.data.package 
+    packageLoading ? <div className='flex justify-center items-center h-screen'>
+      <PiSpinner className='animate-spin text-4xl text-black' />
+    </div>
+    : 
+      packageData && packageData.data.package && !packageLoading
       ?
       <>
         <section className='py-5'>
           <ToastContainer />
-            {/* <Header title={target.edit_docs} />   */}
-            <h1 className='text-2xl sm:text-3xl font-semibold'>{target.edit_docs}</h1>
-                {/* <button onClick={refreshResume} disabled={statusData && !statusData.data.canRefreshResumeToTop} className={`p-3 rounded bg-main text-white text-xs mt-5 ${statusData && statusData.data.canRefreshResumeToTop ? 'bg-main' : 'bg-main/50' }`}>Refresh Resume to the top</button> */}
-            <div className='mt-10 space-y-5 w-full sm:w-[70%]'>
-              <div className=' rounded-lg bg-abstract p-5 space-y-5 shadow-lg shadow-gray-400'>
-                <h3 className='text-xl text-white'>{target.work_exp} {' : ' + (exp ? exp : 'Not specified')}</h3>
-                <div className='flex gap-3'>
-                  <div className='w-1/2 sm:w-1/4'>
-                    <Input label='' required onChange={handleChange} name='experience' value={workExp} type='number' />
-                  </div>
-                  <div className='flex'>
-                    <select name="" id="" onChange={duration} className='rounded-md bg-main text-white px-2'>
-                      <option value="">Select duration</option>
-                      <option value="weeks">Weeks</option>
-                      <option value="months">Months</option>
-                      <option value="years">Years</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div className='rounded-lg bg-abstract p-5 space-y-5 text-white shadow-lg shadow-gray-400'>
-                <h3 className='text-xl text-white'>{target.resume}</h3>
-                {
-                  selectedFile && (
-                    <div className='space-y-5'>
-                      <div>
-                          {target.resume_att}
-                      </div>
-                      <div>
-                        <div className='p-5 text-2xl bg-main w-fit rounded-full'>
-                          <IoDocumentOutline />
-                        </div>
-                        <span className='text-xs'>{selectedFile.name}</span>
-                      </div>
-                    </div>
-                  )
-                }
-                {
-                  resumeFiles.name && resumeFiles.url && !selectedFile && (
-                    <div className='space-y-5'>
-                      <div>
-                          {target.resume_att}
-                      </div>
-                      <div className='flex flex-col gap-2'>
-                        <Link href={resumeFiles.url} className='p-5 text-2xl bg-main w-fit rounded-full'>
-                          <IoDocumentOutline />
-                        </Link>
-                        <span className='text-xs'>{resumeFiles.name}</span>
-                        {/* {data && !data.data.validResume && (
-                          <div className='text-xs rounded p-5 bg-yellow-600 w-fit font-semibold'>
-                            <p className='mb-2 text-sm'>Warning!</p>
-                            <p>This is not a valid resume. Employers might overlook it!</p>
-                            <p>The uploaded file must not contain any images.</p>
-                          </div>
-                        )} */}
-                      </div>
-                    </div>
-                  )
-                }
-                <div>
-                    <input 
-                        type="file" 
-                        ref={fileInputRef} 
-                        style={{ display: 'none' }} 
-                        onChange={handleFileChange} 
-                    />
-
-                    {
-                      statusData?.data.canPostResumes ? <button onClick={handleButtonClick} className='bg-main rounded-md px-5 py-2 text-xs'>{target.browse}</button> : <div className='bg-main opacity-30 text-red-300 rounded-md px-5 py-2 w-fit text-xs'>Resume upload limit reached!</div>
-                    }
-                </div>
-                <div className='text-gray-400 text-sm'>
-                  {target.warn}
-                </div>
-                <div>
-                  {target.types}
-                </div>
-              </div>
-              <div className='rounded-lg bg-abstract p-5 space-y-5 text-white shadow-lg shadow-gray-400'>
-                <h3 className='text-xl text-white'>{target.education}</h3>
-                {
-                    isError  && (
-                      <div className='w-fit px-10 rounded py-3 bg-red-600 text-white text-center text-xs'>
-                        {error?.data.message}
-                    </div>
-                    )
-                }
-                {
-                  selectedCertificate && (
-                    <div className='space-y-5'>
-                      <div>
-                          {target.certificate_att} (Mba, PhD, or Masters)
-                      </div>
-                      <div className='bg-white p-3 rounded text-xs text-black w-fit font-semibold'>
-                          Note: Please ensure that the uploaded image is of high resolution.
-                      </div>
-                      <div>
-                        <div className='p-5 text-2xl bg-main w-fit rounded-full'>
-                          <IoDocumentOutline />
-                        </div>
-                        <span className='text-xs'>{selectedCertificate.name}</span>
-                      </div>
-                    </div>
-                  )
-                }
-                {
-                  resumeFiles.cerName && resumeFiles.cerUrl && !selectedCertificate && (
-                    <div className='space-y-5'>
-                      <div>
-                          {target.certificate_att} (Mba, PhD, or Masters)
-                      </div>
-                      <div className='bg-white p-3 rounded text-xs text-black w-fit font-semibold'>
-                          Note: Please ensure that the uploaded image is of high resolution.
-                      </div>
-                      <div className='flex flex-col gap-2'>
-                        <Link href={resumeFiles.cerUrl} className='p-5 text-2xl bg-main w-fit rounded-full'>
-                          <IoDocumentOutline />
-                        </Link>
-                        <span className='text-xs'>{resumeFiles.cerName}</span>
-                        {data && !data.data.validCertificate && (
-                          <div className='text-xs rounded p-5 bg-yellow-600 w-fit font-semibold'>
-                            <p className='mb-2 text-sm'>Warning!</p>
-                            <p>This is not a valid certificate. Employers might overlook it!</p>
-                            <p>The uploaded file must not contain any images.</p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )
-                }
-                <div>
-                    <input 
-                        type="file" 
-                        ref={certificate} 
-                        style={{ display: 'none' }} 
-                        onChange={handleCertificateChange} 
-                    />
-                    {
-                      statusData?.data.canPostResumes ? <button onClick={handleCertificateClick} className='bg-main rounded-md px-5 py-2 text-xs'>{target.browse}</button> : <div className='bg-main opacity-30 text-red-300 rounded-md px-5 py-2 w-fit text-xs'>Upload limit reached!</div>
-                    }
-                  
-                </div>
-                <div className='text-gray-400 text-sm'>
-                  {target.warn}
-                </div>
-                <div>
-                  {target.typesCer}
-                </div>
-              </div>
-
-              <div>
-                <button disabled={isLoading} onClick={handleDoc} className='px-10 py-2 rounded-lg text-white bg-main'>
-                    { isLoading ? <PiSpinner className='animate-spin text-2xl ' /> : target.save_changes}
-                </button>
-              </div>
+            
+            <div className='text-2xl flex gap-3 items-center'>
+                <span className='text-main text-6xl'><SiReadthedocs /></span>
+                {target.edit_docs}
             </div>
+                {/* <button onClick={refreshResume} disabled={statusData && !statusData.data.canRefreshResumeToTop} className={`p-3 rounded bg-main text-white text-xs mt-5 ${statusData && statusData.data.canRefreshResumeToTop ? 'bg-main' : 'bg-main/50' }`}>Refresh Resume to the top</button> */}
+            <div className="mt-10 w-full sm:w-[70%] space-y-8">
+
+  {/* WORK EXPERIENCE */}
+  <section className="rounded-xl border border-white/10 bg-abstract p-6 shadow-md">
+    <h3 className="text-lg font-semibold text-white mb-4">
+      {target.work_exp}
+      <span className="ml-2 text-sm text-gray-300">
+        {exp ? exp : "Not specified"}
+      </span>
+    </h3>
+
+    <div className="flex flex-wrap items-end gap-4">
+      <div className="w-full sm:w-1/4">
+        <Input
+          label="Years of Experience"
+          required
+          onChange={handleChange}
+          name="experience"
+          value={workExp}
+          type="number"
+        />
+      </div>
+
+      <select
+        onChange={duration}
+        className="h-10 rounded-md bg-main px-4 text-sm text-white focus:outline-none"
+      >
+        <option value="">Duration</option>
+        <option value="weeks">Weeks</option>
+        <option value="months">Months</option>
+        <option value="years">Years</option>
+      </select>
+    </div>
+  </section>
+
+  {/* RESUME */}
+  <section className="rounded-xl border border-white/10 bg-abstract p-6 shadow-md text-white">
+    <h3 className="text-lg font-semibold mb-4">{target.resume}</h3>
+
+    {(selectedFile || (resumeFiles.name && resumeFiles.url)) && (
+      <div className="flex items-center gap-4 mb-4">
+        <div className="p-4 rounded-full bg-main text-xl">
+          <IoDocumentOutline />
+        </div>
+        <div className="text-sm">
+          <p className="font-medium">
+            {selectedFile?.name || resumeFiles.name}
+          </p>
+          {!selectedFile && (
+            <Link
+              href={resumeFiles.url}
+              className="text-xs text-gray-400 underline"
+            >
+              View document
+            </Link>
+          )}
+        </div>
+      </div>
+    )}
+
+    <input
+      type="file"
+      ref={fileInputRef}
+      hidden
+      onChange={handleFileChange}
+    />
+
+    {statusData?.data.canPostResumes ? (
+      <button
+        onClick={handleButtonClick}
+        className="rounded-md bg-main px-6 py-2 text-xs font-medium"
+      >
+        {target.browse}
+      </button>
+    ) : (
+      <div className="w-fit rounded-md bg-main/30 px-6 py-2 text-xs text-red-300">
+        Resume upload limit reached
+      </div>
+    )}
+
+    <p className="mt-3 text-sm text-gray-400">{target.warn}</p>
+    <p className="text-sm">{target.types}</p>
+  </section>
+
+  {/* EDUCATION / CERTIFICATE */}
+  <section className="rounded-xl border border-white/10 bg-abstract p-6 shadow-md text-white">
+    <h3 className="text-lg font-semibold mb-4">{target.education}</h3>
+
+    {isError && (
+      <div className="mb-4 rounded-md bg-red-600 px-6 py-2 text-xs">
+        {error?.data.message}
+      </div>
+    )}
+
+    {(selectedCertificate ||
+      (resumeFiles.cerName && resumeFiles.cerUrl)) && (
+      <div className="mb-4 space-y-3">
+        <p className="text-sm">
+          {target.certificate_att} (MBA, PhD, Masters)
+        </p>
+
+        <div className="rounded bg-white p-3 text-xs font-semibold text-black w-fit">
+          Ensure the uploaded image is high resolution
+        </div>
+
+        <div className="flex items-center gap-4">
+          <div className="p-4 rounded-full bg-main text-xl">
+            <IoDocumentOutline />
+          </div>
+          <span className="text-xs">
+            {selectedCertificate?.name || resumeFiles.cerName}
+          </span>
+        </div>
+      </div>
+    )}
+
+    <input
+      type="file"
+      ref={certificate}
+      hidden
+      onChange={handleCertificateChange}
+    />
+
+    {statusData?.data.canPostResumes ? (
+      <button
+        onClick={handleCertificateClick}
+        className="rounded-md bg-main px-6 py-2 text-xs font-medium"
+      >
+        {target.browse}
+      </button>
+    ) : (
+      <div className="w-fit rounded-md bg-main/30 px-6 py-2 text-xs text-red-300">
+        Upload limit reached
+      </div>
+    )}
+
+    <p className="mt-3 text-sm text-gray-400">{target.warn}</p>
+    <p className="text-sm">{target.typesCer}</p>
+  </section>
+
+  {/* SAVE BUTTON */}
+  <div className="pt-4">
+    <button
+      disabled={isLoading}
+      onClick={handleDoc}
+      className="flex items-center justify-center gap-2 rounded-lg bg-main px-10 py-2 text-white disabled:opacity-60"
+    >
+      {isLoading ? (
+        <PiSpinner className="animate-spin text-xl" />
+      ) : (
+        target.save_changes
+      )}
+    </button>
+  </div>
+</div>
+
             
         </section>
       </>
-      : <SubmitPackage target={packLang} />
+      : !packageLoading && <SubmitPackage target={packLang} />
   )
 }
