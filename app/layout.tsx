@@ -13,10 +13,10 @@ const montserrat = Montserrat({
   display: 'swap',
 });
 
-// console.log = () => {};
-// console.info = () => {};
-// console.warn = () => {};
-// console.error=()=>{};
+console.log = () => {};
+console.info = () => {};
+console.warn = () => {};
+console.error=()=>{};
 
 export default function RootLayout({
   children,
