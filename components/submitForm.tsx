@@ -168,7 +168,7 @@ export default function SubmitForm({target}: {target: any}) {
         }
 
         {
-            (tokenStatus.data.approved === false && !statusLoading) ? (<p className='text-white w-full flex items-center justify-center mt-5 text-xs rounded-lg font-semibold bg-red-500 px-5 py-2 rounded h-[50vh] '>Your account is not approved by Admin yet! Cannot Post Jobs</p>)
+            (tokenStatus.data.approved === false && !statusLoading) ? (<p className='text-white w-full flex items-center justify-center mt-5 text-xs rounded-lg font-semibold bg-red-500 px-5 py-2 h-[50vh] '>Your account is not approved by Admin yet! Cannot Post Jobs</p>)
             :
             <div className='mt-5'>
                 <h3 className='text-xl'>{target.posting_form}</h3>

@@ -33,6 +33,7 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
         e.preventDefault();
         setActive(false);
         Cookies.remove('token');
+        window.location.href = '/';
     }
 
     return (

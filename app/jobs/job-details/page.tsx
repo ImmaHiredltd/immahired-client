@@ -235,145 +235,154 @@ const description = jobDetails?.description
       )
     }
 
-    console.log("companyImage:", companyImage)
+    const MetaItem = ({ label, value }: any) => (
+      <div className="flex flex-col gap-1">
+        <span className="text-gray-500">{label}</span>
+        <span className="font-medium text-gray-800">{value}</span>
+      </div>
+    );
+
+    const ContentBlock = ({ title, items }: any) => (
+      <div>
+        <h2 className="text-2xl font-semibold mb-4">{title}</h2>
+        <ol className="space-y-3 text-gray-600 max-w-2xl">
+          {items?.map((item: any, index: number) => (
+            <li key={index} className="leading-relaxed">
+              {item}
+            </li>
+          ))}
+        </ol>
+      </div>
+    );
+
 
 
   return (
     <>
       <Navbar isScrolled = {true} />
       <ToastContainer />
-      <section className='px-banner-clamp py-32 space-y-10'>
-         {aboutCompany && <CompanyDetails />}
-          <div>
-            <button onClick={() => window.history.back()} className='flex items-center gap-2 font-semibold'><IoMdArrowRoundBack /> Back</button>
-            <div className='flex items-center gap-3 max-sm:justify-between mt-3'>
-            <span className='text-2xl sm:text-5xl font-extrabold'>{empData?.data.companyName}</span>
-              <span className='p-4 rounded-full text-xl bg-green-500 text-white w-20 h-20 relative overflow-hidden  shadow-md shadow-gray-300'>
-                {
-                  companyImage && (
-                    <Image 
-                        src={companyImage !== undefined ? companyImage : pp }
-                        fill
-                        alt='Company Image'
-                        className='object-cover'
-                    />
-                  )
-                }
-                {
-                  !companyImage && (
-                    <FaBox />
-                  )
-                }
-              </span>
-            </div>
-          </div>
-          <button onClick={handleAbout} className='bg-main text-white w-fit px-4 py-2 rounded shadow-sm shadow-black text-sm'>
-              About Company
-          </button>
+      <section className="px-banner-clamp py-24 space-y-16 bg-gray-50">
 
+  {/* COMPANY / JOB HEADER */}
+  <header className="space-y-6">
+    {aboutCompany && <CompanyDetails />}
 
-          <div className='rounded-2xl shadow-md shadow-gray-400 p-5 sm:p-16 bg-abstract text-white '>
-              <h1 className='text-3xl font-semibold flex items-center gap-2'>
-                <span>{jobDetails?.title}</span>
-                <span  className='bg-main/50 text-white w-fit px-4 py-2 rounded-tr-xl rounded-bl-xl shadow-sm shadow-black text-sm'> {jobDetails?.employmentType}</span>
-              </h1>
-              <div className='mt-10 max-sm:text-xs flex gap-12 flex-wrap'>
-                  <div className='flex items-center gap-2'>
-                      <div className='text-gray-300'><FaBox /></div>
-                      <div className='flex flex-col text-md'>
-                          <span>Date Posted</span>
-                          <span className='text-gray-500'>{moment.utc(jobDetails?.createdAt).format("MMMM DD, YYYY")}</span>
-                      </div>
-                  </div>
-                  <div className='flex items-center gap-2'>
-                      <div className='text-gray-300'><FaBox /></div>
-                      <div className='flex flex-col text-md'>
-                          <span>Location</span>
-                          <span className='text-gray-500 max-w-[160px]'>{jobDetails?.location}</span>
-                      </div>
-                  </div>
-                  <div className='flex items-center gap-2'>
-                      <div className='text-gray-300'><FaBox /></div>
-                      <div className='flex flex-col text-md'>
-                          <span>Offered salary</span>
-                          <span className='text-gray-500'>{jobDetails?.salaryRange}</span>
-                      </div>
-                  </div>
-                  <div className='flex items-center gap-2'>
-                      <div className='text-gray-300'><FaBox /></div>
-                      <div className='flex flex-col text-md'>
-                          <span>Expiration Date</span>
-                          <span className='text-gray-500'>{moment(jobDetails?.deadline).format("MMMM DD, YYYY")}</span>
-                      </div>
-                  </div>
-                  <div className='flex items-center gap-2'>
-                      <div className='text-gray-300'><FaBox /></div>
-                      <div className='flex flex-col text-md'>
-                          <span>Career level</span>
-                          <span className='text-gray-500'>{jobDetails?.preferredQualification}</span>
-                      </div>
-                  </div>
-                  <div className='flex items-center gap-2'>
-                      <div className='text-gray-300'><FaBox /></div>
-                      <div className='flex flex-col text-md'>
-                          <span>Qualification</span>
-                          <span className='text-gray-500'>{jobDetails?.requiredQualification}</span>
-                      </div>
-                  </div>
-                  <div className='flex items-center gap-2'>
-                      <div className='text-gray-300'><FaBox /></div>
-                      <div className='flex flex-col text-md'>
-                          <span>Experience</span>
-                          <span className='text-gray-500'>{jobDetails?.benefits}</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
+    <button
+      onClick={() => window.history.back()}
+      className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-black"
+    >
+      <IoMdArrowRoundBack /> Back
+    </button>
 
-          <div> 
-            <h1 className='text-xl sm:text-3xl font-semibold'>{target.job_description}</h1>
-            <p className='w-full sm:w-1/2 mt-3'>
-            <ol className='space-y-3'>
-                {description && description.map((item: any, index: number) => (
-                  <li key={index}>{item}</li>
-                ))}
-            </ol>
-            </p>
-          </div>
+    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+      <div>
+        <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight">
+          {jobDetails?.title}
+        </h1>
+        <p className="mt-2 text-gray-500 text-lg">
+          {empData?.data.companyName}
+        </p>
+      </div>
 
-          <div> 
-            <h1 className='text-xl sm:text-3xl font-semibold'>{target.key_responsibilities}</h1>
-            <p className='w-full sm:w-1/2 mt-3'>
-            <ol className='space-y-3'>
-                {responsibility && responsibility.map((item: any, index: number) => (
-                  <li key={index}>{item}</li>
-                ))}
-            </ol>
-            </p>
+      <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white shadow-md ring-1 ring-black/5">
+        {companyImage ? (
+          <Image
+            src={companyImage}
+            alt="Company logo"
+            fill
+            className="object-cover"
+          />
+        ) : (
+          <div className="flex items-center justify-center h-full text-2xl text-gray-400">
+            <FaBox />
           </div>
+        )}
+      </div>
+    </div>
 
-          <div> 
-            <h1 className='text-xl sm:text-3xl font-semibold'>{target.skill}</h1>
-            <p className='w-full sm:w-1/2 mt-3'>
-            <ol className='space-y-3'>
-                {skills && skills.map((item: any, index: number) => (
-                  <li key={index}>{item}</li>
-                ))}
-            </ol>
-            </p>
-          </div>
+    <button
+      onClick={handleAbout}
+      className="rounded-lg bg-main px-5 py-2 text-sm font-medium text-white shadow hover:opacity-90"
+    >
+      About Company
+    </button>
+  </header>
 
-          <div className='flex gap-3'>
-            <button disabled={loading || !me?.data.approved } onClick={handleApply} className='bg-main max-sm:text-sm sm:py-3 rounded-xl flex justify-center items-center text-white w-[90%]'>
-                {loading ?  <PiSpinner className='animate-spin text-2xl ' /> : !me?.data.approved  ? 'Cannot apply till approved by admin' : target.apply_now}
-            </button>
-            <button className='rounded-full text-2xl bg-main/20 text-main p-4 border-main/25 border-2'>
-                {
-                    canData && canData.data.savedJobs.includes(jobDetails.id) ?  <FaBookmark onClick={() => handleUnBookmark(jobDetails.id)} className='text-blue-400 text-lg' /> : isLoading ? '...' : <CiBookmark onClick={() => handleBookmark(jobDetails.id)} />
-                }
-            </button>
-          </div>
-      </section>
+  {/* JOB META CARD */}
+  <section className="rounded-3xl bg-gray-200 p-8 sm:p-12 shadow-lg space-y-8">
+    <div className="flex flex-wrap items-center gap-4">
+      <span className="text-2xl font-semibold">{jobDetails?.title}</span>
+      <span className="rounded-full bg-main/10 px-4 py-1 text-sm font-medium text-main">
+        {jobDetails?.employmentType}
+      </span>
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+      <MetaItem
+        label="Date posted"
+        value={moment
+          .utc(jobDetails?.createdAt)
+          .format("MMMM DD, YYYY")}
+      />
+      <MetaItem label="Location" value={jobDetails?.location} />
+      <MetaItem label="Salary" value={jobDetails?.salaryRange} />
+      <MetaItem
+        label="Deadline"
+        value={moment(jobDetails?.deadline).format("MMMM DD, YYYY")}
+      />
+      <MetaItem
+        label="Career level"
+        value={jobDetails?.preferredQualification}
+      />
+      <MetaItem
+        label="Qualification"
+        value={jobDetails?.requiredQualification}
+      />
+      <MetaItem label="Experience" value={jobDetails?.benefits} />
+    </div>
+  </section>
+
+  {/* CONTENT SECTIONS */}
+  <section className="space-y-14">
+    <ContentBlock title={target.job_description} items={description} />
+    <ContentBlock
+      title={target.key_responsibilities}
+      items={responsibility}
+    />
+    <ContentBlock title={target.skill} items={skills} />
+  </section>
+
+  {/* CTA BAR */}
+  <footer className="flex flex-wrap items-center gap-4">
+    <button
+      disabled={loading || !me?.data.approved}
+      onClick={handleApply}
+      className="flex-1 rounded-2xl bg-main py-3 text-white font-semibold disabled:opacity-60"
+    >
+      {loading ? (
+        <PiSpinner className="animate-spin text-xl mx-auto" />
+      ) : !me?.data.approved ? (
+        "Cannot apply until approved by admin"
+      ) : (
+        target.apply_now
+      )}
+    </button>
+
+    <button className="rounded-full border border-main/30 bg-white p-4 text-xl text-main hover:bg-main hover:text-white transition">
+      {canData?.data.savedJobs.includes(jobDetails.id) ? (
+        <FaBookmark
+          onClick={() => handleUnBookmark(jobDetails.id)}
+          className="text-blue-500"
+        />
+      ) : isLoading ? (
+        "..."
+      ) : (
+        <CiBookmark onClick={() => handleBookmark(jobDetails.id)} />
+      )}
+    </button>
+  </footer>
+</section>
+
       <Footer />
 
     </>

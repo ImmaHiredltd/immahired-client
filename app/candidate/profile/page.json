@@ -15,7 +15,9 @@
         "languages": "Languages",
         "location": "Location",
         "save_changes": "Save Changes",
-        "user_saved": "Saved Successfully!"
+        "user_saved": "Saved Successfully!",
+        "jobCategory": "Job Category",
+        "description": "Description"
     },
     "es": {
         "profile": "Perfil",

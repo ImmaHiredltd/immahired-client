@@ -123,6 +123,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
       e.preventDefault();
       setActive(false);
       Cookies.remove('token');
+      window.location.href = '/';
     }
     // console.log("Active:", tokenData)
   return (

@@ -7,6 +7,7 @@ import Shorlisted from '@/components/shortlistedCandidates';
 import { useGetJobsQuery } from '@/app/api/general';
 import Cookies from 'js-cookie';
 import { useGetEmployerQuery } from '@/app/api/features/employer';
+import { TfiThumbUp } from 'react-icons/tfi';
 
 const jsonData: any = lang;
 export default function ShorlistedCandidates() {
@@ -31,7 +32,10 @@ export default function ShorlistedCandidates() {
   return (
     <section className='sm:px-banner-clamp'>
         <div className='mt-10 w-full'>
-            <h3 className='text-xl'>{target.short_jobs}</h3>
+            <div className='text-2xl flex gap-3 items-center'>
+                <span className='text-main text-6xl'><TfiThumbUp /></span>
+                {target.short_jobs}
+            </div>
             <div className='w-full bg-primary shadow-xl shadow-gray-400 p-3 sm:p-8 rounded-xl mt-3 text-white space-y-8'>
                     {/* <div className='w-[40%] rounded-xl border border-main px-2 py-1 bg-white text-black flex items-center'>
                         <input placeholder={target.search} className='w-[90%] focus:outline-none' />

@@ -127,9 +127,6 @@ export default function ProfileForm({target, data, token, talent}:any) {
         }
     }
 
-    console.log(token)
-
-    console.log({token: data.token, id: data.data.id, formData: formData})
   return (
     <section className='mt-10'>
         <ToastContainer />
@@ -199,6 +196,27 @@ export default function ProfileForm({target, data, token, talent}:any) {
                 <div className='w-full sm:w-[45%]'>
                     <Input label={target.gender} name='gender' onChange={handleChange} value={formData.gender} />
                 </div>
+                <div className='w-full sm:w-[45%]'>
+                    <Input label={target.age} name='age' onChange={handleChange} value={formData.age} />
+                </div>
+           </div>
+           <div className='flex sm:flex-row flex-col gap-5 sm:gap-10'>
+                <div className='w-full sm:w-[45%]'>
+                    <Input label={target.location} name='location' onChange={handleChange} value={formData.location} />
+                </div>
+                <div className='w-full sm:w-[45%]'>
+                    <Input label={target.jobCategory} name='jobCategory' onChange={handleChange} value={formData.jobCategory} />
+                </div>
+           </div>
+           <div>
+                <label className='block mb-2 text-sm font-black text-gray-900'>{target.description}</label>
+                <textarea 
+                    name='description' 
+                    value={formData.description} 
+                    onChange={handleAreaChange} 
+                    rows={4} 
+                    className='w-full sm:w-[80%] p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main'
+                ></textarea>
            </div>
            <button disabled={isLoading} className='rounded-md text-sm bg-main text-white px-10 py-2'>{isLoading ? <PiSpinner className='animate-spin text-2xl ' /> : target.save_changes}</button>
         </form>

@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import lang from "@/app/employer/my-jobs/page.json";
 import { LanguageData } from '@/app/context';
 import Applicant from '@/components/applicant';
+import { FaPeopleGroup } from 'react-icons/fa6';
 
 export default function Applicants(){
   const languageContext = useContext(LanguageData);
@@ -26,8 +27,10 @@ export default function Applicants(){
 
   return (
     <section className='sm:px-banner-clamp'>
-        {/* <Header title={target.application} /> */}
-        <h2 className='text-[2rem] font-semibold'>{target.application}</h2>
+        <div className='text-2xl flex gap-3 items-center'>
+                <span className='text-main text-6xl'><FaPeopleGroup /></span>
+                {target.application}
+            </div>
 
         <div className='rounded-xl bg-abstract shadow-lg shadow-gray-400 py-5 px-5 sm:px-10 w-full mt-5 text-white'>
             <h2 className='text-lg'>{applicants.length} Applicant(s) Found</h2>
