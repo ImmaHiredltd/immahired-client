@@ -96,13 +96,15 @@ export default function Candidates() {
             [name]: value
         }))
       }
+
+      console.log(data)
   
   return (
     <>
         <Navbar isScrolled = {true} />
         <ToastContainer />
         <section className='px-[10px] sm:px-[100px] py-32'>
-                <div className="min-h-screen bg-gray- p-4">
+                <div className="min-h-screen p-4">
             {/* Header Filters */}
             <div className="bg-white rounded-lg shadow-md p-4 flex flex-wrap gap-4 justify-between items-center mb-6">
                 <input
