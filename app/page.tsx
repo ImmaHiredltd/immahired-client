@@ -79,7 +79,7 @@ export default function Home() {
       className="w-full overflow-x-hidden bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: "url('/images/abstract_background_with_a_low_poly_design_0107.jpg')" }}
     >
-      {/* <Navbar isScrolled={isScrolled} /> */}
+      <Navbar isScrolled={isScrolled} />
       <ToastContainer />
 
       {/* ================= HERO ================= */}
