@@ -322,7 +322,7 @@ export default function Register() {
                             {mailcheck && <div className='bg-black p-3 rounded text-white text-center text-sm mb-3'>
                                 Registration successfull! Check Email for verification
                             </div>}
-                            <form onSubmit={handleCandidate} className='space-y-5'>
+                            <form onSubmit={handleCandidate} method='POST' className='space-y-5'>
                                 {isError && error.status === 409 && <div className='w-full text-xs p-2 text-center font-semibold rounded-md text-white bg-red-600'>
                                     {target.email_taken || 'Error occured! Try again'}
                                 </div>}
@@ -456,7 +456,7 @@ export default function Register() {
                             {mailcheck && <div className='bg-black p-3 rounded text-white text-center text-sm mb-3'>
                                 Registration successfull! Check Email for verification
                             </div>}
-                            <form onSubmit={handleEmployer} className='space-y-5'>
+                            <form onSubmit={handleEmployer} method='POST' className='space-y-5'>
                                 {empIsError && empError.status === 409 && <div className='w-full text-xs p-2 text-center font-semibold rounded-md text-white bg-red-600'>
                                     {target.email_taken}
                                 </div>}
