@@ -128,7 +128,7 @@ export default function Login() {
          <ToastContainer />
         <div className='w-[85%] sm:w-1/3 lg:w-1/4 space-y-10'>
             {/* <Header title={target.login_header} /> */}
-                    <form onSubmit={candidateSubmit}>
+                    <form onSubmit={candidateSubmit} method='POST'>
                         <h2 className='text-2xl font-bold mb-3'>{target.login_header}</h2>
                         <div className='space-y-5'>
                             {   isError && 
