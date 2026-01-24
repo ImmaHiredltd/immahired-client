@@ -388,7 +388,41 @@ body, html {
 
 .menu-flags ul {
   width: max-content !important;
+  outline: none !important;
+  border: none !important;
+  border-radius: 20px !important;
+  box-shadow: #e8f7ff 0px 3px 26px !important;
   min-width: 220px;
   white-space: nowrap;
   transform: translateX(-150px);
+}
+
+.menu-flags {
+  /* padding: 6px; */
+  border: none !important;
+
+  background: rgb(252, 247, 247) !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  box-shadow: #e3e3e3 0px 3px 26px !important;
+  cursor: pointer;
+}
+
+.menu-flags:hover {
+  /* opacity: 0.8; */
+  background: #f1e7e7 !important;
+  /* color: white !important; */
+}
+
+/* 🔴 Remove dropdown caret rendered via pseudo-element */
+[class^="ReactFlagsSelect-module_selectBtn"]::after,
+[class*="ReactFlagsSelect-module_selectBtn"]::after {
+  display: none !important;
+  content: none !important;
+}
+
+[class^="ReactFlagsSelect-module_selectBtn"],
+[class*="ReactFlagsSelect-module_selectBtn"] {
+  padding: 0 !important;
 }

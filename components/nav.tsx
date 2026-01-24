@@ -12,8 +12,7 @@ import {
     PopoverTrigger,
   } from "@/components/ui/popover"
   import { RxCaretDown } from "react-icons/rx";
-import { IoEarthSharp } from 'react-icons/io5'
-import { AiOutlineMenu } from 'react-icons/ai'
+import {IoLanguage } from 'react-icons/io5'
 import Image from 'next/image'
 import navLanguage from "@/app/page.json"
 import Token, { UserData } from '@/app/tokenContext'
@@ -33,7 +32,7 @@ export type Navs = {
   
   
   const AuthButton = ({label,refs, className}: {label: string, refs: string, className: string}) => {
-    return <Link className={` ${className} px-5 py-2 rounded-md text-sm`} href={`${refs}`}>{label}</Link>
+    return <Link className={` ${className} px-5 py-2 rounded-full text-sm min-w-[115px] flex items-center justify-center`} href={`${refs}`}>{label}</Link>
   }
   
 export default function Navbar({ isScrolled }: { isScrolled: boolean }){
@@ -129,39 +128,39 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
   return (
     <>
     <motion.nav
-  initial="top"
-  animate={isScrolled ? "scrolled" : "top"}
-  variants={{
-    top: {
-      width: isUltraWide ? "2000px" : "93%",
-      borderRadius: "9999px",
-      boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-      borderColor: "rgba(0,0,0,0.08)",
-      marginTop: "20px",
-    },
-    scrolled: {
-      width: isUltraWide ? "2300px" : "100%",
-      borderRadius: "0px",
-      boxShadow: "0 6px 20px rgba(0,0,0,0.35)",
-      borderColor: "transparent",
-      marginTop: "0px",
-    },
-  }}
-  transition={{
-    duration: 0.35,
-    ease: "easeOut",
-  }}
-  className="
-    fixed top-0 left-1/2 -translate-x-1/2
-    z-50
-    border
-    px-2 sm:px-6 lg:px-10 py-1 sm:py-4
-    backdrop-blur-2xl
-    bg-white/70
-    flex items-center justify-between
-    text-sm
-  "
->
+      initial="top"
+      animate={isScrolled ? "scrolled" : "top"}
+      variants={{
+        top: {
+          width: isUltraWide ? "2000px" : "93%",
+          borderRadius: "9999px",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+          borderColor: "rgba(0,0,0,0.08)",
+          marginTop: "20px",
+        },
+        scrolled: {
+          width: isUltraWide ? "2300px" : "100%",
+          borderRadius: "0px",
+          boxShadow: "0 6px 20px rgba(0,0,0,0.35)",
+          borderColor: "transparent",
+          marginTop: "0px",
+        },
+      }}
+      transition={{
+        duration: 0.35,
+        ease: "easeOut",
+      }}
+      className="
+        fixed top-0 left-1/2 -translate-x-1/2
+        z-50
+        border
+        px-2 sm:px-6 lg:px-10 py-1 sm:py-4
+        backdrop-blur-2xl
+        bg-white/70
+        flex items-center justify-between
+        text-sm
+      "
+    >
 
       <div className='w-[40%] relative '>
         <div onClick={() => route.push('/')} className='relative cursor-pointer  flex max-[380px]:w-[200px] max-[380px]:h-[50px] w-[263px] h-[80px] items-center text-logo font-bold'>
@@ -215,17 +214,17 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
         }
 
       </div>
-      <div className="w-[40%] xl:flex justify-end gap-3 hidden">
+      <div className="w-[40%] xl:flex justify-end items-center gap-3 hidden">
           <div className="flex gap-1 items-center text-sm">
-              <label><IoEarthSharp /></label>
+              {/* <label><IoEarthSharp /></label> */}
               <ReactFlagsSelect
                       selected={language}
                       countries={["GB", "CN", "ES"]}
                       onSelect={handleChange}
                       className={`menu-flags outline-none `}
-                      placeholder={language}
-                      showSelectedLabel={true}
-                      selectButtonClassName="menu-flags-button"
+                      placeholder={<IoLanguage size={20} className='boder rounded-full' />}
+                      // showSelectedLabel={true}
+                      selectButtonClassName="menu-flags"
                       selectedSize={10}
                       optionsSize={10}
               />
@@ -242,9 +241,9 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }){
                 <button onClick={logout} className='text-sm rounded px-5 py-2 border-2 border-main bg-main hover:bg-red-600 hover:border-red-600  text-white'>{target.logout}</button>
               </div>
             : 
-              <div className='flex gap-3'>
-                <AuthButton label={target.register} refs="/register" className="border-2 border-main" />
-                <AuthButton label={target.login} refs="/login" className="border-2 border-main bg-main text-white" />
+              <div className='flex gap-3 relative'>
+                <AuthButton label={target.register} refs="/register" className="border-2 btn-sweep border-main" />
+                <AuthButton label={target.login} refs="/login" className="border-2 bg-main border-main text-white btn-sweep transition-all ease-in-out" />
               </div>
           }
           </div>

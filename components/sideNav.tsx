@@ -6,6 +6,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import ReactFlagsSelect from 'react-flags-select'
 import { useMediaQuery } from 'react-responsive'
+import { IoLanguage } from 'react-icons/io5'
 
 export default function SideNav({ navs, target, setMobileNavInview, language, handleChange }: any) {
     const [active, setActive] = useContext(UserData)
@@ -95,18 +96,18 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
                         </>
 
                 }
-                <div className="absolute bottom-1/2 right-0 z-50 flex justify-between items-center pt-4">
+                <div className="absolute bottom-1/2 right-2 z-50 flex justify-between items-center pt-4">
                     <ReactFlagsSelect
-                        selected={language}
-                        countries={["GB", "CN", "ES"]}
-                        onSelect={handleChange}
-                        className={`menu-flags outline-none w-fit bg-white`}
-                        placeholder={language}
-                        showSelectedLabel={true}
-                        selectButtonClassName="menu-flags-button"
-                        selectedSize={10}
-                        optionsSize={isMobile ? 12 : 14}
-                    />
+                                          selected={language}
+                                          countries={["GB", "CN", "ES"]}
+                                          onSelect={handleChange}
+                                          className={`menu-flags outline-none `}
+                                          placeholder={<IoLanguage size={20} />}
+                                          // showSelectedLabel={true}
+                                          selectButtonClassName="menu-flags"
+                                          selectedSize={10}
+                                          optionsSize={10}
+                                  />
                 </div>
             </div>
         </section>

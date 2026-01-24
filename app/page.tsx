@@ -138,7 +138,7 @@ export default function Home() {
           <div className="mt-10 max-[380px]:text-xs flex gap-4 max-sm:flex-col">
             <button
               onClick={() => (window.location.href = "/jobs")}
-              className="btn-sweep bg-white max-[380px]:px-5 max-[380px]:py-3 px-10 py-5 rounded-full font-semibold flex items-center gap-2"
+              className="btn-sweep bg-white max-[380px]:px-5 border-2 border-gray-200 max-[380px]:py-3 px-10 py-5 rounded-full font-semibold flex items-center gap-2"
             >
               {target.find_jobs}
               <FaArrowTrendUp />
@@ -146,7 +146,7 @@ export default function Home() {
 
             <button
               onClick={handleHire}
-              className="btn-sweep bg-main text-white max-[380px]:px-5 max-[380px]:py-3 px-12 py-5 rounded-full font-semibold"
+              className="btn-sweep bg-main text-white  border-2 border-main max-[380px]:px-5 max-[380px]:py-3 px-12 py-5 rounded-full font-semibold"
             >
               {target.hire_talents}
             </button>
