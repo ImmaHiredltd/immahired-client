@@ -106,7 +106,7 @@ export default function Industries({ target, isMobileWidth, isMobileHeight }: an
     const visibleIndustries = (showAll || isMobile) ? industries : industries.slice(0, 8);
 
   return (
-    <section className={`max-w-7xl mx-auto px-6 max-[380px]:text-xs ${isMobileHeight && isMobileWidth ? "py-36" : "py-24"}`}>
+    <section className={`max-w-7xl mx-auto px-6 max-[380px]:text-xs ${isMobileHeight && isMobileWidth ? "py-16" : "py-16"}`}>
                   {/* Heading */}
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
