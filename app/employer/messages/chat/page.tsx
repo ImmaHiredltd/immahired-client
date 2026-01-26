@@ -57,7 +57,7 @@ export default function Chat() {
         setSenderId(data.id)
 
         if (token) {
-            const newSocket = io(`${process.env.NEXT_PUBLIC_API_URL || 'https://immahired.global'}`, {
+            const newSocket = io('https://immahired.cn', {
                 auth: {
                     token, 
                 },

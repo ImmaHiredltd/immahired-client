@@ -2,7 +2,7 @@
 import { LanguageData } from '@/app/context';
 import React, { useContext, useEffect } from 'react'
 import ReactFlagsSelect from 'react-flags-select'
-import { IoEarthSharp } from 'react-icons/io5';
+import { IoEarthSharp, IoLanguage } from 'react-icons/io5';
 
 export default function Language() {
     const languageContext: any = useContext(LanguageData); 
@@ -37,18 +37,17 @@ export default function Language() {
       }
   return (
     <section className='flex items-center gap-2'>
-        <label><IoEarthSharp /></label>
          <ReactFlagsSelect
                       selected={language}
                       countries={["GB", "CN", "ES"]}
                       onSelect={handleChange}
                       className={`menu-flags outline-none `}
-                      placeholder={language}
-                      showSelectedLabel={true}
-                    //   selectButtonClassName="menu-flags-button"
+                      placeholder={<IoLanguage size={20} className='boder rounded-full' />}
+                      // showSelectedLabel={true}
+                      selectButtonClassName="menu-flags"
                       selectedSize={10}
-                      optionsSize={14}
-        />
+                      optionsSize={10}
+              />
     </section>
   )
 }
