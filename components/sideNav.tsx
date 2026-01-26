@@ -98,16 +98,16 @@ export default function SideNav({ navs, target, setMobileNavInview, language, ha
                 }
                 <div className="absolute bottom-1/2 right-2 z-50 flex justify-between items-center pt-4">
                     <ReactFlagsSelect
-                                          selected={language}
-                                          countries={["GB", "CN", "ES"]}
-                                          onSelect={handleChange}
-                                          className={`menu-flags outline-none `}
-                                          placeholder={<IoLanguage size={20} />}
-                                          // showSelectedLabel={true}
-                                          selectButtonClassName="menu-flags"
-                                          selectedSize={10}
-                                          optionsSize={10}
-                                  />
+                        selected={language}
+                        countries={["GB", "CN", "ES"]}
+                        onSelect={handleChange}
+                        className={`menu-flags outline-none `}
+                        placeholder={<IoLanguage size={20} />}
+                        // showSelectedLabel={true}
+                        selectButtonClassName="menu-flags"
+                        selectedSize={10}
+                        optionsSize={10}
+                  />
                 </div>
             </div>
         </section>
