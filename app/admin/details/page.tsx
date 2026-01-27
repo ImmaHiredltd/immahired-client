@@ -66,7 +66,7 @@ export default function Details() {
         </button>
         <div className='w-[200px] h-[200px] rounded-full overflow-hidden relative shadow-lg shadow-gray-400'>
             <Image 
-                src={user?.image.url ? user?.image.url : pp}
+                src={user?.profileImage.url ? user?.profileImage.url : pp}
                 alt='Candidate image'
                 fill
                 className='object-cover'
