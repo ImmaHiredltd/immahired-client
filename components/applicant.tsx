@@ -55,7 +55,7 @@ export default function Applicant({info}: any) {
                             <div className='relative w-[60px] h-[60px] overflow-hidden rounded-full shadow-md shadow-gray-400'>
                                 <Image 
                                     alt='Candidate profile image'
-                                    src={data ? data?.data?.image?.url : pp}
+                                    src={data ? data?.data?.profileImage?.url : pp}
                                     fill
                                     className='object-cover'
                                 />

@@ -16,6 +16,7 @@ export type UserData = {
         lastName: string | undefined,
         email: string | undefined,
         type: string | undefined,
+        image: any,
         approved: boolean | undefined
     },
     resume: any,

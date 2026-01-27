@@ -15,7 +15,7 @@ export type Admins = {
   "lastName": string,
   "phoneNumber": string,
   "email": string,
-  "image": any,
+  "profileImage": any,
   "type": string,
   "age": number,
   "location": string,

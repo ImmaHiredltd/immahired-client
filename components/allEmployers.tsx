@@ -18,7 +18,7 @@ export type User = {
     "location": string,
     "gender": string,
     "email": string,
-    "image": any,
+    "profileImage": any,
     "logo": any, // Add logo field for employer
     "type": string,
     "approved": boolean,
@@ -92,8 +92,8 @@ export default function AllEmployers({ info, search, onDelete }: AllEmployersPro
             return user.logo.url;
         }
 
-        if (user?.image?.url) {
-            return user.image.url;
+        if (user?.profileImage?.url) {
+            return user.profileImage.url;
         }
 
         return pp; // Default company image
@@ -104,7 +104,7 @@ export default function AllEmployers({ info, search, onDelete }: AllEmployersPro
 
     return (
         matchesCategory && matchesLocation &&
-        <section className='w-[90%] sm:w-[22%] h-fit min-h-[290px] mx-auto relative'>
+        <section className='w-[90%] sm:w-[22%] h-fit min-h-[290px] relative'>
             {/* Delete Button */}
             {onDelete && (
                 <button

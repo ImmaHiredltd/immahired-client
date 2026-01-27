@@ -151,14 +151,11 @@ export default function SubmitForm({target}: {target: any}) {
 
         try{
             const res = await updateData({id: jobData.id, formData: data});
-            console.log(await res)
         }catch(err){
             console.error(err)
         }
     }
 
-    
-    console.log(formData)
   return (
     <>
     <section className='sm:px-banner-clamp'>

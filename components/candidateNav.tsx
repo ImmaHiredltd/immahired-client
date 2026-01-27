@@ -43,7 +43,7 @@ export default function CanNav({ inView, onSlideIn }: { inView: boolean; onSlide
     name: tokenData?.data?.name,
     lastName: tokenData?.data?.lastName,
     email: tokenData?.data?.email,
-    image: tokenData?.data?.image?.url,
+    image: tokenData?.data?.profileImage?.url,
   });
 
   if (!languageContext) {
@@ -66,7 +66,7 @@ export default function CanNav({ inView, onSlideIn }: { inView: boolean; onSlide
       setUserInfo({
         name: userData.data.name,
         lastName: userData.data.lastName,
-        image: userData.data.image.url,
+        image: userData.data.profileImage.url,
         email: userData.data.email,
       });
     }
@@ -143,7 +143,7 @@ export default function CanNav({ inView, onSlideIn }: { inView: boolean; onSlide
             {userInfo.image ? (
               <Image
                 alt="Profile Image"
-                src={userData?.data.image.url}
+                src={userData?.data.profileImage.url}
                 fill
                 className="object-cover"
               />

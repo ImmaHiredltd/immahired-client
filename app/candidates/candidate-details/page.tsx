@@ -58,7 +58,7 @@ export default function Profile() {
             </button>
             <div className="flex items-center mb-4">
               <img
-                src={user?.data.image.url ? user?.data.image.url : pp}
+                src={user?.data.profileImage.url ? user?.data.profileImage.url : pp}
                 alt={user?.data.name}
                 className="w-24 h-24 rounded-full object-cover mr-4 bg-black"
               />

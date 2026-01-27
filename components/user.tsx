@@ -51,7 +51,7 @@ export default function User({user}: any) {
                             <div className='flex gap-3 items-center '>
                                 <div className='relative w-[60px] h-[60px] rounded-full overflow-hidden shadow-md shadow-gray-400 '>
                                     <Image 
-                                        src={data.data.image ? data.data.image.url : pp}
+                                        src={data.data.profileImage ? data.data.profileImage.url : pp}
                                         alt='Candidate Image'
                                         fill
                                         className='object-cover'

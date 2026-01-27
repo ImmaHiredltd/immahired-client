@@ -117,7 +117,7 @@ export default function CandidateProfile() {
       <div className="flex items-center gap-5">
         <div className="relative w-28 h-28 rounded-full overflow-hidden ring-4 ring-main/20">
           <Image
-            src={applicant ? applicant?.image?.url : pp}
+            src={applicant ? applicant?.profileImage?.url : pp}
             alt="Candidate image"
             fill
             className="object-cover"

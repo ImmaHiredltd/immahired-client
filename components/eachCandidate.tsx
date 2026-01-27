@@ -60,7 +60,7 @@ export default function EachCandidate({ candidate, search, me}: any) {
                 {/* AVATAR */}
                 <div className="relative h-14 w-14 shrink-0 rounded-full overflow-hidden ring-2 ring-gray-100">
                     <Image
-                    src={data?.data.image?.url || pp}
+                    src={data?.data.profileImage?.url || pp}
                     alt={data?.data.image?.name || "Candidate image"}
                     fill
                     className="object-cover"

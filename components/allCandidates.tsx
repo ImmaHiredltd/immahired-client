@@ -18,7 +18,6 @@ export type User = {
     "location": string,
     "gender": string,
     "email": string,
-    "image": any,
     "profileImage": any, // Add this field for the new profile image
     "type": string,
     "approved": boolean,
@@ -75,6 +74,7 @@ export default function AllCandidates({ info, search, onDelete }: AllCandidatesP
                     name: user?.name,
                     lastName: user?.lastName,
                     email: user?.email,
+                    image: user?.profileImage,
                     type: user?.type,
                     approved: user?.approved
                 }
@@ -92,10 +92,6 @@ export default function AllCandidates({ info, search, onDelete }: AllCandidatesP
         console.log(user)
         if (user?.profileImage?.url) {
             return user.profileImage.url;
-        }
-
-        if (user?.image?.url) {
-            return user.image.url;
         }
 
         return pp; // Default image

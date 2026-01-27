@@ -9,7 +9,7 @@ import pp from '@/public/images/no-image.jpg'
 
 
 export default function AdminDetails() {
-    const [candidate, setCandidate] = useState<Admins | null>(null);
+    const [candidate, setCandidate] = useState<any | null>(null);
     const [submitId, {data, isLoading}] = useApproveUserMutation();
     const [submitIds, {data: disData, isLoading: disLoading}] = useDisapproveUserMutation();
  
@@ -50,14 +50,14 @@ export default function AdminDetails() {
   return (
     <section className='space-y-5'>
     <ToastContainer />
-    <h2 className='text-2xl font-semibold'>Candidate details</h2>
+    <h2 className='text-2xl font-semibold'>Details</h2>
     <button onClick={() => window.history.back()} className='flex items-center gap-2'>
         <FaArrowCircleLeft />
         Back
     </button>
     <div className='w-[200px] h-[200px] rounded-full overflow-hidden relative shadow-lg shadow-gray-400'>
         <Image 
-            src={candidate?.image.url ? candidate?.image.url : pp}
+            src={candidate?.profileImage.url || candidate?.image.url  ? candidate?.profileImage.url || candidate?.image.url  : pp}
             alt='Candidate image'
             fill
             className='object-cover'
