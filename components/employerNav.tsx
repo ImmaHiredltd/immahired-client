@@ -170,7 +170,7 @@ export default function EmployerNav({inView, onClose }: { inView: boolean, onClo
                   userData?.data?.logo?.url ? 
                   <Image
                     alt='Profile Image'
-                    src={userData?.data?.logo?.url}
+                    src={userData?.data?.profileImage?.url}
                     fill
                     className='object-cover'
                   /> :

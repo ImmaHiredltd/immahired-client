@@ -26,7 +26,7 @@ export default function EmployerProfileForm({ target, data, user }: any) {
         name: user.name,
         email: user.email,
         phoneNumber: user.phoneNumber,
-        image: user.image?.url || user.logo?.url // Handle both image and logo
+        image: user.image?.url 
     });
 
     const [companyDetails, setCompanyDetails] = useState({
@@ -54,7 +54,15 @@ export default function EmployerProfileForm({ target, data, user }: any) {
     };
 
     const handleVidChange = (event: any) => {
-        setVidObj(event.target.files[0])
+        // check file size and toast if greater than 10MB
+        if(event.target.files[0]){
+            const vidSizeInMB = event.target.files[0].size / (1024 * 1024);
+            if(vidSizeInMB > 10) {
+                toast.error("Video size should not exceed 10MB");
+                return;
+            }
+            setVidObj(event.target.files[0]);
+        }
     };
 
     // New function to handle logo upload
@@ -103,7 +111,7 @@ export default function EmployerProfileForm({ target, data, user }: any) {
                 name: userData.data.name,
                 phoneNumber: userData.data.phoneNumber,
                 email: userData.data.email,
-                image: userData.data.image?.url || userData.data.logo?.url
+                image: userData.data.profileImage?.url
             })
         }
     }, [userData])
@@ -297,7 +305,7 @@ export default function EmployerProfileForm({ target, data, user }: any) {
                     </div>
                 </div>
 
-                <button disabled={isLoading} onClick={handleUserSubmit} className='px-5 py-2 rounded bg-main text-white'>
+                <button disabled={isLoading} onClick={handleUserSubmit} className='px-5 py-2 rounded bg-main text-white w-52 flex justify-center'>
                     {isLoading ? <PiSpinner className='animate-spin text-2xl ' /> : target.save}
                 </button>
             </form>
