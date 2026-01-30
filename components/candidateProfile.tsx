@@ -218,7 +218,7 @@ export default function ProfileForm({target, data, token, talent}:any) {
                     className='w-full sm:w-[80%] p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main'
                 ></textarea>
            </div>
-           <button disabled={isLoading} className='rounded-md text-sm bg-main text-white px-10 py-2'>{isLoading ? <PiSpinner className='animate-spin text-2xl ' /> : target.save_changes}</button>
+           <button disabled={isLoading} className='rounded-md text-sm bg-main text-white px-10 py-2 w-52 flex justify-center'>{isLoading ? <PiSpinner className='animate-spin text-2xl ' /> : target.save_changes}</button>
         </form>
     </section>
   )
