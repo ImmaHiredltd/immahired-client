@@ -72,6 +72,11 @@
 html{
   scroll-behavior: smooth;
   touch-action: manipulation;
+  background-color: #ffffff;
+}
+
+option{
+  background-color: white;
 }
 
 body {
@@ -79,6 +84,7 @@ body {
   min-height: 100vh;
   min-width: 100%;
   overflow-x: hidden;
+  background-color: white;
 }
 
 /* Zoom-safe layout rules */

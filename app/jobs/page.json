@@ -1,36 +1,62 @@
 {
     "en": {
         "jobs": "Jobs",
-        "place_job": "Job title, keywords",
+        "place_job": "Job type, keywords",
         "place_country": "Country, city or province",
         "place_categories": "All categories",
         "place_advanced": "Advanced",
         "find_jobs": "Find Jobs",
         "all_jobs": "All Jobs",
         "filter_head": "Search Results",
-        "sort_by": "Sort by"
+        "sort_by": "Sort by",
+        "industry_1": "High Tech & AI",
+        "industry_2": "Environmental Health & Safety (EHS)",
+        "industry_3": "Robotics",
+        "industry_4": "Data Science",
+        "industry_5": "Researchers & Academia",
+        "industry_6": "Medical & Healthcare",
+        "industry_7": "Pharmaceutical",
+        "industry_8": "Mechanical  & Electrical Engineering",
+        "industry_9": "Electrical Engineering"
     },
     "cn": {
         "jobs": "工作",
-        "place_job": "职位名称，关键词",
+        "place_job": "工作类型，关键词",
         "place_country": "国家，城市或省",
         "place_categories": "所有类别",
         "place_advanced": "高级",
         "find_jobs": "寻找工作",
         "all_jobs": "所有工作",
         "filter_head": "搜索结果",
-        "sort_by": "排序依据"
-      },
+        "sort_by": "排序依据",
+        "industry_1": "高科技与人工智能",
+        "industry_2": "环境健康与安全 (EHS)",
+        "industry_3": "机器人技术",
+        "industry_4": "数据科学",
+        "industry_5": "研究人员与学术界",
+        "industry_6": "医疗与保健",
+        "industry_7": "制药",
+        "industry_8": "机械与电气工程",
+        "industry_9": "电气工程"
+    },
     "es": {
         "jobs": "Empleos",
-        "place_job": "Título del trabajo, palabras clave",
+        "place_job": "Tipo de empleo, palabras clave",
         "place_country": "País, ciudad o provincia",
         "place_categories": "Todas las categorías",
         "place_advanced": "Avanzado",
         "find_jobs": "Buscar Empleos",
         "all_jobs": "Todos los Empleos",
         "filter_head": "Resultados de Búsqueda",
-        "sort_by": "Ordenar por"
-      }
-      
+        "sort_by": "Ordenar por",
+        "industry_1": "Alta Tecnología e IA",
+        "industry_2": "Salud Ambiental y Seguridad (EHS)",
+        "industry_3": "Robótica",
+        "industry_4": "Ciencia de Datos",
+        "industry_5": "Investigadores y Academia",
+        "industry_6": "Medicina y Cuidado de la Salud",
+        "industry_7": "Farmacéutico",
+        "industry_8": "Ingeniería Mecánica y Eléctrica",
+        "industry_9": "Ingeniería Eléctrica"
+    }
 }

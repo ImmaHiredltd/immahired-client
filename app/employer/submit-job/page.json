@@ -61,7 +61,16 @@
         "offer_comming_soon": "Offer Coming Soon",
         "promo": "Promo",
         "warning": " Failed to load packages. This issue is not caused by anything you did, we're actively working to resolve it. Please try again later. ",
-        "update_package": "Update Package"
+        "update_package": "Update Package",
+        "industry_1": "High Tech & AI",
+        "industry_2": "Environmental Health & Safety (EHS)",
+        "industry_3": "Robotics",
+        "industry_4": "Data Science",
+        "industry_5": "Researchers & Academia",
+        "industry_6": "Medical & Healthcare",
+        "industry_7": "Pharmaceutical",
+        "industry_8": "Mechanical  & Electrical Engineering",
+        "industry_9": "Electrical Engineering"
     },
     "cn": {
         "submit_job": "发布职位",
@@ -125,7 +134,16 @@
         "offer_comming_soon": "优惠即将来临",
         "promo": "促销",
         "warning": " 无法加载套餐。此问题不是由您造成的，我们正在积极解决此问题。请稍后再试。 ",
-        "update_package": "更新套餐"
+        "update_package": "更新套餐",
+        "industry_1": "高科技与人工智能",
+        "industry_2": "环境健康与安全 (EHS)",
+        "industry_3": "机器人技术",
+        "industry_4": "数据科学",
+        "industry_5": "研究人员与学术界",
+        "industry_6": "医疗与保健",
+        "industry_7": "制药",
+        "industry_8": "机械与电气工程",
+        "industry_9": "电气工程"
     },
     "es": {
         "submit_job": "Publicar Trabajo",
@@ -189,6 +207,15 @@
         "offer_comming_soon": "Oferta próximamente",
         "promo": "Promoción",
         "warning": " No se pudieron cargar los paquetes. Este problema no fue causado por nada que haya hecho, estamos trabajando activamente para resolverlo. Por favor, inténtelo de nuevo más tarde. ",
-        "update_package": "Actualizar Paquete"
+        "update_package": "Actualizar Paquete",
+        "industry_1": "Alta Tecnología e IA",
+        "industry_2": "Salud Ambiental y Seguridad (EHS)",
+        "industry_3": "Robótica",
+        "industry_4": "Ciencia de Datos",
+        "industry_5": "Investigadores y Academia",
+        "industry_6": "Medicina y Cuidado de la Salud",
+        "industry_7": "Farmacéutico",
+        "industry_8": "Ingeniería Mecánica y Eléctrica",
+        "industry_9": "Ingeniería Eléctrica"
     }
 }

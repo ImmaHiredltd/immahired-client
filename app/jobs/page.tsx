@@ -12,6 +12,8 @@ import { useGetJobsQuery } from '../api/general';
 import Cookies from 'js-cookie';
 import { ToastContainer } from 'react-toastify';
 import { useRouter } from 'next/navigation';
+import { CustomSelect } from '@/components/customSelect';
+import { chinaCities } from '../utils';
 
 export default function Jobs() {
   const languageContext = useContext(LanguageData);
@@ -75,6 +77,20 @@ export default function Jobs() {
 
   const route = useRouter();
 
+  const industries = [
+    target.industry_1,
+    target.industry_2,
+    target.industry_3,
+    target.industry_4,
+    target.industry_5,
+    target.industry_6,
+    target.industry_7,
+    target.industry_8,
+    target.industry_9,
+  ];
+
+
+
   const handleSearch = () => {
     if (!objToken) {
       route.push('/login')
@@ -113,83 +129,143 @@ export default function Jobs() {
     }
   }
 
+  const [salaryMin, setSalaryMin] = useState("");
+  const [salaryMax, setSalaryMax] = useState("");
+  const [experience, setExperience] = useState("");
+  const [industry, setIndustry] = useState("");
+  const [city, setCity] = useState("");
+
+
 
   return (
     <>
       <Navbar isScrolled={true} />
       <ToastContainer />
-      <section className='px-job-clamp py-40 [@media(min-width:2000px)]:max-w-[2300px] mx-auto'>
+      <section className='px-job-clamp py-36 [@media(min-width:2000px)]:max-w-[2300px] mx-auto'>
         <Header title={target?.jobs} />
 
         <div className="mt-8 w-full bg-white rounded-xl shadow-md shadow-gray-200 p-4">
-  <div className="flex flex-col sm:flex-row sm:items-end gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-    {/* Job Title */}
-    <div className="flex-1">
-      <label className="block sm:hidden text-xs text-gray-500 mb-1">
-        Job Title
-      </label>
-      <div className="flex items-center gap-2 h-12 px-3 rounded-lg border border-gray-200 focus-within:border-main transition">
-        <FaSearch className="text-gray-400" />
-        <input
-          value={jobTitle}
-          onChange={(e) => setJobTitle(e.target.value)}
-          placeholder={target.place_job}
-          className="w-full text-sm focus:outline-none"
-        />
-      </div>
-    </div>
+            {/* Job Title */}
+            <div>
+              <label className="block text-xs text-gray-500 mb-1">Job Title</label>
+              <div className="flex items-center gap-2 h-12 px-3 rounded-lg border border-gray-200 focus-within:border-main transition">
+                <FaSearch className="text-gray-400" />
+                <input
+                  value={jobTitle}
+                  onChange={(e) => setJobTitle(e.target.value)}
+                  placeholder={target.place_job}
+                  className="w-full text-sm focus:outline-none"
+                />
+              </div>
+            </div>
 
-    {/* Location */}
-    <div className="flex-1">
-      <label className="block sm:hidden text-xs text-gray-500 mb-1">
-        Location
-      </label>
-      <div className="flex items-center gap-2 h-12 px-3 rounded-lg border border-gray-200 focus-within:border-main transition">
-        <CiLocationOn className="text-lg text-gray-400" />
-        <input
-          value={jobLocation}
-          onChange={(e) => setJobLocation(e.target.value)}
-          placeholder="Location"
-          className="w-full text-sm focus:outline-none"
-        />
-      </div>
-    </div>
+            {/* Country (Locked to China) */}
+            <div>
+              <label className="block text-xs text-gray-500 mb-1">Country</label>
+              <input
+                value="China"
+                disabled
+                className="w-full h-12 px-3 text-sm rounded-lg border border-gray-200 bg-gray-100 cursor-not-allowed"
+              />
+            </div>
 
-    {/* Employment Type */}
-    <div className="flex-1">
-      <label className="block sm:hidden text-xs text-gray-500 mb-1">
-        Employment Type
-      </label>
-      <select
-        onChange={(e) => setEmpType(e.target.value)}
-        className="w-full h-12 px-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:border-main transition"
-      >
-        <option value="">Employment Type</option>
-        <option value="internship">Internship</option>
-        <option value="contract">Contract</option>
-        <option value="fulltime">Full Time</option>
-      </select>
-    </div>
+            {/* City (Required) */}
+            <CustomSelect
+              label="City"
+              
+              value={city}
+              onChange={setCity}
+              placeholder="Select city"
+              options={chinaCities.sort().map((c) => ({ label: c, value: c }))}
+            />
 
-    {/* Search Button */}
-    <div className="sm:w-auto w-full">
-      <button
-        onClick={handleSearch}
-        disabled={isLoading || !objToken || (!jobTitle && !jobLocation && empType === '')}
-        className={`w-full sm:w-auto h-12 px-8 rounded-lg text-sm font-semibold text-white bg-main transition
-          ${
-            isLoading || !objToken
-              ? 'opacity-50 cursor-not-allowed'
-              : 'hover:opacity-90 active:scale-[0.98]'
-          }`}
-      >
-        {isLoading ? 'Searching…' : target.find_jobs}
-      </button>
-    </div>
 
-  </div>
-</div>
+            {/* Employment Type */}
+            <CustomSelect
+              label="Employment Type"
+              value={empType}
+              onChange={setEmpType}
+              placeholder="All types"
+              options={[
+                { label: "Internship", value: "internship" },
+                { label: "Contract", value: "contract" },
+                { label: "Full Time", value: "fulltime" },
+              ]}
+            />
+
+
+            {/* Experience Level */}
+            <CustomSelect
+              label="Experience"
+              value={experience}
+              onChange={setExperience}
+              placeholder="Any level"
+              options={[
+                { label: "Junior", value: "junior" },
+                { label: "Mid-level", value: "mid" },
+                { label: "Senior", value: "senior" },
+                { label: "Lead", value: "lead" },
+              ]}
+            />
+
+
+            {/* Industry */}
+            <CustomSelect
+              label="Industry"
+              value={industry}
+              onChange={setIndustry}
+              placeholder="All industries"
+              options={industries.map((item) => ({
+                label: item,
+                value: item,
+              }))}
+            />
+
+
+            {/* Salary Range */}
+            <div className="flex gap-2">
+              <div className="flex-1">
+                <label className="block text-xs text-gray-500 mb-1">Min Salary</label>
+                <input
+                  type="number"
+                  value={salaryMin}
+                  onChange={(e) => setSalaryMin(e.target.value)}
+                  placeholder="¥ Min"
+                  className="w-full h-12 px-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:border-main"
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block text-xs text-gray-500 mb-1">Max Salary</label>
+                <input
+                  type="number"
+                  value={salaryMax}
+                  onChange={(e) => setSalaryMax(e.target.value)}
+                  placeholder="¥ Max"
+                  className="w-full h-12 px-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:border-main"
+                />
+              </div>
+            </div>
+
+            {/* Search Button */}
+            <div className="flex items-end">
+              <button
+                onClick={handleSearch}
+                disabled={isLoading || !objToken || !city}
+                className={`w-full h-12 px-8 rounded-lg text-sm font-semibold text-white bg-main transition
+          ${isLoading || !objToken || !city
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:opacity-90 active:scale-[0.98]"
+                  }`}
+              >
+                {isLoading ? "Searching…" : target.find_jobs}
+              </button>
+            </div>
+
+          </div>
+        </div>
+
 
 
         <div className='mt-10 w-full'>
