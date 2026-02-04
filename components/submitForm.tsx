@@ -1,20 +1,20 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import Header from './headers'
 import Input from './input'
 import { useCreateJobMutation, useUpdateJobMutation } from '@/app/api/features/employer'
 import Cookies from 'js-cookie'
 import { PiSpinner } from 'react-icons/pi'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import { usePathname, useRouter } from 'next/navigation'
 import { useGetPackageStatusQuery } from '@/app/api/general'
 import { CustomSelect } from './customSelect'
 import { chinaCities } from '@/app/utils'
 
 export default function SubmitForm({ target }: { target: any }) {
-    const [submitData, { data, isLoading, isError, error, isSuccess }] = useCreateJobMutation();
+    const [submitData, { data, isLoading, isError, isSuccess }] = useCreateJobMutation();
     const { data: statusData, isLoading: statusLoading } = useGetPackageStatusQuery(null)
-    const [updateData, { isLoading: updateLoading }] = useUpdateJobMutation()
+    const [updateData, { isLoading: updateLoading, error }] = useUpdateJobMutation()
     const [myToken, setToken] = useState('');
     const [warn, setWarn] = useState('')
     const route = useRouter();
@@ -25,11 +25,14 @@ export default function SubmitForm({ target }: { target: any }) {
         requirement: '',
         responsibility: '',
         employement: '',
-        location: '',
+        location: 'China',
         career_level: '',
         qualification: '',
         description: '',
-        salary_range: ''
+        salary_range_min: 0,
+        salary_range_max: 0,
+        city: '',
+        industry: ''
     });
     const [jobData, setJobData] = useState<any>();
     const tokenData = Cookies.get('token');
@@ -51,8 +54,17 @@ export default function SubmitForm({ target }: { target: any }) {
                 career_level: jobData.preferredQualification,
                 qualification: jobData.requiredQualification,
                 description: jobData.description,
-                salary_range: jobData.salaryRange
-            })
+                salary_range_min: jobData.salaryRangeMin,
+                salary_range_max: jobData.salaryRangeMax,
+                city: jobData.city,
+                industry: jobData.industry
+            });
+
+            setCity(jobData.city);
+            setIndustry(jobData.industry);
+            setExperience(jobData.experienceLevel);
+            setSalaryMin(jobData.salaryRangeMin);
+            setSalaryMax(jobData.salaryRangeMax);
         }
     }, [jobData])
 
@@ -98,6 +110,7 @@ export default function SubmitForm({ target }: { target: any }) {
     // console.log("Token: ",objToken)
     const handleSubmit = async (e: any) => {
         e.preventDefault();
+        // console.log("Form Data suno:", formData);
         if (formData.employement === '') {
             setWarn('Please select type to continue!');
             return;
@@ -111,12 +124,15 @@ export default function SubmitForm({ target }: { target: any }) {
             "description": formData.description,
             "requiredQualification": formData.qualification,
             "preferredQualification": formData.career_level,
-            "salaryRange": formData.salary_range,
+            "salaryRangeMin": formData.salary_range_min,
+            "salaryRangeMax": formData.salary_range_max,
             "employmentType": formData.employement,
             "instructions": formData.responsibility,
             "deadline": formData.dead_line,
-            "benefits": formData.experience,
-            "requirements": formData.requirement
+            "experienceLevel": formData.experience,
+            "requirements": formData.requirement,
+            "city": formData.city,
+            "industry": formData.industry
         }
 
         try {
@@ -143,17 +159,30 @@ export default function SubmitForm({ target }: { target: any }) {
             "description": formData.description,
             "requiredQualification": formData.qualification,
             "preferredQualification": formData.career_level,
-            "salaryRange": formData.salary_range,
+            "salaryRangeMin": formData.salary_range_min,
+            "salaryRangeMax": formData.salary_range_max,
             "employmentType": formData.employement,
             "instructions": formData.responsibility,
             "deadline": formData.dead_line,
-            "benefits": formData.experience,
-            "requirements": formData.requirement
+            "experienceLevel": formData.experience,
+            "requirements": formData.requirement,
+            "city": formData.city,
+            "industry": formData.industry
         }
+
+        console.log("data:", data)
 
         try {
             const res = await updateData({ id: jobData.id, formData: data });
+            console.log(res)
+            if (res.data) {
+                toast('Job Updated Successfully!');
+                // route.push('/employer/my-jobs');
+            }
+
         } catch (err) {
+            toast.error('Error updating job. Please try again.');
+
             console.error(err)
         }
     }
@@ -175,12 +204,23 @@ export default function SubmitForm({ target }: { target: any }) {
         target.industry_9,
     ];
 
+    useEffect(() => {
+        setFormData((prev: any) => ({
+            ...prev,
+            salary_range_min: salaryMin,
+            salary_range_max: salaryMax,
+            experience: experience,
+            city: city,
+            industry: industry
+        }))
+    }, [salaryMin, salaryMax, experience, city, industry]);
 
 
 
     return (
         <>
             <section className='sm:px-banner-clamp'>
+                <ToastContainer />
                 <Header title={jobData ? 'Update Job' : target.submit_job} />
                 {
                     !statusData?.data.canPostJobs && !statusLoading && (<p className='text-white w-fit mt-5 text-xs font-semibold bg-red-500 px-5 py-2 rounded '>Job Posting for current plan reached! Cannot Post Jobs</p>)

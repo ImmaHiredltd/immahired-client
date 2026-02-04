@@ -188,8 +188,13 @@ const generalEndpoint = apiSlice.injectEndpoints({
                 { type: 'statusUser', id: 'STATUS' }, 
                 { type: 'statusAdmin', id: 'ADMIN' }
             ],
-        }),        
+        }),    
+        jobViews: builder.query({
+            query: (id) => ({
+                url: `/jobs/views/${id}`,
+            })
+        }),    
     })
 })
 
-export const { useLoginMutation, useGetJobsQuery, useGetTalentMutation, useGetUserMutation, useEditProfileMutation, useGetJobQuery, useSaveJobMutation, useUnsaveJobMutation, useGetPackagesQuery, usePayForPackageMutation, useChangPasswordMutation, useGetPackageStatusQuery, useForgotPasswordMutation, useResetPasswordMutation, useGetContactsQuery, useGetPreviousMessagesMutation, useUpGradePackageMutation, useGetNotificationsQuery, useGetMeQuery, useGetCandidatesQuery, useGetVerifyMailMutation, useApproveUserMutation, useDisapproveUserMutation, useGetAnalyticsQuery, useGetEmployersQuery, useGetAdminsQuery, useGetAllUsersQuery, useDeleteUserMutation } = generalEndpoint
+export const { useLoginMutation, useGetJobsQuery, useGetTalentMutation, useGetUserMutation, useEditProfileMutation, useGetJobQuery, useSaveJobMutation, useUnsaveJobMutation, useGetPackagesQuery, usePayForPackageMutation, useChangPasswordMutation, useGetPackageStatusQuery, useForgotPasswordMutation, useResetPasswordMutation, useGetContactsQuery, useGetPreviousMessagesMutation, useUpGradePackageMutation, useGetNotificationsQuery, useGetMeQuery, useGetCandidatesQuery, useGetVerifyMailMutation, useApproveUserMutation, useDisapproveUserMutation, useGetAnalyticsQuery, useGetEmployersQuery, useGetAdminsQuery, useGetAllUsersQuery, useDeleteUserMutation, useJobViewsQuery } = generalEndpoint

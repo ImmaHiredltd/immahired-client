@@ -150,7 +150,10 @@ export default function EmployerNav({inView, onClose }: { inView: boolean, onClo
     const logout = (e: any) => {
       e.preventDefault();
       setActive(false);
+      localStorage.removeItem('userData');
+      localStorage.removeItem('candidateTalent');
       Cookies.remove('token');
+      Cookies.remove('user');
     }
 
   return (

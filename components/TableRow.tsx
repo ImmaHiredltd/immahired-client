@@ -24,7 +24,6 @@ export default function TableRow ({ job, target }: any){
         try {
           const res = await submitId(job.id).unwrap();
           setNumberOfApplicants(res.data.length);
-          console.log("Bitch: ",await res)
         } catch (err) {
           console.error(err);
           setNumberOfApplicants(0); // Handle error case
@@ -32,10 +31,10 @@ export default function TableRow ({ job, target }: any){
           setLoading(false);
         }
       };
-      console.log(job.id)
-
       getNumberOfApplicants();
     }, []);
+
+    
 
     const changeRoute = (job: any) => {
        if(localStorage){

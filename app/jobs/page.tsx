@@ -22,6 +22,7 @@ export default function Jobs() {
   const [jobLocation, setJobLocation] = useState('');
   const [empType, setEmpType] = useState('');
   const [filtered, setFiltered] = useState([]);
+  const [jobsData, setJobsData] = useState([]);
   const [currentApplicantPage, setCurrentApplicantPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0)
   let itemsperpage = 15;
@@ -31,13 +32,15 @@ export default function Jobs() {
 
   var currentItems = filtered?.slice(firstIndexSlice, lastIndexSlice);
 
+  console.log("filtered: ", filtered)
+
   // useEffect(() => {
   //   setFiltered(currentItems)
   // }, [currentItems])
 
   useEffect(() => {
+    setJobsData(data?.data);
     setFiltered(data?.data)
-
   }, [data])
 
   useEffect(() => {
@@ -91,42 +94,29 @@ export default function Jobs() {
 
 
 
+
   const handleSearch = () => {
     if (!objToken) {
       route.push('/login')
+      return;
     }
-    if (jobTitle && !jobLocation && empType === '') {
-      const filter = data.data.filter((job: any) => job.title.toLowerCase().includes(jobTitle.toLowerCase()));
-      setFiltered(filter);
+    if (!data || !data.data) {
+      return;
     }
-    if (!jobTitle && jobLocation && empType === '') {
-      const filter = data.data.filter((job: any) => job.location.toLowerCase().includes(jobLocation.toLowerCase()));
-      setFiltered(filter);
-    }
-    if (!jobTitle && !jobLocation && empType !== '') {
-      const filter = data.data.filter((job: any) => job.employmentType.toLowerCase().includes(empType.toLowerCase()));
-      setFiltered(filter);
-    }
-
-    if (jobTitle && jobLocation && empType === '') {
-      const filter = data.data.filter((job: any) => job.title.toLowerCase().includes(jobTitle.toLowerCase()) && job.location.toLowerCase().includes(jobLocation.toLowerCase()));
-      setFiltered(filter);
-    }
-
-    if (!jobTitle && jobLocation && empType !== '') {
-      const filter = data.data.filter((job: any) => job.employmentType.toLowerCase().includes(empType.toLowerCase()) && job.location.toLowerCase().includes(jobLocation.toLowerCase()));
-      setFiltered(filter);
-    }
-
-    if (jobTitle && !jobLocation && empType !== '') {
-      const filter = data.data.filter((job: any) => job.title.toLowerCase().includes(jobTitle.toLowerCase()) && job.employmentType.toLowerCase().includes(empType.toLowerCase()));
-      setFiltered(filter);
-    }
-
-    if (jobTitle && jobLocation && empType !== '') {
-      const filter = data.data.filter((job: any) => job.title.toLowerCase().includes(jobTitle.toLowerCase()) && job.employmentType.toLowerCase().includes(empType.toLowerCase()) && job.location.toLowerCase().includes(jobLocation.toLowerCase()));
-      setFiltered(filter);
-    }
+    // Filtering logic including all combinations (title, location, employmentType, city, industry, experience, salary range)
+    const filtered = data.data.filter((job: any) => {
+      const titleMatch = !jobTitle || (job.title && typeof job.title === 'string' && job.title.toLowerCase().includes(jobTitle.toLowerCase()));
+      const locationMatch = !jobLocation || (job.location && typeof job.location === 'string' && job.location.toLowerCase().includes(jobLocation.toLowerCase()));
+      const empTypeMatch = !empType || (job.employmentType && typeof job.employmentType === 'string' && job.employmentType.toLowerCase().includes(empType.toLowerCase()));
+      const cityMatch = !city || (job.city && typeof job.city === 'string' && job.city.toLowerCase().includes(city.toLowerCase()));
+      const industryMatch = !industry || (job.industry && typeof job.industry === 'string' && job.industry.toLowerCase().includes(industry.toLowerCase()));
+      const experienceMatch = !experience || (job.experienceLevel && typeof job.experienceLevel === 'string' && job.experienceLevel.toLowerCase().includes(experience.toLowerCase()));
+      const filterMin = salaryMin ? parseInt(salaryMin) : 0;
+      const filterMax = salaryMax ? parseInt(salaryMax) : Infinity;
+      const salaryMatch = (!salaryMin && !salaryMax) || (job.salaryRangeMin != null && job.salaryRangeMax != null && job.salaryRangeMin <= filterMax && job.salaryRangeMax >= filterMin);
+      return titleMatch && locationMatch && empTypeMatch && cityMatch && industryMatch && experienceMatch && salaryMatch;
+    });
+    setFiltered(filtered);
   }
 
   const [salaryMin, setSalaryMin] = useState("");
@@ -135,7 +125,17 @@ export default function Jobs() {
   const [industry, setIndustry] = useState("");
   const [city, setCity] = useState("");
 
-
+  const handleClearFilters = () => {
+    setJobTitle("");
+    setJobLocation("");
+    setEmpType("");
+    setCity("");
+    setIndustry("");
+    setExperience("");
+    setSalaryMin("");
+    setSalaryMax("");
+    setFiltered(jobsData);
+  };
 
   return (
     <>
@@ -174,7 +174,7 @@ export default function Jobs() {
             {/* City (Required) */}
             <CustomSelect
               label="City"
-              
+
               value={city}
               onChange={setCity}
               placeholder="Select city"
@@ -249,20 +249,26 @@ export default function Jobs() {
             </div>
 
             {/* Search Button */}
-            <div className="flex items-end">
+            <div className="flex gap-2 items-end">
               <button
                 onClick={handleSearch}
-                disabled={isLoading || !objToken || !city}
+                disabled={isLoading || !objToken}
                 className={`w-full h-12 px-8 rounded-lg text-sm font-semibold text-white bg-main transition
-          ${isLoading || !objToken || !city
+                  ${isLoading || !objToken
                     ? "opacity-50 cursor-not-allowed"
                     : "hover:opacity-90 active:scale-[0.98]"
                   }`}
               >
                 {isLoading ? "Searching…" : target.find_jobs}
               </button>
-            </div>
 
+              <button
+                onClick={handleClearFilters}
+                className="w-full h-12 px-8 rounded-lg text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 active:scale-[0.98] transition"
+              >
+                {target.clear_filters}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -273,7 +279,7 @@ export default function Jobs() {
             <span className='font-bold'>{target.all_jobs}</span>
           </div>
 
-          <div className='py-10 flex sm:flex-row flex-col flex-wrap gap-10'>
+          <div className='py-10 flex sm:flex-row flex-col justify-between flex-wrap gap-10'>
             {
               currentItems && currentItems.map((job: any, index: number) => <Job key={index} data={job} />)
             }
@@ -282,7 +288,7 @@ export default function Jobs() {
             }
 
             {
-              objToken && isLoading && (
+              isLoading && (
                 <div className='text-md w-full text-center'>
                   Loading jobs...
                 </div>
@@ -290,11 +296,11 @@ export default function Jobs() {
             }
 
             {
-              !objToken && (
-                <div>
-                  Please sign in to view jobs!
+              filtered && filtered.length === 0 && !isLoading && (
+                <div className='text-md w-full text-center'>
+                  No jobs found matching your criteria.
                 </div>
-              )
+              ) 
             }
           </div>
 

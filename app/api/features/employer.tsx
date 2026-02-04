@@ -28,7 +28,8 @@ const employerSlice = apiSlice.injectEndpoints({
         getJobs: builder.query({
             query: () => ({
                 url: '/jobs',
-            })
+            }),
+            providesTags: [{ type: 'fetchJobs', id: 'JOBS' }],
         }),
         getEmployer: builder.query({
             query: (id) => ({
@@ -49,7 +50,8 @@ const employerSlice = apiSlice.injectEndpoints({
                 url: `/jobs/${id}`,
                 method: 'PATCH',
                 body: { ...formData }
-            })
+            }),
+            invalidatesTags: [{ type: 'fetchJobs', id: 'JOBS' }],
         }),
         deleteJob: builder.mutation({
             query: (id) => ({
