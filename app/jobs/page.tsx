@@ -188,6 +188,8 @@ export default function Jobs() {
                 { label: "Internship", value: "internship" },
                 { label: "Contract", value: "contract" },
                 { label: "Full Time", value: "fulltime" },
+                { label: "Part Time", value: "parttime" },
+                { label: "Temporary", value: "temporary" },
               ]}
             />
 
@@ -249,7 +251,7 @@ export default function Jobs() {
               <button
                 onClick={handleSearch}
                 disabled={isLoading}
-                className={`w-full h-12 px-8 rounded-lg text-sm font-semibold text-white bg-main transition
+                className={`w-full h-12 px-8 rounded-lg text-xs font-semibold text-white bg-main transition
                   ${isLoading
                     ? "opacity-50 cursor-not-allowed"
                     : "hover:opacity-90 active:scale-[0.98]"
@@ -260,7 +262,7 @@ export default function Jobs() {
 
               <button
                 onClick={handleClearFilters}
-                className="w-full h-12 px-8 rounded-lg text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 active:scale-[0.98] transition"
+                className="w-full h-12 px-8 rounded-lg text-xs font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 active:scale-[0.98] transition"
               >
                 {target.clear_filters}
               </button>
