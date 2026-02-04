@@ -183,7 +183,7 @@ export default function Job({ data }: any) {
                 <div className='flex items-center justify-between'>
                     <span className='bg-white rounded-lg px-3 py-1 text-xs'>{data.employmentType}</span>
                     {data.views > 0 && <span className='flex items-center gap-1 text-[10px] text-black font-bold'>
-                        <BiSolidHot className='text-orange-400 text-lg' />
+                        <BiSolidHot className='text-gray-400 text-lg' />
                         {data.views}
                     </span>}
                 </div>

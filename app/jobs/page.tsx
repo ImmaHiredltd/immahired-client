@@ -96,10 +96,6 @@ export default function Jobs() {
 
 
   const handleSearch = () => {
-    if (!objToken) {
-      route.push('/login')
-      return;
-    }
     if (!data || !data.data) {
       return;
     }
@@ -252,9 +248,9 @@ export default function Jobs() {
             <div className="flex gap-2 items-end">
               <button
                 onClick={handleSearch}
-                disabled={isLoading || !objToken}
+                disabled={isLoading}
                 className={`w-full h-12 px-8 rounded-lg text-sm font-semibold text-white bg-main transition
-                  ${isLoading || !objToken
+                  ${isLoading
                     ? "opacity-50 cursor-not-allowed"
                     : "hover:opacity-90 active:scale-[0.98]"
                   }`}
