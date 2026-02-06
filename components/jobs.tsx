@@ -123,7 +123,7 @@ export default function Job({ data }: any) {
 
     return (
         <section onClick={handleJob} className=' sm:w-[47%] w-full min-w-[330px] transition-transform transform hover:scale-105 duration-300 text-sm gap-3 h-[170px] flex items-center shadow-md shadow-gray-500 rounded-xl bg-gray-100 text-black px-5 py-3'>
-            <div onClick={handleJob} className={`p-2 relative w-16 h-16 overflow-hidden flex items-center justify-center cursor-pointer rounded-full text-white text-xs bg-gray-700`}>
+            <div onClick={handleJob} className={`p-2 relative w-20 h-20 overflow-hidden flex items-center justify-center cursor-pointer rounded-xl text-white text-xs bg-gray-700`}>
                 {
                     userLoading && (
                         <PiSpinner className='animate-spin text-2xl ' />
@@ -145,7 +145,7 @@ export default function Job({ data }: any) {
                             src={ppp}
                             fill
                             alt='Company image'
-                            className='object-cover'
+                            className='object-contain'
                         />
                     )
                 }

@@ -59,7 +59,9 @@ export default function JobDetails() {
     if (talent) {
       setTalentData(JSON.parse(talent));
     }
-  }, [])
+  }, []);
+
+  console.log("empData", empData)
 
   if (!languageContext) {
     throw new Error("LanguageData context is not provided!");
@@ -68,6 +70,8 @@ export default function JobDetails() {
 
   const [language, setLanguage] = languageContext;
   const target = jsonData[language]
+
+   const user: any = Cookies.get('user');
 
 
 
@@ -83,6 +87,10 @@ export default function JobDetails() {
 
 
   const handleApply = () => {
+    if(!user) {
+      toast('Please login to apply for jobs!')
+      return route.push('/login')
+    }
     if (statusData?.data.canApplyToJobs) {
       setLoading(true);
       route.push('/apply')
@@ -111,11 +119,14 @@ export default function JobDetails() {
         }
       }
     }
-    console.log("jobViewsData: ", jobViewsData)
     getTalent()
   }, [])
 
   const handleBookmark = async (id: string) => {
+    if(!user) {
+      toast('Please login to bookmark jobs!')
+      return route.push('/login')
+    }
     setSavePressed(!savePressed)
     try {
       const res = await submitId(id).unwrap();
@@ -185,7 +196,7 @@ export default function JobDetails() {
           </button>
           <div className='space-y-5'>
             <div className='flex items-center gap-3 max-sm:justify-between mt-3'>
-              <span className='p-4 rounded-full border-2 border-gray-300 text-xl bg-green-500 text-white w-20 h-20 relative overflow-hidden  shadow-md shadow-gray-300'>
+              <span className='p-4 rounded-full border-2 border-gray-300 text-xl bg-main text-white w-20 h-20 relative overflow-hidden  shadow-md shadow-gray-300'>
                 {
                   companyImage && (
                     <Image
@@ -213,7 +224,6 @@ export default function JobDetails() {
             {empData.shortVideo.url &&
               <div className='flex flex-col gap-3'>
                 <span className='text-sm relative h-[200px] sm:h-[300px] flex items-center justify-center shadow-md shadow-gray-400 rounded-xl  overflow-hidden  bg-gray-200 w-full sm:w-[60%]'>
-
                   <video
                     src={empData.shortVideo.url}
                     controls
@@ -257,7 +267,7 @@ export default function JobDetails() {
     </div>
   );
 
-  const user = Cookies.get('user');
+ 
 
 
 
@@ -357,15 +367,15 @@ export default function JobDetails() {
         </section>
 
         {/* CTA BAR */}
-        {user && <footer className="flex flex-wrap items-center gap-4">
+        <footer className="flex flex-wrap items-center gap-4">
           <button
-            disabled={loading || !me?.data.approved}
+            disabled={loading || (user && !me?.data.approved)}
             onClick={handleApply}
             className="flex-1 rounded-2xl bg-main py-3 text-white font-semibold disabled:opacity-60"
           >
             {loading ? (
               <PiSpinner className="animate-spin text-xl mx-auto" />
-            ) : !me?.data.approved ? (
+            ) : user && !me?.data.approved ? (
               "Cannot apply until approved by admin"
             ) : (
               target.apply_now
@@ -384,7 +394,7 @@ export default function JobDetails() {
               <CiBookmark onClick={() => handleBookmark(jobDetails.id)} />
             )}
           </button>
-        </footer>}
+        </footer>
       </section>
 
       <Footer />

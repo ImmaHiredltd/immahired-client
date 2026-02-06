@@ -25,14 +25,14 @@ export default function Jobs() {
   const [jobsData, setJobsData] = useState([]);
   const [currentApplicantPage, setCurrentApplicantPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0)
-  let itemsperpage = 15;
+  let itemsperpage = 12;
   const lastIndexSlice = currentApplicantPage * itemsperpage;
   const firstIndexSlice = lastIndexSlice - itemsperpage;
   // const [ currentItems, setCurrentItems ] = useState()
 
   var currentItems = filtered?.slice(firstIndexSlice, lastIndexSlice);
 
-  console.log("filtered: ", filtered)
+  // console.log("filtered: ", filtered)
 
   // useEffect(() => {
   //   setFiltered(currentItems)
