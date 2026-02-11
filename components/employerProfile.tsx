@@ -26,7 +26,7 @@ export default function EmployerProfileForm({ target, data, user }: any) {
         name: user.name,
         email: user.email,
         phoneNumber: user.phoneNumber,
-        image: user.image?.url 
+        image: user.image?.url
     });
 
     const [companyDetails, setCompanyDetails] = useState({
@@ -55,12 +55,12 @@ export default function EmployerProfileForm({ target, data, user }: any) {
 
     const handleVidChange = (event: any) => {
         // check file size and toast if greater than 10MB
-        if(event.target.files[0]){
+        if (event.target.files[0]) {
             const vidSizeInMB = event.target.files[0].size / (1024 * 1024);
-            if(vidSizeInMB > 10) {
-                toast.error("Video size should not exceed 10MB");
-                return;
-            }
+            // if (vidSizeInMB > 10) {
+            //     toast.error("Video size should not exceed 10MB");
+            //     return;
+            // }
             setVidObj(event.target.files[0]);
         }
     };
@@ -74,24 +74,6 @@ export default function EmployerProfileForm({ target, data, user }: any) {
     const handleLogoChange = (event: any) => {
         setLogoObj(event.target.files[0])
     };
-
-    const getVidObjSizeInMB = (vidObj: File) => {
-        if (!vidObj) return 0;
-        const sizeInBytes = vidObj.size;
-        const sizeInMB = sizeInBytes / (1024 * 1024);
-        return parseFloat(sizeInMB.toFixed(2));
-    }
-
-    useEffect(() => {
-        if (vidObj) {
-            const vidSizeInMB = getVidObjSizeInMB(vidObj);
-            if (vidSizeInMB > 1) {
-                setVidMessage('Video size should not exceed 1MB. Please reupload a smaller video.');
-            } else {
-                setVidMessage('');
-            }
-        }
-    })
 
     useEffect(() => {
         async function getUsers() {
