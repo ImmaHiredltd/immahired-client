@@ -54,13 +54,12 @@ export default function TableRow ({ job, target }: any){
           if(await res) {
             setDelete(false);
             toast("Job Deleted!");
-            window.open('/employer/my-jobs')
           }
         } catch (err) {
           console.error(err);
         }
       };
-
+      
       const viewApplicants = () => {
        if(localStorage){
         localStorage.setItem('applicants', JSON.stringify(data.data));

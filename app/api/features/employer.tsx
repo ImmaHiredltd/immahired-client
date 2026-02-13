@@ -57,7 +57,9 @@ const employerSlice = apiSlice.injectEndpoints({
             query: (id) => ({
                 url: `/jobs/${id}`,
                 method: 'DELETE'
-            })
+            }),
+            invalidatesTags: [{ type: 'fetchJobs', id: 'JOBS' }],
+
         }),
         employerApplication: builder.mutation({
             query: (id) => ({

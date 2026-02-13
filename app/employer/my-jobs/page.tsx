@@ -10,10 +10,10 @@ import {
   useDeleteJobMutation,
   useEmployerApplicationMutation,
 } from "@/app/api/features/employer";
-import { useGetJobsQuery, useGetPackageStatusQuery } from "@/app/api/general";
+import { useGetJobsQuery } from "@/app/api/features/employer";
 import Cookies from "js-cookie";
 import { PiSpinner } from "react-icons/pi";
-import { RiDeleteBinLine } from "react-icons/ri";
+
 import { toast, ToastContainer } from "react-toastify";
 import TableRow from "@/components/TableRow";
 
