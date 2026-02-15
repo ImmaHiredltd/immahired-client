@@ -256,10 +256,10 @@ export default function JobDetails() {
 
   const ContentBlock = ({ title, items }: any) => (
     <div>
-      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
-      <ol className="space-y-3 text-gray-600 max-w-2xl">
+      <h2 className="text-xl sm:text-2xl font-semibold mb-4">{title}</h2>
+      <ol className="space-y-3 text-gray-600 max-w-2xl max-sm:text-xs">
         {items?.map((item: any, index: number) => (
-          <li key={index} className="leading-relaxed">
+          <li key={index} className="leading-">
             {item}
           </li>
         ))}
@@ -288,8 +288,8 @@ export default function JobDetails() {
             <IoMdArrowRoundBack /> Back
           </button>
 
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <div>
+          <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className='sm:max-w-[80%]'>
               <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight">
                 {jobDetails?.title}
               </h1>
@@ -322,7 +322,6 @@ export default function JobDetails() {
           </button>
         </header>
 
-        {/* JOB META CARD */}
         <section className="rounded-3xl bg-gray-200 p-8 sm:p-12 shadow-lg space-y-8">
           <div className="flex flex-wrap items-center gap-4">
             <span className="text-2xl font-semibold">{jobDetails?.title}</span>
@@ -357,7 +356,7 @@ export default function JobDetails() {
         </section>
 
         {/* CONTENT SECTIONS */}
-        <section className="space-y-14">
+        <section className="space-y-8 sm:space-y-14">
           <ContentBlock title={target.job_description} items={description} />
           <ContentBlock
             title={target.key_responsibilities}
