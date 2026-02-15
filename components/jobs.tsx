@@ -122,8 +122,26 @@ export default function Job({ data }: any) {
     }
 
     return (
-        <section onClick={handleJob} className=' sm:w-[47%] w-full min-w-[330px] transition-transform transform hover:scale-105 duration-300 text-sm gap-3 h-[170px] flex items-center shadow-md shadow-gray-500 rounded-xl bg-gray-100 text-black px-5 py-3'>
-            <div onClick={handleJob} className={`p-2 relative w-20 h-20 overflow-hidden flex items-center justify-center cursor-pointer rounded-xl text-white text-xs bg-gray-700`}>
+        <section
+            onClick={handleJob}
+            className="
+    w-full
+    sm:w-[47%]
+    transition-transform hover:scale-[1.02]
+    duration-300
+    text-sm
+    gap-4
+    flex flex-col sm:flex-row
+    sm:items-center
+    shadow-md shadow-gray-500
+    rounded-xl
+    bg-gray-100
+    text-black
+    px-4 py-4
+  "
+        >
+
+            <div onClick={handleJob} className={`p-2 relative w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 overflow-hidden flex items-center justify-center shadow-xl shadow-gray-100 rounded-xl bg-gray-700`}>
                 {
                     userLoading && (
                         <PiSpinner className='animate-spin text-2xl ' />
@@ -150,13 +168,13 @@ export default function Job({ data }: any) {
                     )
                 }
             </div>
-            <div onClick={handleJob} className={`space-y-2 w-[68%] ${userData && userData.data.type === 'employer' ? '' : 'cursor-pointer'} ${!user && 'cursor-pointer'}`}>
+            <div onClick={handleJob} className={`space-y-2 flex-1 ${userData && userData.data.type === 'employer' ? '' : 'cursor-pointer'} ${!user && 'cursor-pointer'}`}>
                 <div className='font-semibold text-gray-900 flex items-center gap-2'>
                     <span className='rounded-full text-black'><TbBuildingSkyscraper /></span>
                     <span className='text-xs'>{data && truncateText(data.employer.companyName, 20)}</span>
                 </div>
-                <div className='flex gap-5 text-xs items-center'>
-                    <span className='text-black font-semibold'>{truncateText(data.title, 25)}</span>
+                <div className='flex flex-wrap gap-2 text-xs items-center'>
+                    <span className='text-black font-semibold'>{truncateText(data.title, 35)}</span>
                     <span className='text-green-800 text-xs'>{data.industry}</span>
                 </div>
                 {
@@ -167,7 +185,7 @@ export default function Job({ data }: any) {
                         </span>
                     </div>
                 }
-                <div className='text-black flex items-center justify-between'>
+                <div className='text-black flex flex-wrap gap-2 items-center justify-between'>
                     <span className='flex items-center gap-1 text-xs sm:w-1/2'>
                         <span className='text-xl'><CiLocationOn /></span>
                         <span>{data && data.city}, {truncateText(data.location, 20)}</span>
