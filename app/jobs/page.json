@@ -18,7 +18,9 @@
         "industry_7": "Pharmaceutical",
         "industry_8": "Mechanical  & Electrical Engineering",
         "industry_9": "Electrical Engineering",
-        "clear_filters": "Clear Filters"
+        "clear_filters": "Clear Filters",
+        "error_loading": "Error loading jobs! Please check internet connection and try again.",
+        "no_jobs": "No jobs found matching your criteria."
     },
     "cn": {
         "jobs": "工作",
@@ -39,7 +41,9 @@
         "industry_7": "制药",
         "industry_8": "机械与电气工程",
         "industry_9": "电气工程",
-        "clear_filters": "清除筛选条件"
+        "clear_filters": "清除筛选条件",
+        "error_loading": "加载工作时出错！请检查网络连接并重试。",
+        "no_jobs": "没有找到符合您条件的工作。"
     },
     "es": {
         "jobs": "Empleos",
@@ -60,6 +64,8 @@
         "industry_7": "Farmacéutico",
         "industry_8": "Ingeniería Mecánica y Eléctrica",
         "industry_9": "Ingeniería Eléctrica",
-        "clear_filters": "Borrar Filtros"
+        "clear_filters": "Borrar Filtros",
+        "error_loading": "¡Error al cargar los empleos! Por favor, revise la conexión a internet e intente nuevamente.",
+        "no_jobs": "No se encontraron empleos que coincidan con sus criterios."
     }
 }

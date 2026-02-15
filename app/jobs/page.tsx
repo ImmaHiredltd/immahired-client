@@ -298,7 +298,7 @@ export default function Jobs() {
                 <div className='text-md w-full text-center flex flex-col mx-auto justify-center items-center'>
                   {/* oops gif */}
                     <img src="/images/wired-outline-1140-error-hover-enlarge.gif" alt="Oops!" className="w-96 h-96" />
-                    <h2 className='text-red-500 font-semibold sm:w-1/2 text-center'>{'Error loading jobs! Please check internet connection and try again.'}</h2>
+                    <h2 className='text-red-500 font-semibold sm:w-1/2 text-center'>{target.error_loading}</h2>
                 </div>
                )
             }
@@ -306,7 +306,7 @@ export default function Jobs() {
             {
               filtered && filtered.length === 0 && !isLoading && (
                 <div className='text-md w-full text-center'>
-                  No jobs found matching your criteria.
+                  {target.no_jobs}
                 </div>
               ) 
             }
