@@ -4,20 +4,47 @@
         "job_description": "Job description",
         "key_responsibilities": "Key responsibilities",
         "apply_now": "Apply Now",
-        "skill": "Skill & Experience"
+        "skill": "Skill & Experience",
+        "back": "Back to Jobs",
+        "about_company": "About the company",
+        "date_posted": "Date Posted",
+        "location": "Location",
+        "salary": "Salary",
+        "deadline": "Deadline",
+        "career_level": "Career Level",
+        "qualification": "Qualification",
+        "experience_level": "Experience Level"
     },
     "cn": {
         "job_overview": "职位概述",
         "job_description": "职位描述",
         "key_responsibilities": "主要职责",
         "apply_now": "立即申请",
-        "skill": "技能与经验"
+        "skill": "技能与经验",
+        "back": "返回职位列表",
+        "about_company": "关于公司",
+        "date_posted": "发布日期",
+        "location": "地点",
+        "salary": "薪资",
+        "deadline": "截止日期",
+        "career_level": "职业水平",
+        "qualification": "资格",
+        "experience_level": "经验水平"
     },
     "es": {
         "job_overview": "Descripción del trabajo",
         "job_description": "Descripción del puesto",
         "key_responsibilities": "Responsabilidades clave",
         "apply_now": "Aplicar ahora",
-        "skill": "Habilidades y experiencia"
+        "skill": "Habilidades y experiencia",
+        "back": "Volver a los empleos",
+        "about_company": "Acerca de la empresa",
+        "date_posted": "Fecha de publicación",
+        "location": "Ubicación",
+        "salary": "Salario",
+        "deadline": "Fecha límite",
+        "career_level": "Nivel de carrera",
+        "qualification": "Calificación",
+        "experience_level": "Nivel de experiencia"
     }
 }

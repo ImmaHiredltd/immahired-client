@@ -203,7 +203,7 @@ export default function Home() {
               <GrUserWorker />
             </p>
             <h2 className="text-center font-black text-xl sm:text-4xl">{target.overseas_talent}</h2>
-            <p className="text-center  max-[380px]:text-xs text-sm sm:w-[90%] mx-auto">
+            <p className="text-center  max-[380px]:text-xs text-sm sm:w-[80%] mx-auto">
               {target.overseas_talent_p}
             </p>
             <button
@@ -237,7 +237,7 @@ export default function Home() {
               <BsBuildingsFill />
             </p>
             <h2 className="text-center font-black text-xl sm:text-4xl">{target.for_organizations}</h2>
-            <p className="text-center text-sm sm:w-[90%] mx-auto max-[380px]:text-xs">{target.for_organizations_p}</p>
+            <p className="text-center text-sm sm:w-[70%] mx-auto max-[380px]:text-xs">{target.for_organizations_p}</p>
             <button
               onClick={handleHire}
               className="

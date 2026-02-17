@@ -82,7 +82,7 @@ const StoryPoint = ({
       <h4 className="text-sm uppercase tracking-widest opacity-70">
         Insight
       </h4>
-      <p className="text-2xl font-bold mt-4 leading-snug">
+      <p className="text-xl font-bold mt-4 leading-snug">
         {insight}
       </p>
     </div>

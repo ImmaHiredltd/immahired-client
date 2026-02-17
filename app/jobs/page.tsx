@@ -145,7 +145,7 @@ export default function Jobs() {
 
             {/* Job Title */}
             <div>
-              <label className="block text-xs text-gray-500 mb-1">Job Title</label>
+              <label className="block text-xs text-gray-500 mb-1">{target.jobs_title}</label>
               <div className="flex items-center gap-2 h-12 px-3 rounded-lg border border-gray-200 focus-within:border-main transition">
                 <FaSearch className="text-gray-400" />
                 <input
@@ -159,7 +159,7 @@ export default function Jobs() {
 
             {/* Country (Locked to China) */}
             <div>
-              <label className="block text-xs text-gray-500 mb-1">Country</label>
+              <label className="block text-xs text-gray-500 mb-1">{target.country}</label>
               <input
                 value="China"
                 disabled
@@ -169,52 +169,52 @@ export default function Jobs() {
 
             {/* City (Required) */}
             <CustomSelect
-              label="City"
+              label={target.city}
 
               value={city}
               onChange={setCity}
-              placeholder="Select city"
+              placeholder={target.select_city}
               options={chinaCities.sort().map((c) => ({ label: c, value: c }))}
             />
 
 
             {/* Employment Type */}
             <CustomSelect
-              label="Employment Type"
+              label={target.employment_type}
               value={empType}
               onChange={setEmpType}
-              placeholder="All types"
+              placeholder={target.all_types}
               options={[
-                { label: "Internship", value: "internship" },
-                { label: "Contract", value: "contract" },
-                { label: "Full Time", value: "fulltime" },
-                { label: "Part Time", value: "parttime" },
-                { label: "Temporary", value: "temporary" },
+                { label: target.internship, value: "internship" },
+                { label: target.contract, value: "contract" },
+                { label: target.full_time, value: "fulltime" },
+                { label: target.part_time, value: "parttime" },
+                { label: target.temporary, value: "temporary" },
               ]}
             />
 
 
             {/* Experience Level */}
             <CustomSelect
-              label="Experience"
+              label={target.experience_level}
               value={experience}
               onChange={setExperience}
-              placeholder="Any level"
+              placeholder={target.any_level}
               options={[
-                { label: "Junior", value: "junior" },
-                { label: "Mid-level", value: "mid" },
-                { label: "Senior", value: "senior" },
-                { label: "Lead", value: "lead" },
+                { label: target.junior, value: "junior" },
+                { label: target.mid, value: "mid" },
+                { label: target.senior, value: "senior" },
+                { label: target.lead, value: "lead" },
               ]}
             />
 
 
             {/* Industry */}
             <CustomSelect
-              label="Industry"
+              label={target.industry}
               value={industry}
               onChange={setIndustry}
-              placeholder="All industries"
+              placeholder={target.all_industries}
               options={industries.map((item) => ({
                 label: item,
                 value: item,
@@ -225,22 +225,22 @@ export default function Jobs() {
             {/* Salary Range */}
             <div className="flex gap-2">
               <div className="flex-1">
-                <label className="block text-xs text-gray-500 mb-1">Min Salary</label>
+                <label className="block text-xs text-gray-500 mb-1">{target.min_salary}</label>
                 <input
                   type="number"
                   value={salaryMin}
                   onChange={(e) => setSalaryMin(e.target.value)}
-                  placeholder="¥ Min"
+                  placeholder={`¥ ${target.min}`}
                   className="w-full h-12 px-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:border-main"
                 />
               </div>
               <div className="flex-1">
-                <label className="block text-xs text-gray-500 mb-1">Max Salary</label>
+                <label className="block text-xs text-gray-500 mb-1">{target.max_salary}</label>
                 <input
                   type="number"
                   value={salaryMax}
                   onChange={(e) => setSalaryMax(e.target.value)}
-                  placeholder="¥ Max"
+                  placeholder={`¥ ${target.max}`}
                   className="w-full h-12 px-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:border-main"
                 />
               </div>
@@ -320,7 +320,7 @@ export default function Jobs() {
               className="px-5 py-1 text-xs flex w-[30%] items-center gap-2 font-medium text-gray-500 hover:text-gray-700 "
             >
               <span><FaArrowLeft /></span>
-              <span>Previous</span>
+              <span>{target.prev}</span>
             </button>
 
             {/* Desktop view */}
@@ -343,7 +343,7 @@ export default function Jobs() {
               disabled={currentApplicantPage === totalPages}
               className="px-5 w-[30%] flex items-center justify-end gap-2 text-right py-1 text-xs font-medium text-gray-500 hover:text-gray-700"
             >
-              <span>Next</span>
+              <span>{target.next}</span>
               <span><FaArrowRight /></span>
             </button>
           </div>

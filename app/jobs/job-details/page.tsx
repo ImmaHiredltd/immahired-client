@@ -285,7 +285,7 @@ export default function JobDetails() {
             onClick={() => window.history.back()}
             className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-black"
           >
-            <IoMdArrowRoundBack /> Back
+            <IoMdArrowRoundBack /> <span>{target.back}</span>
           </button>
 
           <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-6">
@@ -318,7 +318,7 @@ export default function JobDetails() {
             onClick={handleAbout}
             className="rounded-lg bg-main px-5 py-2 text-sm font-medium text-white shadow hover:opacity-90"
           >
-            About Company
+            {target.about_company}
           </button>
         </header>
 
@@ -332,26 +332,26 @@ export default function JobDetails() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
             <MetaItem
-              label="Date posted"
+              label={target.date_posted}
               value={moment
                 .utc(jobDetails?.createdAt)
                 .format("MMMM DD, YYYY")}
             />
-            <MetaItem label="Location" value={jobDetails?.location} />
-            <MetaItem label="Salary" value={`¥${jobDetails?.salaryRangeMin?.toLocaleString()} - ¥${jobDetails?.salaryRangeMax?.toLocaleString()}`} />
+            <MetaItem label={target.location} value={jobDetails?.location} />
+            <MetaItem label={target.salary} value={`¥${jobDetails?.salaryRangeMin?.toLocaleString()} - ¥${jobDetails?.salaryRangeMax?.toLocaleString()}`} />
             <MetaItem
-              label="Deadline"
+              label={target.deadline}
               value={moment(jobDetails?.deadline).format("MMMM DD, YYYY")}
             />
             <MetaItem
-              label="Career level"
+              label={target.career_level}
               value={jobDetails?.preferredQualification}
             />
             <MetaItem
-              label="Qualification"
+              label={target.qualification}
               value={jobDetails?.requiredQualification}
             />
-            <MetaItem label="Experience Level" value={jobDetails?.experienceLevel?.charAt(0).toUpperCase() + jobDetails?.experienceLevel?.slice(1)} />
+            <MetaItem label={target.experience_level} value={jobDetails?.experienceLevel?.charAt(0).toUpperCase() + jobDetails?.experienceLevel?.slice(1)} />
           </div>
         </section>
 

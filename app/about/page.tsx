@@ -35,10 +35,10 @@ export default function About() {
         <Navbar isScrolled = {true} />
         
         <div className={`${isMobileHeight && isMobileWidth ? "pt-32" : "pt-44"} flex flex-col items-center gap-3 max-[380px]:pt-32`}>
-            <h2 className='sm:text-4xl text-2xl font-black'>About</h2>
+            <h2 className='sm:text-4xl text-2xl font-black'>{target.about_1}</h2>
             <h5>
-                <a href="/" className='hover:text-blue-600 max-[380px]:text-sm'>Home</a> /
-                <span> About</span>
+                <a href="/" className='hover:text-blue-600 max-[380px]:text-sm'>{target.home}</a> /
+                <span> {target.about_1}</span>
             </h5>
         </div>
 
