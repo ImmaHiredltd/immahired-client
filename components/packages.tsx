@@ -143,7 +143,7 @@ export default function Packages({ plan, target, packType, role, isPromotional =
                         {isPromotional && <HiSparkles className="text-yellow-300 animate-pulse" />}
                     </h2>
                     {plan.job_top ? <h2 className='text-2xl font-semibold'>{plan.period} {target.year}</h2> :
-                        <h2 className='text-2xl font-semibold'>{plan.months !== -1 ? plan.months : 'One Time'} {plan.months !== -1 ? target.months : ''}</h2>
+                        <h2 className='text-2xl font-semibold'>{plan.months !== -1 ? plan.months : target.one_time} {plan.months !== -1 ? target.months : ''}</h2>
                     }
                 </div>
 

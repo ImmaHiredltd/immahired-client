@@ -123,7 +123,7 @@ const StepCard = ({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-blue-900 sm:w-[80%] xl:w-full w-full mx-auto rounded-2xl p-5 sm:p-10 text-white shadow-xl btn-sweep">
+      className="bg-blue-900 sm:w-[80%] xl:w-full w-full mx-auto rounded-2xl p-5 sm:py-10 sm:px-8 text-white shadow-xl btn-sweep">
       <div className="flex items-center gap-4 mb-6">
         <span className="w-10 h-10 flex items-center justify-center rounded-full bg-main text-white font-bold">
           {step}
@@ -131,7 +131,7 @@ const StepCard = ({
         <h3 className="text-xl max-[380px]:text-lg sm:text-2xl font-extrabold">{title}</h3>
       </div>
 
-      <p className="text-white/90 max-[380px]:text-sm leading-relaxed">
+      <p className="text-white/90 max-[380px]:text-sm text-xs leading-relaxed">
         {description}
       </p>
     </motion.div>

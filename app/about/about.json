@@ -1,6 +1,8 @@
 {
     "en": {
       "about": "ABOUT US",
+      "about_1": "About",
+      "home": "Home",
       "details": "<b>IMMA HIRED</b> is pleased to offer Talent A recruitment services in the local and overseas employment market. As a trusted partner, we pride ourselves on being able to source top talent and provide highly experienced consultants who can oversee a project from inception to completion. Our dedicated team is committed to delivering a streamlined and transparent process to all of our clients, ensuring a seamless experience throughout the recruitment process.<br /><br /><b>IMMA HIRED</b> acknowledges the complexities that can arise when hiring and managing international staff, particularly across different countries and regions. Our team has extensive experience with overseas recruitment policies and is equipped to collaborate with your organization to facilitate a productive and successful partnership. We invite you to leverage our expertise to ensure a seamless integration of international staff into your workforce, while also meeting all relevant regulatory requirements.",
       "mission": "Our Mission",
       "details_m": "<p>Our team specializes in connecting a diverse pool of foreign professionals, high achievers, and emerging talents—including graduates with Master's, MBA, and PhD degrees—with opportunities in new and expanding job markets.</p><p className='text-2xl'><b>'Connecting Talents with Opportunities'</b></p>",
@@ -22,7 +24,9 @@
     },
     "cn": {
       "about": "关于我们",
-      "details": "<b>IMMA HIRED</b> 很高兴在本地及海外就业市场提供 A 类人才招聘服务。作为值得信赖的合作伙伴，我们以甄选顶尖人才并提供经验丰富的顾问团队而自豪，能够从项目启动到完成全程把控。我们的专业团队致力于为所有客户提供高效、透明的招聘流程，确保招聘全过程顺畅无忧。<br /><br /><b>IMMA HIRED</b> 深知在不同国家和地区招聘及管理国际员工时可能面临的复杂性。我们的团队在海外招聘政策方面拥有丰富经验，并能够与您的组织紧密合作，推动高效且成功的合作关系。我们诚邀您借助我们的专业能力，确保国际员工顺利融入您的团队，同时全面满足相关法规要求。",
+      "about_1": "关于",
+      "home": "首页",
+      "details": "<b>IMMA HIRED</b>很高兴为海内外就业市场提供高端人才招聘服务。作为值得信赖的合作伙伴，我们致力于发掘顶尖人才，并配备资深顾问全程负责项目从启动到落地的各项事宜。我们的专业团队坚持为所有客户提供高效、透明的服务流程，确保整个招聘过程顺畅无忧。<br /><br /><b>IMMA HIRED</b> 深知企业在雇佣与管理跨国员工时可能面临的复杂问题，尤其是在涉及不同国家和地区的情况下。我们团队拥有丰富的海外招聘政策经验，能够与贵机构紧密协作，助力实现高效、成功的合作。我们诚邀您借助我们的专业优势，确保国际员工顺利融入团队，并同时满足所有相关法规要求。",
       "mission": "我们的使命",
       "details_m": "<p>我们的团队专注于将多元化的海外专业人士、高绩效人才及新兴人才（包括拥有硕士、MBA 和博士学位的毕业生）与新兴及不断发展的就业市场机会连接起来。</p><p className='text-2xl'><b>“连接人才与机会”</b></p>",
       "vision": "我们的愿景",
@@ -43,6 +47,8 @@
     },
     "es": {
       "about": "SOBRE NOSOTROS",
+      "about_1": "Acerca de",
+      "home": "Inicio",
       "details": "<b>IMMA HIRED</b> se complace en ofrecer servicios de reclutamiento de Talento Categoría A en los mercados laborales locales e internacionales. Como socio de confianza, nos enorgullece identificar talento de primer nivel y proporcionar consultores altamente experimentados capaces de supervisar un proyecto desde su inicio hasta su finalización. Nuestro equipo dedicado está comprometido con ofrecer un proceso ágil y transparente a todos nuestros clientes, garantizando una experiencia fluida durante todo el proceso de contratación.<br /><br /><b>IMMA HIRED</b> reconoce las complejidades que pueden surgir al contratar y gestionar personal internacional, especialmente en distintos países y regiones. Nuestro equipo cuenta con amplia experiencia en políticas de reclutamiento internacional y está preparado para colaborar con su organización a fin de facilitar una asociación productiva y exitosa. Le invitamos a aprovechar nuestra experiencia para asegurar una integración sin contratiempos del personal internacional en su fuerza laboral, cumpliendo al mismo tiempo con todos los requisitos normativos pertinentes.",
       "mission": "Nuestra Misión",
       "details_m": "<p>Nuestro equipo se especializa en conectar a un grupo diverso de profesionales extranjeros, personas de alto rendimiento y talentos emergentes —incluidos graduados con títulos de Máster, MBA y Doctorado— con oportunidades en mercados laborales nuevos y en expansión.</p><p className='text-2xl'><b>\"Conectando Talento con Oportunidades\"</b></p>",

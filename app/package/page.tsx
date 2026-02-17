@@ -67,8 +67,8 @@ export default function Package(){
                                 <>
                                     <Tabs defaultValue="candidates" className=" sm:border-2 sm:px-5 mt-5 pb-10 rounded-2xl border-gray-100">
                                         <TabsList className='w-full sm:w-1/2 mx-auto flex justify-center -translate-y-[50%] '>
-                                            <TabsTrigger value="candidates" className='px-5 py-2 font-semibold '>Candidates</TabsTrigger>
-                                            <TabsTrigger value="employers" className='px-5 py-2 font-semibold'>Employers</TabsTrigger>
+                                            <TabsTrigger value="candidates" className='px-5 py-2 font-semibold '>{target.candidate}</TabsTrigger>
+                                            <TabsTrigger value="employers" className='px-5 py-2 font-semibold'>{target.employer_1}</TabsTrigger>
                                         </TabsList>
                                         <TabsContent value="candidates">
                                             <div className='space-y-2 mt-8'>
